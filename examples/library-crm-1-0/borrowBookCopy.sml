@@ -19,5 +19,5 @@ errors borrowBookCopy {
 }
 
 access borrowBookCopy {
-	Customer.borrowBook: allowed
+	Customer.borrowBooks: allowed
 }
