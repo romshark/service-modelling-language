@@ -17,3 +17,7 @@ errors borrowBookCopy {
 	# ErrReserved is thrown if not enough copies of the book are available
 	ErrReserved
 }
+
+access borrowBookCopy {
+	Customer.borrowBook: allowed
+}

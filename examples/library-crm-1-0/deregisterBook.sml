@@ -8,3 +8,7 @@ errors deregisterBook {
 	# registered in the system
 	ErrCopiesRemaining
 }
+
+access deregisterBook {
+	Manager.register: modify
+}
