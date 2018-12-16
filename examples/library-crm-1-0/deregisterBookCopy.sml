@@ -9,5 +9,5 @@ errors deregisterBookCopy {
 }
 
 access deregisterBookCopy {
-	Manager.register: modify
+	Manager.register modify
 }

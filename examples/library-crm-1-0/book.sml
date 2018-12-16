@@ -16,7 +16,7 @@ struct BookReviewList {
 // Override cache control for the book review list
 cache BookReviewList {
 	// All properties of a book review list are cachable for 10 seconds
-	valid: 10ses
+	valid 10ses
 }
 
 # Book represents a book
@@ -39,11 +39,11 @@ entity Book {
 // Book are cachable unless control is explicitly overriden
 cache Book {
 	// Any cached book entity is valid for 24 hours
-	valid: 1day
+	valid 1day
 }
 
 // Override cache control for the list of borrowers
 cache Book.borrowers {
 	// A cached list of borrowers is valid only for 1 minute
-	valid: 1min
+	valid 1min
 }

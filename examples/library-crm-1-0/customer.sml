@@ -21,5 +21,5 @@ access Customer {
 	Owner // Owner is a special predefined role
 
 	// Allow managers to access a customer profile if they have the right to
-	Manager.customers: view // Allow managers to read customer
+	Manager.customers view // Allow managers to read customer
 }
