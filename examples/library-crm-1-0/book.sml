@@ -16,7 +16,7 @@ struct BookReviewList {
 // Override cache control for the book review list
 cache BookReviewList {
 	// All properties of a book review list are cachable for 10 seconds
-	valid 10ses
+	valid 10sec
 }
 
 # Book represents a book
