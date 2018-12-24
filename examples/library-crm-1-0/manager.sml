@@ -9,7 +9,7 @@ user Manager {
 	email         EmailAddress
 	gender        Gender
 	registration  Time
-	avatarPicture PictureFile?
+	avatarPicture ?PictureFile
 }
 
 access Manager {

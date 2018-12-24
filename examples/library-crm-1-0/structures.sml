@@ -12,8 +12,8 @@ struct PersonName {
 # BookStatistics represents interesting book statistics
 struct BookStatistics {
 	pages   Std.Int // we can also use explicit namespacing
-	words   Int?
-	letters Int?
+	words   ?Int
+	letters ?Int
 }
 
 struct PlaceOfBirth {
@@ -25,7 +25,7 @@ struct PlaceOfBirth {
 struct Address {
 	country    Country // Country is a shortcut for Geo.Country
 	city       City
-	region     Region?
+	region     ?Region
 	street     Text
 	postalCode String
 }

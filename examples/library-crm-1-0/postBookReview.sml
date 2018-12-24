@@ -5,7 +5,7 @@ transact postBookReview(
 	customer *Customer
 	book     *Book
 	rating   StarRating
-	comment  Text?
+	comment  ?Text
 ) {
 	postedReview BookReview
 }

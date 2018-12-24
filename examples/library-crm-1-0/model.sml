@@ -11,10 +11,10 @@ root books     []Book
 root customers []Customer
 root managers  []Manager
 
-root book(id *Book) Book? // Returns null if non is found
-root bookCopy(id *BookCopy) BookCopy?
-root customer(id *Customer) Customer?
-root manager(id *Manager) Manager?
+root book(id *Book)         ?Book // Returns null if non is found
+root bookCopy(id *BookCopy) ?BookCopy
+root customer(id *Customer) ?Customer
+root manager(id *Manager)   ?Manager
 
 // Define access permissions to all graph nodes recursively
 access root {

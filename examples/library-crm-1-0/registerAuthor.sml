@@ -5,9 +5,9 @@ use Std 1.0
 # registerAuthor adds a new author profile to the register
 transact registerAuthor(
 	name          PersonName
-	birthDate     Time?
-	placeOfBirth  PlaceOfBirth?
-	avatarPicture PictureFile?
+	birthDate     ?Time
+	placeOfBirth  ?PlaceOfBirth
+	avatarPicture ?PictureFile
 ) {
 	newAuthor Author
 }
