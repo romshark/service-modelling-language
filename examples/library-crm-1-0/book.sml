@@ -36,7 +36,7 @@ entity Book {
 }
 
 // Override cache control for the Book entity type, all properties of entity
-// Book are cachable unless control is explicitly overriden
+// Book are cachable unless control is explicitly overridden
 cache Book {
 	// Any cached book entity is valid for 24 hours
 	valid 1day
