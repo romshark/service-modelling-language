@@ -4,12 +4,12 @@ use Std 1.0
 
 # BookCopyList represents a list of all registered copies of a book
 struct BookCopyList {
-	length UInt       // Int represents an unsigned integer
+	length Uint       // Int represents an unsigned integer
 	items  []BookCopy
 }
 
 struct BookReviewList {
-	length UInt
+	length Uint
 	items  []BookReview
 }
 
