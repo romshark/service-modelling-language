@@ -6,9 +6,9 @@ use Std 1.0
 transact registerBook(
 	title       Text
 	description Text?
-	tags        [Text]?
+	tags        []Text?
 	isbn        String
-    authors     [*Author]
+    authors     []*Author
     publication Time?
 	statistics  BookStatistics?
 ) {

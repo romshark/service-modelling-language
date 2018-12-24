@@ -7,9 +7,9 @@ model LibraryCRM {
 		Some Person <some@company.org>
 }
 
-root books [Book]
-root customers [Customer]
-root managers [Manager]
+root books     []Book
+root customers []Customer
+root managers  []Manager
 
 root book(id *Book) Book? // Returns null if non is found
 root bookCopy(id *BookCopy) BookCopy?

@@ -10,8 +10,8 @@ user Customer {
 	email         EmailAddress
 	address       Address
 	gender        Gender
-	borrowedBooks [Book]
-	reviews       [BookReview]
+	borrowedBooks []Book
+	reviews       []BookReview
 }
 
 // Override permissions for the Customer user entity, all properties will get

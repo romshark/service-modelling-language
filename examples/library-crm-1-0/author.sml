@@ -9,5 +9,5 @@ entity Author {
 	placeOfBirth  PlaceOfBirth?
 	averageRating AverageRating?
 	avatarPicture PictureFile?
-	books         [Book]
+	books         []Book
 }

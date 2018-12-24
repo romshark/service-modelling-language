@@ -5,12 +5,12 @@ use Std 1.0
 # BookCopyList represents a list of all registered copies of a book
 struct BookCopyList {
 	length UInt       // Int represents an unsigned integer
-	items  [BookCopy]
+	items  []BookCopy
 }
 
 struct BookReviewList {
 	length UInt
-	items  [BookReview]
+	items  []BookReview
 }
 
 // Override cache control for the book review list
@@ -23,15 +23,15 @@ cache BookReviewList {
 entity Book {
 	title         Text            // Std.Text represents unicode UTF8 texts
 	description   Text?           // The '?' represents optional fields
-	tags          [Text]
+	tags          []Text
 	isbn          String          // Std.String represents ASCII 7-bit strings
-	authors       [Author]        // Author is a shortcut for LibraryCRM.Author
+	authors       []Author        // Author is a shortcut for LibraryCRM.Author
 	publication   Time?           // Std.Time represents a RFC3339 timestamp
 	cover         PictureFile?
 	reviews       BookReviewList
 	averageRating AverageRating?
 	available     BookCopyList
-	borrowers     [Customer]
+	borrowers     []Customer
 	statistics    BookStatistics?
 }
 
