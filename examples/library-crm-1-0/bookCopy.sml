@@ -6,3 +6,11 @@ entity BookCopy extends Book {
 	borrower     ?Customer
 	damage       []BookDamage
 }
+
+access BookCopy public
+
+access BookCopy.damage, BookCopy.borrower {
+	Manager {
+		register.view
+	}
+}

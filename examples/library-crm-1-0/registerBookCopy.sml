@@ -13,3 +13,9 @@ errors registerBookCopy {
 	# ErrBorrowed is returned when the given book copy is currently borrowed
 	ErrBorrowed
 }
+
+access registerBookCopy {
+	Manager {
+		register.modify
+	}
+}

@@ -9,3 +9,5 @@ entity BookReview {
 	comment     Text
 	publication Time
 }
+
+access BookReview public

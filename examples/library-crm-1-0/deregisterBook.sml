@@ -10,5 +10,7 @@ errors deregisterBook {
 }
 
 access deregisterBook {
-	Manager.register modify
+	Manager {
+		register.delete
+	}
 }

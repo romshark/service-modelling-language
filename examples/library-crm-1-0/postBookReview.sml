@@ -17,5 +17,7 @@ errors postBookReview {
 }
 
 access postBookReview {
-	Customer.postBookReviews allowed
+	Customer {
+		postBookReviews
+	}
 }

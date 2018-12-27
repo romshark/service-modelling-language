@@ -31,7 +31,6 @@ entity Book {
 	reviews       BookReviewList
 	averageRating ?AverageRating
 	available     BookCopyList
-	borrowers     []Customer
 	statistics    ?BookStatistics
 }
 
@@ -47,3 +46,6 @@ cache Book.borrowers {
 	// A cached list of borrowers is valid only for 1 minute
 	valid 1min
 }
+
+// Book profiles are openly accessible to the public
+access Book public

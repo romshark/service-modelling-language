@@ -19,3 +19,9 @@ errors registerBook {
 	# ErrDuplicateIsbn is thrown when the given ISBN is already registered
 	ErrDuplicateIsbn
 }
+
+access registerBook {
+	Manager {
+		register.modify
+	}
+}

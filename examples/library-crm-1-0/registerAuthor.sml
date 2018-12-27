@@ -14,3 +14,9 @@ transact registerAuthor(
 
 // empty error sets are ignored, but are allowed to exist
 errors registerAuthor {}
+
+access registerAuthor {
+	Manager {
+		register.modify
+	}
+}

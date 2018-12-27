@@ -10,6 +10,7 @@ user Manager {
 	gender        Gender
 	registration  Time
 	avatarPicture ?PictureFile
+	rights        ManagerRights
 }
 
 access Manager {

@@ -11,3 +11,6 @@ entity Author {
 	avatarPicture ?PictureFile
 	books         []Book
 }
+
+// Author profiles are openly accessible to the public
+access Author public

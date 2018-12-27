@@ -14,3 +14,9 @@ transact returnBookCopies(
 ) {
 	returnedCopies Int
 }
+
+access returnBookCopies {
+	Manager {
+		register.modify
+	}
+}
