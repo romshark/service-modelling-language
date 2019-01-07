@@ -7,3 +7,9 @@ transact SavePostDraft(
 ) {
 	savedDraft Post
 }
+
+access SavePostDraft {
+	User {
+		*accessor == accessed.author
+	}
+}
