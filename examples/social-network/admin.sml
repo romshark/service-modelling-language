@@ -9,7 +9,9 @@ user Admin {
 	name       PersonName
 	email      EmailAddress
 	rights     AdminRights
-	activities []AdminActivity
+	activities []AdminActivity {
+		sort desc AdminActivity.time
+	}
 }
 
 access Admin {
