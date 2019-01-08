@@ -1,6 +1,6 @@
 model SocialNetwork
 
-# PublishReaction publishes a new reaction
+# PublishReaction publishes a new reaction to either a post or another reaction
 transact PublishReaction(
 	target  *Post | *Reaction
 	author  *User
@@ -10,9 +10,10 @@ transact PublishReaction(
 	publishedReaction Reaction
 }
 
+# Users can only publish reactions on their own behalf
 access PublishReaction {
 	User {
 		# The user is the author of the reaction
-		*accessor == *author
+		*accessor == *accessed.author
 	}
 }
