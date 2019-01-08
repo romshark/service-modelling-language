@@ -85,12 +85,6 @@ user User {
 	# time
 	publishedPosts []Post {
 		sort   desc Post.publication
-		filter Post.draft
-	}
-
-	# postDrafts lists all pending post drafts
-	postDrafts []Post {
-		filter Post.draft
 	}
 
 	# trendingPosts lists the most relevant posts sorted by the number of
@@ -330,7 +324,6 @@ access User.mutualFriends {
 
 access User.inbox,
 	User.outbox,
-	User.postDrafts,
 	User.managedBusinessPages {
 	User {
 		*accessor == *accessed

@@ -6,9 +6,6 @@ entity Post {
 	content     Text
 	access      VisibilityPermission
 
-	# draft is true if the post wasn't published yet
-	draft Bool
-
 	# reactions lists all reactions sorted by publication time
 	reactions []Reaction {
 		sort desc Reaction.publication

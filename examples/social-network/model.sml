@@ -8,8 +8,7 @@ model SocialNetwork {
 # number of reactions
 root trendingPublicPosts []Post {
 	sort   desc Post.reactions:length
-	filter !Post.draft &&
-		Post.access == Visibility(Public) &&
+	filter Post.access == Visibility(Public) &&
 		Post.publication >= (now - day * 7)
 }
 
