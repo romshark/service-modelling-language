@@ -25,7 +25,8 @@ entity Post {
 relation PostPublisher: []Post <-> User (publisher, posts.all)
 relation PostPublisherBusiness: []Post <-> Business (publisher, posts.all)
 
-# Post access permissions
+# Posts are either public, only accessible to the friends of a user, to a
+# whitelist of friends or to all friends except the blacklisted ones
 access Post {
 	User {
 		typeof accessed.access {
@@ -35,7 +36,7 @@ access Post {
 			
 			# The post is accessible to all friends by default and the user is
 			# a friend
-			*accessor in accessed.friends
+			accessed.access == Friends && *accessor in accessed.friends
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
