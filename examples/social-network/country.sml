@@ -5,6 +5,6 @@ entity Country {
 	cities []City
 }
 
-relation CountryCities: County <-> []City (cities, country)
+relation CountryCities: Country <-> []City (cities, country)
 
 access Country public
