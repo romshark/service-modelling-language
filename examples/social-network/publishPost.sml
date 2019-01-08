@@ -12,7 +12,9 @@ transact PublishPost (
 	publishedPost Post
 }
 
-access PublishPost {
-	# Only users are allowed to publish posts
-	User
+access PublishPost as accessed {
+	# Allow users to publish posts on their own behalf only
+	allow User as accessor {
+		if *accessor == accessed.author
+	}
 }

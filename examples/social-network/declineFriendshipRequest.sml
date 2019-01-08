@@ -7,8 +7,8 @@ transact DeclineFriendshipRequest(
 	from *User
 )
 
-access DeclineFriendshipRequest {
-	User {
-		*accessor == *accessed.user
+access DeclineFriendshipRequest as accessed {
+	allow User as accessor {
+		if *accessor == *accessed.user
 	}
 }

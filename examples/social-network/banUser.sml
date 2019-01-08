@@ -9,7 +9,7 @@ transact BanUser(
 }
 
 access BanUser {
-	Admin {
-		accessor.rights.banUsers
+	allow Admin as accessor {
+		if accessor.rights.banUsers
 	}
 }

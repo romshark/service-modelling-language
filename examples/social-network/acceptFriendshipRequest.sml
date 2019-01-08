@@ -9,8 +9,8 @@ transact AcceptFriendshipRequest(
 	newFriend User
 }
 
-access AcceptFriendshipRequest {
-	User {
-		*accessor == *accessed.user
+access AcceptFriendshipRequest as accessed {
+	allow User as accessor {
+		if *accessor == *accessed.user
 	}
 }

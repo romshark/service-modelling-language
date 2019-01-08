@@ -5,22 +5,22 @@ event MessageReceived(receiver *User) {
 	receivedMessage Message
 }
 
-access MessageReceived {
-	User {
+access MessageReceived as accessed {
+	allow User as accessor {
 		# Only the receiver may subscribe to message events
-		*accessor == *accessed.receiver
+		if *accessor == *accessed.receiver
 	}
 }
 
 # FriendshipRequestReceived is triggered when a new friendship request from
 # another user is received
-event FriendshipRequestReceived {
+event FriendshipRequestReceived(target *User) {
 	requestingUser *User
 }
 
-access FriendshipRequestReceived(target *User) {
-	User {
-		*accessor == *accessed.target
+access FriendshipRequestReceived as accessed {
+	allow User as accessor {
+		if *accessor == *accessed.target
 	}
 }
 
@@ -29,32 +29,32 @@ event PostPublished(user *User) {
 	requestingUser *User
 }
 
-access PostPublished(user *User) {
-	User {
-		*accessor == *accessed.user
+access PostPublished as accessed {
+	allow User as accessor {
+		if *accessor == *accessed.user
 	}
 }
 
 # FriendshipRequestDeclined is triggered when a friendship request initiated by
 # the given user is declined
-FriendshipRequestDeclined(user *User) {
+event FriendshipRequestDeclined(user *User) {
 	request FriendshipRequest
 }
 
-access FriendshipRequestDeclined {
-	User {
-		*accessor == *accessed.user
+access FriendshipRequestDeclined as accessed {
+	allow User as accessor {
+		if *accessor == *accessed.user
 	}
 }
 
 # FriendshipRequestAccepted is triggered when a friendship request initiated by
 # the given user is accepted
-FriendshipRequestAccepted(user *User) {
+event FriendshipRequestAccepted(user *User) {
 	request FriendshipRequest
 }
 
-access FriendshipRequestAccepted {
-	User {
-		*accessor == *accessed.user
+access FriendshipRequestAccepted as accessed {
+	allow User as accessor {
+		if *accessor == *accessed.user
 	}
 }

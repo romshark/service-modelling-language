@@ -52,18 +52,21 @@ relation OrganizationSubsidiaries:
 access Organization public
 
 # The list of page administrators is only accessible to page administrators
-access Organization.pageAdmins {
-	Admin
-	User {
-		*accessor in accessed.pageAdmins
+access Organization.pageAdmins as accessed {
+	allow Admin
+	allow User as accessor {
+		if *accessor in accessed.pageAdmins
 	}
 }
 
-# Archived posts must only be accessible to the organization's page
-# administrators
-access Organization.posts.all, Organization.posts.archived {
-	Admin
-	User {
-		*accessor in accessed.pageAdmins
+# All post nodes except the published and trending ones are only be accessible
+# to the organization's page administrators
+access Organization.posts as accessed {
+	allow Admin
+	allow User as accessor {
+		if *accessor in accessed.pageAdmins
 	}
 }
+
+access Organization.posts.published public
+access Organization.posts.trending public

@@ -11,9 +11,9 @@ transact PublishReaction(
 }
 
 # Users can only publish reactions on their own behalf
-access PublishReaction {
-	User {
+access PublishReaction as accessed {
+	allow User as accessor {
 		# The user is the author of the reaction
-		*accessor == *accessed.author
+		if *accessor == *accessed.author
 	}
 }

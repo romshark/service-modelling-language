@@ -8,3 +8,10 @@ transact SendMessage(
 ) {
 	Message
 }
+
+# Allow sending messages to users only on their own behalf
+access SendMessage as accessed {
+	allow User as accessor {
+		if *user == accessed.sender
+	}
+}

@@ -19,24 +19,25 @@ relation PostPublisherOrganization:
 
 # Posts are either public, only accessible to the friends of a user, to a
 # whitelist of friends or to all friends except the blacklisted ones
-access Post {
-	User {
+access Post as accessed {
+	allow Admin
+	allow User as accessor {
 		typeof accessed.access {
 		Visibility:
 			# The post is public
-			accessed.access == Public
+			if accessed.access == Public
 			
 			# The post is accessible to all friends by default and the user is
 			# a friend
-			accessed.access == Friends && *accessor in accessed.friends
+			if accessed.access == Friends && *accessor in accessed.friends
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
-			*accessor !in accessed.access
+			if *accessor !in accessed.access
 
 		VisibilityWhitelist:
 			# The user is in the whitelist
-			*accessor in accessed.access
+			if *accessor in accessed.access
 		}
 	}
 }

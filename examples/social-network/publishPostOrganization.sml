@@ -9,9 +9,9 @@ transact PublishPostOrganization (
 	publishedPost Post
 }
 
-access PublishPostOrganization {
+access PublishPostOrganization as accessed {
 	# Only page administrators are allowed to publish posts
-	User {
-		*accessor in accessed.organization.pageAdmins
+	allow User as accessor {
+		if *accessor in accessed.organization.pageAdmins
 	}
 }

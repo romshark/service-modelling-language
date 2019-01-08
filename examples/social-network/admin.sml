@@ -14,10 +14,10 @@ user Admin {
 	}
 }
 
-access Admin {
-	Admin {
+access Admin as accessed {
+	allow Admin as accessor {
 		# Accessing administrator is allowed to view other administrator's
 		# profiles
-		accessor.rights.viewAdminProfiles
+		if accessor.rights.viewAdminProfiles
 	}
 }
