@@ -148,7 +148,7 @@ relation UserMutualFriends: User -> []User (mutualFriends)
 access User {
 	Admin
 	User {
-		accessed.access.email {
+		accessed.access.profile {
 		Visibility:
 			# The profile is public
 			accessed.access.profile == Public
@@ -159,11 +159,11 @@ access User {
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
-			*accessor !in accessed.access.email
+			*accessor !in accessed.access.profile
 
 		VisibilityWhitelist:
 			# The user is in the whitelist
-			*accessor in accessed.access.email
+			*accessor in accessed.access.profile
 		}
 	}
 }
