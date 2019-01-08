@@ -1,7 +1,7 @@
 model SocialNetwork
 
 entity Post {
-	publisher   User | Business
+	publisher   User | Organization
 	publication Time
 	content     Text
 	access      VisibilityPermission
@@ -13,7 +13,9 @@ entity Post {
 }
 
 relation PostPublisher: []Post <-> User (publisher, posts.all)
-relation PostPublisherBusiness: []Post <-> Business (publisher, posts.all)
+
+relation PostPublisherOrganization:
+	[]Post <-> Organization (publisher, posts.all)
 
 # Posts are either public, only accessible to the friends of a user, to a
 # whitelist of friends or to all friends except the blacklisted ones

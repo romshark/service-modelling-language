@@ -1,8 +1,8 @@
 model SocialNetwork
 
 entity City {
-	name    Text
 	country Country
+	name    Text
 }
 
 access City public

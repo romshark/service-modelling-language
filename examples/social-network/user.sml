@@ -38,17 +38,6 @@ struct Relationship {
 	partner ?(User | PersonName)
 }
 
-struct Employment {
-	# employer either links the page of the business or just specifies its name
-	employer Business | Text
-
-	# begin specifies the time at which the employment began
-	begin Time
-
-	# end is null if the employment is still going
-	end ?Time
-}
-
 user User {
 	// Personal information
 	name            PersonName
@@ -62,8 +51,8 @@ user User {
 	spokenLanguages []Language
 
 	# employmentHistory lists all employment entries sorted by their begin
-	employmentHistory []Employment {
-		sort desc Employment.begin
+	employmentHistory []Organization {
+		sort desc :relation.begin
 	}
 
 	# registration represents the time of the profile creation
@@ -93,8 +82,8 @@ user User {
 		sort desc Message.sent
 	}
 
-	# managedBusinessPages links all business pages the user administers
-	managedBusinessPages []Business
+	# managedOrganizationPages links all organization pages the user administers
+	managedOrganizationPages []Organization
 
 	# outgoingFriendshipRequests lists all outgoing friendship requests the user
 	# initiated sorted by their age
@@ -113,8 +102,8 @@ user User {
 	# banned is null as long as the profile isn't banned
 	banned ?Time
 
-	# businessRatings links all business ratings posted by this user
-	businessRatings
+	# organizationRatings links all organization ratings posted by this user
+	organizationRatings
 }
 
 relation UserAddressCountry: User -> Country (residence.country)
@@ -322,7 +311,7 @@ access User.mutualFriends {
 
 access User.inbox,
 	User.outbox,
-	User.managedBusinessPages {
+	User.managedOrganizationPages {
 	User {
 		*accessor == *accessed
 	}
