@@ -15,8 +15,3 @@ access PublishPostBusiness {
 		*accessor in accessed.business.pageAdmins
 	}
 }
-
-errors PublishPostBusiness {
-	# ErrPostAlreadyPublished is thrown if the given post is already published
-	ErrPostAlreadyPublished
-}

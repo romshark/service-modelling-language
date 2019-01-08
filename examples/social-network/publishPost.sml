@@ -16,10 +16,3 @@ access PublishPost {
 	# Only users are allowed to publish posts
 	User
 }
-
-error ErrPostAlreadyPublished {}
-
-errors PublishPost {
-	# ErrPostAlreadyPublished is thrown if the given post is already published
-	ErrPostAlreadyPublished
-}
