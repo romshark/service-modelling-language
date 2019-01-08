@@ -110,14 +110,14 @@ user User {
 	# initiated sorted by their age
 	outgoingFriendshipRequests []FriendshipRequest {
 		sort   asc FriendshipRequest.creation
-		filter FriendshipRequest.status != null
+		filter FriendshipRequest.status == null
 	}
 
 	# incomingFriendshipRequests lists all incoming friendship requests the user
 	# received sorted by their age
 	incomingFriendshipRequests []FriendshipRequest {
 		sort   asc FriendshipRequest.creation
-		filter FriendshipRequest.status != null
+		filter FriendshipRequest.status == null
 	}
 
 	# banned is null as long as the profile isn't banned
