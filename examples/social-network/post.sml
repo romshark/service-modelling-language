@@ -1,8 +1,8 @@
 model SocialNetwork
 
 entity Post {
-	author      User | Business
-	publication ?Time
+	publisher   User | Business
+	publication Time
 	content     Text
 	access      VisibilityPermission
 
@@ -16,10 +16,14 @@ entity Post {
 	trendingReactions -> reactions {
 		sort desc Reaction.reactions:length
 	}
+
+	# archived specifies the time the post was removed. This field is null when
+	# the post was not removed
+	archived ?Time
 }
 
-relation PostAuthor: []Post <-> User (author, posts)
-relation PostAuthorBusiness: []Post <-> Business (author, posts)
+relation PostPublisher: []Post <-> User (publisher, posts.all)
+relation PostPublisherBusiness: []Post <-> Business (publisher, posts.all)
 
 # Post access permissions
 access Post {

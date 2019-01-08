@@ -5,10 +5,10 @@ entity Business {
 	name         Text
 	registration Time
 	ratings      []BusinessRating
-	posts        []Post
+	posts        Posts
 
 	# pageAdmins lists all page administrators
-	pageAdmins   []User
+	pageAdmins []User
 }
 
 relation BusinessPageAdmins:
@@ -17,6 +17,14 @@ relation BusinessPageAdmins:
 access Business public
 
 access Business.pageAdmins {
+	Admin
+	User {
+		*accessor in accessed.pageAdmins
+	}
+}
+
+# Archived posts must only be accessible to business page administrators
+access Business.posts.all, Business.posts.archived {
 	Admin
 	User {
 		*accessor in accessed.pageAdmins

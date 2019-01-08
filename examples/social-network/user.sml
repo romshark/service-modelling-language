@@ -81,17 +81,7 @@ user User {
 	# target user
 	mutualFriends(target *User) []User
 
-	# publishedPosts lists all posts published by the user sorted by publication
-	# time
-	publishedPosts []Post {
-		sort   desc Post.publication
-	}
-
-	# trendingPosts lists the most relevant posts sorted by the number of
-	# reactions
-	trendingPosts -> publishedPosts {
-		sort desc Post.reactions:length
-	}
+	posts Posts
 
 	# inbox lists all received messages
 	inbox []Message {
@@ -165,6 +155,14 @@ access User {
 			# The user is in the whitelist
 			*accessor in accessed.access.profile
 		}
+	}
+}
+
+# Archived posts must only be acessible to their owners
+access User.posts.all, User.posts.archived {
+	Admin
+	User {
+		*accessor == *accessed
 	}
 }
 

@@ -2,8 +2,8 @@ model SocialNetwork
 
 # PublishPost publishes a new post
 transact PublishPost (
-	author      *User
-	content     Text
+	author  *User
+	content Text
 
 	# access defines the access permissions to the new post. The post will be
 	# made private by default if the access permissions aren't specified
