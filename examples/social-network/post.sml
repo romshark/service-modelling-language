@@ -5,17 +5,7 @@ entity Post {
 	publication Time
 	content     Text
 	access      VisibilityPermission
-
-	# reactions lists all reactions sorted by publication time
-	reactions []Reaction {
-		sort desc Reaction.publication
-	}
-
-	# trendingReactions lists the most relevant reactions sorted by the number
-	# of sub-reactions
-	trendingReactions -> reactions {
-		sort desc Reaction.reactions:length
-	}
+	reactions   Reactions
 
 	# archived specifies the time the post was removed. This field is null when
 	# the post was not removed
