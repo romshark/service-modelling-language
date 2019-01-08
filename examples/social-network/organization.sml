@@ -2,7 +2,7 @@ model SocialNetwork
 
 # Organization represents a profile of an organization
 entity Organization {
-	id           String
+	id           ?String
 	name         Text
 	description  Text
 	registration Time
