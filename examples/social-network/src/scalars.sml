@@ -6,7 +6,7 @@ scalar EmailAddress extend Text {
 
 # URL represents a uniform resource locator
 scalar URL {
-	
+	regex /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
 }
 
 # PhoneNumber represents an international generic phone number
