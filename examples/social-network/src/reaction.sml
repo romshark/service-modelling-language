@@ -26,5 +26,7 @@ entity Reaction {
 	reactions Reactions
 }
 
-relation PostReaction: Post <-> []Reaction (reactions.all, target)
-relation ReactionReaction: Reaction <-> []Reaction (reactions.all, target)
+relation PostReaction: Post <-> []Reaction (reactions.all, target<Post>)
+
+relation ReactionReaction:
+	Reaction <-> []Reaction (reactions.all, target<Reaction>)

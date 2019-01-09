@@ -9,9 +9,9 @@ relation UserFriends: User <-> []User (friends) {
 	establishment Time
 }
 
-relation UserRelatives: User <-> []User (relatives.relative)
+relation UserRelatives: User <-> []User (relatives.relative<User>)
 
-relation UserPartner: User <-> User (relationship.partner) {
+relation UserPartner: User <-> User (relationship.partner<User>) {
 	start Time
 }
 

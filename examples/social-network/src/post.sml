@@ -12,10 +12,10 @@ entity Post {
 	archived ?Time
 }
 
-relation PostPublisher: []Post <-> User (publisher, posts.all)
+relation PostPublisher: []Post <-> User (publisher<User>, posts.all)
 
 relation PostPublisherOrganization:
-	[]Post <-> Organization (publisher, posts.all)
+	[]Post <-> Organization (publisher<Organization>, posts.all)
 
 relation PostVisibilityBlacklist:
 	User -> []User (access<VisibilityBlacklist>.users)
