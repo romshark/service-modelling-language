@@ -7,7 +7,7 @@ transact PublishPost (
 
 	# access defines the access permissions to the new post. The post will be
 	# made private by default if the access permissions aren't specified
-	access ?VisibilityPermission
+	access ?VisibilityPermissionForm
 ) {
 	publishedPost Post
 }
