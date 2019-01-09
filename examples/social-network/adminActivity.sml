@@ -11,3 +11,7 @@ entity AdminActivity {
 }
 
 relation AdminActivities: AdminActivity <-> Admin (admin, activities)
+
+access AdminActivity {
+	allow Admin
+}
