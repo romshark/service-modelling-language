@@ -105,20 +105,3 @@ user User {
 	# organizationRatings links all organization ratings posted by this user
 	organizationRatings
 }
-
-relation UserAddressCountry: User -> Country (residence.country)
-relation UserAddressCity: User -> City (residence.city)
-
-relation UserFriends: User <-> []User (friends) {
-	# establishment defines the time when the friendship relationship was
-	# established
-	establishment Time
-}
-
-relation UserRelatives: User <-> []User (relatives.relative)
-
-relation UserPartner: User <-> User (relationship.partner) {
-	start Time
-}
-
-relation UserMutualFriends: User -> []User (mutualFriends)

@@ -17,6 +17,11 @@ relation PostPublisher: []Post <-> User (publisher, posts.all)
 relation PostPublisherOrganization:
 	[]Post <-> Organization (publisher, posts.all)
 
+relation PostVisibilityBlacklist:
+	User -> []User (access<VisibilityBlacklist>.users)
+relation PostVisibilityWhitelist:
+	User -> []User (access<VisibilityWhitelist>.users)
+
 # Posts are either public, only accessible to the friends of a user, to a
 # whitelist of friends or to all friends except the blacklisted ones
 access Post as accessed {
