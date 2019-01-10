@@ -93,6 +93,10 @@ user User {
 	# banned is null as long as the profile isn't banned
 	banned ?Time
 
+	# activation represents the time of account activation. When activation
+	# is null the account must be considered yet not activated.
+	activation ?Time
+
 	# organizationRatings links all organization ratings posted by this user
 	organizationRatings
 }

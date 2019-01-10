@@ -210,3 +210,10 @@ access User.managedOrganizationPages as accessed {
 		if *accessor == *accessed
 	}
 }
+
+# The activation time is accessible ony to the profile owner
+access User.activation as accessed {
+	allow User as accessor {
+		if *accessor == *accessed
+	}
+}
