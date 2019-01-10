@@ -13,8 +13,9 @@ transact PublishPost (
 }
 
 access PublishPost as accessed {
-	# Allow users to publish posts on their own behalf only
+	# Allow users to publish posts on their own behalf only and only if their
+	# account has already been activated
 	allow User as accessor {
-		if *accessor == accessed.author
+		if accessor.activation != null && *accessor == accessed.author
 	}
 }

@@ -14,6 +14,6 @@ transact PublishReaction(
 access PublishReaction as accessed {
 	allow User as accessor {
 		# The user is the author of the reaction
-		if *accessor == *accessed.author
+		if accessor.activation != null && *accessor == *accessed.author
 	}
 }
