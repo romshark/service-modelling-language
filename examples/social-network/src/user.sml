@@ -34,7 +34,7 @@ user User {
 	name            PersonName
 	gender          Gender
 	biography       Text
-	avatar          Picture
+	avatar          ?Picture
 	email           EmailAddress
 	phone           ?PhoneNumber
 	birthDate       ?Time
