@@ -33,8 +33,13 @@ access User.posts as accessed {
 	}
 }
 
-access User.posts.published public
-access User.posts.trending public
+access User.posts.published {
+	allow public
+}
+
+access User.posts.trending {
+	allow public
+}
 
 # User email address access permissions
 access User.email as accessed {

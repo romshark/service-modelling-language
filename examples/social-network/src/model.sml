@@ -29,9 +29,13 @@ model SocialNetwork {
 	posts []Post
 }
 
-access SocialNetwork public
+access SocialNetwork {
+	allow public
+}
 
-access SocialNetwork.trendingPublicPosts public
+access SocialNetwork.trendingPublicPosts {
+	allow public
+}
 
 # Allow only admins and authors of reactions to access them directly
 access SocialNetwork.reactions as accessed {

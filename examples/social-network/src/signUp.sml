@@ -18,4 +18,8 @@ transact SignUp (
 }
 
 # SignUp is accessible to the public
-access SignUp public
+access SignUp {
+	allow  public
+	forbid User
+	forbid Admin
+}

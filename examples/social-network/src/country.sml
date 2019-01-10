@@ -7,4 +7,6 @@ entity Country {
 
 relation CountryCities: Country <-> []City (cities, country)
 
-access Country public
+access Country {
+	allow public
+}

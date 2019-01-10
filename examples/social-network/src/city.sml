@@ -5,4 +5,6 @@ entity City {
 	name    Text
 }
 
-access City public
+access City {
+	allow public
+}

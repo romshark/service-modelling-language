@@ -49,7 +49,9 @@ relation OrganizationSubsidiaries:
 	Organization <-> []Organization (subsidiaries, parentOrganization)
 
 # An organization is publicly accessible
-access Organization public
+access Organization {
+	allow public
+}
 
 # The list of page administrators is only accessible to page administrators
 access Organization.pageAdmins as accessed {
@@ -68,5 +70,10 @@ access Organization.posts as accessed {
 	}
 }
 
-access Organization.posts.published public
-access Organization.posts.trending public
+access Organization.posts.published {
+	allow public
+}
+
+access Organization.posts.trending {
+	allow public
+}
