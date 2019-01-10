@@ -22,6 +22,8 @@
 - views
 - complex graph access permissions
 - transactions
+- transaction errors
+- conditional transaction errors
 
 ## Query Examples
 ### Fetching a User Profile
