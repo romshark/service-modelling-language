@@ -1,7 +1,7 @@
 model SocialNetwork
 
-scalar FriendshipRequestAccepted = Time
-scalar FriendshipRequestDeclined = Time
+scalar FriendshipRequestAccepted extends Time
+scalar FriendshipRequestDeclined extends Time
 
 entity FriendshipRequest {
 	from     <-> User.outgoingFriendshipRequests
