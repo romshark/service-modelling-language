@@ -1,8 +1,6 @@
 model SocialNetwork
 
-relation Employment:
-	[]Organization <-> []User (employees, employmentHistory)
-{
+relation Employment: []Organization.employees <-> []User.employmentHistory {
 	# begin specifies the time at which the employment began
 	begin Time
 

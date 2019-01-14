@@ -1,18 +1,12 @@
 model SocialNetwork
 
 entity OrganizationRating {
-	author       User
-	organization Organization
+	author       <-> User.organizationRatings
+	organization <-> Organization.ratings
 	rating       ReactionType
 	comment      Text
 	access       VisiblityPermission
 }
-
-relation OrganizationUserRating:
-	Organization <-> []OrganizationRating (ratings, organization)
-
-relation OrganizationUserRatingUser:
-	OrganizationRating <-> User (ratings, organizationRatings)
 
 access OrganizationRating as accessed {
 	allow Admin

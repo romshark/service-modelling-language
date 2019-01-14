@@ -9,8 +9,8 @@ user Admin {
 	name       PersonName
 	email      EmailAddress
 	rights     AdminRights
-	activities []AdminActivity {
-		sort desc AdminActivity.time
+	activities <-> []AdminActivity.admin as adminActivity {
+		sort desc adminActivity.time
 	}
 }
 

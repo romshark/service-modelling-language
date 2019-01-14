@@ -5,28 +5,23 @@ struct PersonName {
 	lastName  Text
 }
 
-struct Residence {
-	country ?Country
-	city    ?City
-}
-
-# Relative represents a relation between two users (or just a mentioning)
+# Relative represents a relation between two users or just a relative's name
 struct Relative {
 	type RelativeType
 
 	# relative either represents a user registered in the network or just a name
 	# of a person that's not registered on the network
-	relative User | PersonName
+	relative PersonName | <-> Relative.relative
 }
 
-# Relationship represents a relationship between two users (or just a mentioning
-# of a relationship)
+# Relationship represents a relationship between two users or just a name of the
+# partner
 struct Relationship {
 	type    RelationshipType
 
 	# partner either represents a user registered in the network or just a name
 	# of a person that's not registered on the network
-	partner ?(User | PersonName)
+	partner ?(PersonName | <-> Relationship.partner)
 }
 
 user User {
@@ -38,19 +33,19 @@ user User {
 	email           EmailAddress
 	phone           ?PhoneNumber
 	birthDate       ?Time
-	residence       Residence
+	residence       -> ?City
 	spokenLanguages []Language
 
 	# employmentHistory lists all employment entries sorted by their begin
-	employmentHistory []Organization {
-		sort desc :relation.begin
+	employmentHistory <-> []Organization.employees as organizations {
+		sort desc organizations:relation.begin
 	}
 
 	# registration represents the time of the profile creation
 	registration Time
 
 	// Connections
-	friends      []User
+	friends      <-> []User.friends
 	relatives    []Relative
 	relationship Relationship
 
@@ -59,35 +54,37 @@ user User {
 
 	# mutualFriends lists all mutual friends between the user and the given
 	# target user
-	mutualFriends(target *User) []User
+	mutualFriends(target *User) -> friends as friends {
+		filter intersection(target.friends, friends)
+	}
 
 	posts Posts
 
 	# inbox lists all received messages
-	inbox []Message {
-		sort desc Message.sent
+	inbox <-> []Message.receiver as messages {
+		sort desc messages.sent
 	}
 
 	# outbox lists all sent messages
-	outbox []Message {
-		sort desc Message.sent
+	outbox <-> []Message.sender as messages {
+		sort desc messages.sent
 	}
 
 	# managedOrganizationPages links all organization pages the user administers
-	managedOrganizationPages []Organization
+	managedOrganizationPages <-> []Organization.pageAdmins
 
 	# outgoingFriendshipRequests lists all outgoing friendship requests the user
 	# initiated sorted by their age
-	outgoingFriendshipRequests []FriendshipRequest {
-		sort   asc FriendshipRequest.creation
-		filter FriendshipRequest.status == null
+	outgoingFriendshipRequests <-> []FriendshipRequest.from as outFriendReq {
+		sort   asc outFriendReq.creation
+		filter outFriendReq.status == null
 	}
 
 	# incomingFriendshipRequests lists all incoming friendship requests the user
 	# received sorted by their age
-	incomingFriendshipRequests []FriendshipRequest {
-		sort   asc FriendshipRequest.creation
-		filter FriendshipRequest.status == null
+	incomingFriendshipRequests <-> []FriendshipRequest.to as inFriendReq {
+		sort   asc inFriendReq.creation
+		filter inFriendReq.status == null
 	}
 
 	# banned is null as long as the profile isn't banned
@@ -98,5 +95,10 @@ user User {
 	activation ?Time
 
 	# organizationRatings links all organization ratings posted by this user
-	organizationRatings
+	organizationRatings <-> []OrganizationRating.author
+
+	# reactions links all reactions posted by this user
+	reactions <-> []Reaction.author as reactions {
+		sort desc reactions.publication
+	}
 }

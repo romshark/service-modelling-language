@@ -16,37 +16,28 @@ entity Organization {
 	openingHours ?(OpeningHoursSpecial | OpeningHoursSchedule)
 	imprint      Text
 	posts        Posts
-	ratings      []OrganizationRating
+	ratings      <-> []OrganizationRating.organization
 
 	# parentOrganization links the parent organization if this organization
 	# is a subsidiary
-	parentOrganization ?Organization
+	parentOrganization <-> ?Organization.subsidiaries
 	
 	# subsidiaries links any subsidiary organizations
-	subsidiaries []Organization
+	subsidiaries <-> []Organization.parentOrganization
 
 	# employees links all present and past employees
-	employees []User {
+	employees <-> []User.employmentHistory as employees {
 		sort   asc employees:relation.start
 	}
 
 	# presentEmployees links all current employees
-	presentEmployees -> employees {
-		filter :relation.end == null
+	presentEmployees -> employees as employees {
+		filter employees:relation.end == null
 	}
 
 	# pageAdmins lists all page administrators
-	pageAdmins []User
+	pageAdmins <-> []User.managedOrganizationPages
 }
-
-relation OrganizationPageAdmins:
-	[]Organization <-> []User (pageAdmins, managedOrganizationPages)
-
-relation OrganizationCityLocation:
-	[]Organization <-> City (address, organizations)
-
-relation OrganizationSubsidiaries:
-	Organization <-> []Organization (subsidiaries, parentOrganization)
 
 # An organization is publicly accessible
 access Organization {

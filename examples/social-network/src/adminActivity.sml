@@ -5,12 +5,10 @@ enum AdminActivityType {
 }
 
 entity AdminActivity {
-	admin Admin
+	admin <-> Admin.activities
 	type  AdminActivityType
 	time  Time
 }
-
-relation AdminActivities: AdminActivity <-> Admin (admin, activities)
 
 access AdminActivity {
 	allow Admin

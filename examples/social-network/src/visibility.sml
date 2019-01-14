@@ -7,11 +7,11 @@ enum Visibility {
 }
 
 struct VisibilityBlacklist {
-	users []User
+	users -> []User
 }
 
 struct VisibilityWhitelist {
-	users []User
+	users -> []User
 }
 
 union VisibilityPermission {

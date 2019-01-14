@@ -3,30 +3,30 @@ model SocialNetwork
 model SocialNetwork {
 	# trendingPublicPosts lists all currently trending public posts sorted by
 	# the number of reactions
-	trendingPublicPosts []Post {
-		sort   desc Post.reactions:length
-		filter Post.access == Visibility(Public) &&
-			Post.publication >= (now - day * 7) &&
-			Post.archived == null
+	trendingPublicPosts -> []Post as posts {
+		sort   desc posts.reactions:length
+		filter posts.access == Visibility(Public) &&
+			posts.publication >= (now - day * 7) &&
+			posts.archived == null
 	}
 
-	admins []Admin
+	admins -> []Admin
 
-	adminActivities []AdminActivity {
-		sort desc AdminActivity.time
+	adminActivities []AdminActivity as adminActivity {
+		sort desc adminActivity.time
 	}
 
-	users []User
+	users -> []User
 
-	countries []Country
+	countries -> []Country
 
-	cities []City
+	cities -> []City
 
-	organizations []Organization
+	organizations -> []Organization
 
-	reactions []Reactions
+	reactions -> []Reactions
 
-	posts []Post
+	posts -> []Post
 }
 
 access SocialNetwork {

@@ -1,7 +1,7 @@
 model SocialNetwork
 
 entity City {
-	country Country
+	country <-> Country.cities
 	name    Text
 }
 

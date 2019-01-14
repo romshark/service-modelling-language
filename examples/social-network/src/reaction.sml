@@ -12,8 +12,8 @@ enum ReactionType {
 entity Reaction {
 	# target represents the target of the reaction which may be a post or just
 	# another reaction
-	target Post | Reaction
-	author User
+	target <-> Reactions.all
+	author <-> User.reactions
 	type   ReactionType
 
 	# publication specifies the time the reaction was published
@@ -25,8 +25,3 @@ entity Reaction {
 	# reactions links the reactions to this reaction
 	reactions Reactions
 }
-
-relation PostReaction: Post <-> []Reaction (reactions.all, target<Post>)
-
-relation ReactionReaction:
-	Reaction <-> []Reaction (reactions.all, target<Reaction>)

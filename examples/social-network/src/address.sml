@@ -1,7 +1,7 @@
 model SocialNetwork
 
 struct Address {
-	city       City
+	city       -> City
 	street     Text
 	postalCode Text
 

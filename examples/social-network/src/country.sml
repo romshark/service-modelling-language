@@ -2,10 +2,10 @@ model SocialNetwork
 
 entity Country {
 	name   Text
-	cities []City
+	cities <-> []City.country as cities {
+		sort desc cities.name
+	}
 }
-
-relation CountryCities: Country <-> []City (cities, country)
 
 access Country {
 	allow public
