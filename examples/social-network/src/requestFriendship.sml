@@ -2,16 +2,16 @@ model SocialNetwork
 
 # RequestFriendship creates a friendship request
 transact RequestFriendship(
-    sender   *User
-    receiver *User
+	sender   *User
+	receiver *User
 ) {
-    newRequest FriendshipRequest
+	newRequest FriendshipRequest
 }
 
 access RequestFriendship as accessed {
-    allow User as accessor {
-        if accessor.activation != null && *accessor == sender
-    }
+	allow User as accessor {
+		if accessor.activation != null && *accessor == sender
+	}
 }
 
 # ErrAlreadyBefriended represents an error indicating that the friendship
@@ -19,9 +19,9 @@ access RequestFriendship as accessed {
 error ErrAlreadyBefriended {}
 
 errors RequestFriendship as transaction {
-    # ErrAlreadyBefriended is returned if the sender already befriends the
-    # receiver
-    ErrAlreadyBefriended if {
-        transaction.sender in transaction.receiver.friends
-    }
+	# ErrAlreadyBefriended is returned if the sender already befriends the
+	# receiver
+	ErrAlreadyBefriended if {
+		transaction.sender in transaction.receiver.friends
+	}
 }
