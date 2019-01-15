@@ -33,7 +33,7 @@ user User {
 	email           EmailAddress
 	phone           ?PhoneNumber
 	birthDate       ?Time
-	residence       -> ?City
+	residence       ? -> City
 	spokenLanguages []Language
 
 	# employmentHistory lists all employment entries sorted by their begin

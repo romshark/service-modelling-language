@@ -20,7 +20,7 @@ entity Organization {
 
 	# parentOrganization links the parent organization if this organization
 	# is a subsidiary
-	parentOrganization <-> ?Organization.subsidiaries
+	parentOrganization ?<-> Organization.subsidiaries
 	
 	# subsidiaries links any subsidiary organizations
 	subsidiaries <-> []Organization.parentOrganization
