@@ -1,6 +1,6 @@
 model SocialNetwork
 
-model SocialNetwork {
+root SocialNetwork {
 	# trendingPublicPosts lists all currently trending public posts sorted by
 	# the number of reactions
 	trendingPublicPosts -> []Post as posts {
