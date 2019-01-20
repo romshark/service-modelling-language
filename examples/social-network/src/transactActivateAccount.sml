@@ -2,7 +2,7 @@ model SocialNetwork
 
 # ActivateAccount activates an account
 transact ActivateAccount(
-	account          *User
+	account          ID<User>
 	activationSecret String
 )
 
@@ -26,6 +26,6 @@ errors ActivateAccount {
 
 access ActivateAccount as accessed {
 	allow User as accessor {
-		*accessor == accessed.account
+		if accessor == accessed.account
 	}
 }

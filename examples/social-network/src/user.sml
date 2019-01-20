@@ -54,7 +54,7 @@ user User {
 
 	# mutualFriends lists all mutual friends between the user and the given
 	# target user
-	mutualFriends(target *User) -> friends as friends {
+	mutualFriends(target ID<User>) -> friends as friends {
 		filter intersection(target.friends, friends)
 	}
 

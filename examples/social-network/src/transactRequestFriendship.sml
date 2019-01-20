@@ -2,15 +2,15 @@ model SocialNetwork
 
 # RequestFriendship creates a friendship request
 transact RequestFriendship(
-	sender   *User
-	receiver *User
+	sender   ID<User>
+	receiver ID<User>
 ) {
 	newRequest FriendshipRequest
 }
 
 access RequestFriendship as accessed {
 	allow User as accessor {
-		if accessor.activation != null && *accessor == sender
+		if accessor.activation != null && accessor == sender
 	}
 }
 

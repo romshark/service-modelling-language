@@ -11,15 +11,15 @@ access User as accessed {
 			
 			# The profile is accessible to all friends by default and the user
 			# is a friend
-			if *accessor in accessed.friends
+			if accessor in accessed.friends
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
-			if *accessor !in accessed.access.profile
+			if accessor !in accessed.access.profile
 
 		VisibilityWhitelist:
 			# The user is in the whitelist
-			if *accessor in accessed.access.profile
+			if accessor in accessed.access.profile
 		}
 	}
 }
@@ -29,7 +29,7 @@ access User as accessed {
 access User.posts as accessed {
 	allow Admin
 	allow User as accessor {
-		if *accessor == *accessed
+		if accessor == accessed
 	}
 }
 
@@ -52,15 +52,15 @@ access User.email as accessed {
 			
 			# The email address is visible to friends only and the user is a
 			# friend
-			if accessed.access.email == Friends && *accessor in accessed.friends
+			if accessed.access.email == Friends && accessor in accessed.friends
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
-			if *accessor !in accessed.access.email
+			if accessor !in accessed.access.email
 
 		VisibilityWhitelist:
 			# The user is in the whitelist
-			if *accessor in accessed.access.email
+			if accessor in accessed.access.email
 		}
 	}
 }
@@ -76,15 +76,15 @@ access User.phone as accessed {
 			
 			# The phone number is visible to friends only and the user is a
 			# friend
-			if accessed.access.phone == Friends && *accessor in accessed.friends
+			if accessed.access.phone == Friends && accessor in accessed.friends
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
-			if *accessor !in accessed.access.phone
+			if accessor !in accessed.access.phone
 
 		VisibilityWhitelist:
 			# The user is in the whitelist
-			if *accessor in accessed.access.phone
+			if accessor in accessed.access.phone
 		}
 	}
 }
@@ -99,15 +99,15 @@ access User.birthDate as accessed {
 			if accessed.access.birthDate == Public
 			
 			# The birthDate is visible to friends only and the user is a friend
-			if accessed.access.birthDate == Friends && *accessor in accessed.friends
+			if accessed.access.birthDate == Friends && accessor in accessed.friends
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
-			if *accessor !in accessed.access.birthDate
+			if accessor !in accessed.access.birthDate
 
 		VisibilityWhitelist:
 			# The user is in the whitelist
-			if *accessor in accessed.access.birthDate
+			if accessor in accessed.access.birthDate
 		}
 	}
 }
@@ -124,15 +124,15 @@ access User.friends as accessed {
 
 			# The friend list is visible to friends only and the user is a
 			# friend
-			if accessed.access.friends == Friends && *accessor in accessed.friends
+			if accessed.access.friends == Friends && accessor in accessed.friends
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
-			if *accessor !in accessed.access.friends
+			if accessor !in accessed.access.friends
 
 		VisibilityWhitelist:
 			# The user is in the whitelist
-			if *accessor in accessed.access.friends
+			if accessor in accessed.access.friends
 		}
 	}
 }
@@ -142,7 +142,7 @@ access User.access as accessed {
 	allow Admin
 	allow User as accessor {
 		# The user is the owner of the profile
-		if *accessor == *accessed
+		if accessor == accessed
 	}
 }
 
@@ -157,15 +157,15 @@ access User.residence as accessed {
 
 			# The residence is visible to friends only and the user is a friend
 			if accessed.access.residence == residence &&
-				*accessor in accessed.residence
+				accessor in accessed.residence
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
-			if *accessor !in accessed.access.residence
+			if accessor !in accessed.access.residence
 
 		VisibilityWhitelist:
 			# The user is in the whitelist
-			if *accessor in accessed.access.residence
+			if accessor in accessed.access.residence
 		}
 	}
 }
@@ -174,7 +174,7 @@ access User.mutualFriends as accessed {
 	allow Admin
 	allow User as accessor {
 		# The user is the target of the mutual friends search
-		*accessed.target == *accessor && accessed.access.friends {
+		accessed.target == accessor && accessed.access.friends {
 		Visibility:
 			# The friend list is public
 			if accessed.access.friends == Public
@@ -182,15 +182,15 @@ access User.mutualFriends as accessed {
 			# The friend list is visible to friends only and the user is a
 			# friend
 			if accessed.access.friends == friends &&
-				*accessor in accessed.friends
+				accessor in accessed.friends
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
-			if *accessor !in accessed.access.friends
+			if accessor !in accessed.access.friends
 
 		VisibilityWhitelist:
 			# The user is in the whitelist
-			if *accessor in accessed.access.friends
+			if accessor in accessed.access.friends
 		}
 	}
 }
@@ -198,27 +198,27 @@ access User.mutualFriends as accessed {
 # The inbox is accessible only to its owner
 access User.inbox as accessed {
 	allow User as accessor {
-		if *accessor == *accessed
+		if accessor == accessed
 	}
 }
 
 # The outbox is accessible only to its owner
 access User.outbox as accessed {
 	allow User as accessor {
-		if *accessor == *accessed
+		if accessor == accessed
 	}
 }
 
 # The list of managed organization pages is accessible only to its owner
 access User.managedOrganizationPages as accessed {
 	allow User as accessor {
-		if *accessor == *accessed
+		if accessor == accessed
 	}
 }
 
 # The activation time is accessible ony to the profile owner
 access User.activation as accessed {
 	allow User as accessor {
-		if *accessor == *accessed
+		if accessor == accessed
 	}
 }

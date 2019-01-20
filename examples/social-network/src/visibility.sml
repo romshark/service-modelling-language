@@ -23,13 +23,13 @@ union VisibilityPermission {
 # VisibilityBlacklistForm is the pure version of VisibilityBlacklist used as an
 # input form
 struct VisibilityBlacklistForm {
-	users []*User
+	users []ID<User>
 }
 
 # VisibilityWhitelistForm is the pure version of VisibilityBlacklist used as an
 # input form
 struct VisibilityWhitelistForm {
-	users []*User
+	users []ID<User>
 }
 
 # VisibilityPermissionForm is used as an input form

@@ -48,7 +48,7 @@ access Organization {
 access Organization.pageAdmins as accessed {
 	allow Admin
 	allow User as accessor {
-		if *accessor in accessed.pageAdmins
+		if accessor in accessed.pageAdmins
 	}
 }
 
@@ -57,7 +57,7 @@ access Organization.pageAdmins as accessed {
 access Organization.posts as accessed {
 	allow Admin
 	allow User as accessor {
-		if *accessor in accessed.pageAdmins
+		if accessor in accessed.pageAdmins
 	}
 }
 

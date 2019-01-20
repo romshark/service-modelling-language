@@ -19,15 +19,15 @@ access OrganizationRating as accessed {
 			# The organizationRatings is visible to friends only and the user is
 			# a friend
 			if accessed.access.organizationRatings == organizationRatings &&
-				*accesor in accessed.organizationRatings
+				accessor in accessed.organizationRatings
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
-			if *accessor !in accessed.access.organizationRatings
+			if accessor !in accessed.access.organizationRatings
 
 		VisibilityWhitelist:
 			# The user is in the whitelist
-			if *accessor in accessed.access.organizationRatings
+			if accessor in accessed.access.organizationRatings
 		}
 	}
 }

@@ -1,7 +1,7 @@
 model SocialNetwork
 
 struct EmploymentForm {
-    organization *Organization
+    organization ID<Organization>
     begin        Time
     end          ?Time
 	position     ?Text
@@ -9,7 +9,7 @@ struct EmploymentForm {
 
 # UpdateUser updates a user profile changing the given fields
 transact UpdateUser (
-    user *User
+    user ID<User>
 
 	name              ?PersonName
 	gender            ?Gender
@@ -29,7 +29,7 @@ transact UpdateUser (
 # UpdateUser is accessible to the profile owner only
 access UpdateUser as accessed {
 	allow User as accessor {
-        if *accessor == accessed.user
+        if accessor == accessed.user
     }
 }
 

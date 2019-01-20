@@ -2,8 +2,8 @@ model SocialNetwork
 
 # PublishReaction publishes a new reaction to either a post or another reaction
 transact PublishReaction(
-	target  *Post | *Reaction
-	author  *User
+	target  ID<Post> | ID<Reaction>
+	author  ID<User>
 	type    ReactionType
 	comment ?Text
 ) {
@@ -14,6 +14,6 @@ transact PublishReaction(
 access PublishReaction as accessed {
 	allow User as accessor {
 		# The user is the author of the reaction
-		if accessor.activation != null && *accessor == *accessed.author
+		if accessor.activation != null && accessor == accessed.author
 	}
 }

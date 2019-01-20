@@ -24,15 +24,15 @@ access Post as accessed {
 			
 			# The post is accessible to all friends by default and the user is
 			# a friend
-			if accessed.access == Friends && *accessor in accessed.friends
+			if accessed.access == Friends && accessor in accessed.friends
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
-			if *accessor !in accessed.access
+			if accessor !in accessed.access
 
 		VisibilityWhitelist:
 			# The user is in the whitelist
-			if *accessor in accessed.access
+			if accessor in accessed.access
 		}
 	}
 }

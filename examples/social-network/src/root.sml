@@ -41,6 +41,6 @@ access SocialNetwork.trendingPublicPosts {
 access SocialNetwork.reactions as accessed {
 	allow Admin
 	allow User as accessor {
-		if *accessor == *accessed.author
+		if accessor == accessed.author
 	}
 }
