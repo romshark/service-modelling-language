@@ -52,12 +52,6 @@ user User {
 	# access defines all access permissions
 	access ProfileAccessPermissions
 
-	# mutualFriends lists all mutual friends between the user and the given
-	# target user
-	mutualFriends(target ID<User>) -> friends as friends {
-		filter intersection(target.friends, friends)
-	}
-
 	posts Posts
 
 	# inbox lists all received messages

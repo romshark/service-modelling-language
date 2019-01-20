@@ -27,6 +27,12 @@ root SocialNetwork {
 	reactions -> []Reactions
 
 	posts -> []Post
+
+	# mutualFriends lists all mutual friends between the given users
+	mutualFriends(
+		target ID<User>
+		friend ID<User>
+	) -> []User = Math.intersection(target.friends, friend.friends)
 }
 
 access SocialNetwork {
@@ -42,5 +48,14 @@ access SocialNetwork.reactions as accessed {
 	allow Admin
 	allow User as accessor {
 		if accessor == accessed.author
+	}
+}
+
+# Allow users to find mutual friends between themselves and their friends only
+access SocialNetwork.mutualFriends as accessed {
+	allow Admin
+	allow User as accessor {
+		if accessor == accessed.target &&
+			accessed.target in accessed.friend.friends
 	}
 }
