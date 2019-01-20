@@ -3,30 +3,30 @@ model SocialNetwork
 root SocialNetwork {
 	# trendingPublicPosts lists all currently trending public posts sorted by
 	# the number of reactions
-	trendingPublicPosts -> []Post as posts {
+	trendingPublicPosts Entities<Post> as posts {
 		sort   desc posts.reactions:length
 		filter posts.access == Visibility(Public) &&
 			posts.publication >= (now - day * 7) &&
 			posts.archived == null
 	}
 
-	admins -> []Admin
+	admins Entities<Admin>
 
-	adminActivities []AdminActivity as adminActivity {
-		sort desc adminActivity.time
+	adminActivities Entities<AdminActivity> as adminActivities {
+		sort desc adminActivities.time
 	}
 
-	users -> []User
+	users Entities<User>
 
-	countries -> []Country
+	countries Entities<Country>
 
-	cities -> []City
+	cities Entities<City>
 
-	organizations -> []Organization
+	organizations Entities<Organization>
 
-	reactions -> []Reactions
+	reactions Entities<Reactions>
 
-	posts -> []Post
+	posts Entities<Post>
 
 	# mutualFriends lists all mutual friends between the given users
 	mutualFriends(
