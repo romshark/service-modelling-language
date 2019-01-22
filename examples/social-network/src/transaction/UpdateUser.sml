@@ -1,5 +1,5 @@
 # UpdateUser updates a user profile changing the given fields
-transact SocialNetwork::UpdateUser
+transaction SocialNetwork::UpdateUser
 
 arguments {
     user ID<User>
