@@ -1,6 +1,6 @@
-model SocialNetwork
+root SocialNetwork
 
-root SocialNetwork {
+properties {
 	# trendingPublicPosts lists all currently trending public posts sorted by
 	# the number of reactions
 	trendingPublicPosts Entities<Post> as posts {
@@ -35,27 +35,26 @@ root SocialNetwork {
 	) -> []User = Math.intersection(target.friends, friend.friends)
 }
 
-access SocialNetwork {
+access {
 	allow public
 }
 
-access SocialNetwork.trendingPublicPosts {
+access trendingPublicPosts {
 	allow public
 }
 
 # Allow only admins and authors of reactions to access them directly
-access SocialNetwork.reactions as accessed {
+access reactions {
 	allow Admin
 	allow User as accessor {
-		if accessor == accessed.author
+		if accessor == properties::author
 	}
 }
 
 # Allow users to find mutual friends between themselves and their friends only
-access SocialNetwork.mutualFriends as accessed {
+access mutualFriends as mf {
 	allow Admin
 	allow User as accessor {
-		if accessor == accessed.target &&
-			accessed.target in accessed.friend.friends
+		if accessor == mf.target && mf.target in mf.friend.friends
 	}
 }

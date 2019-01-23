@@ -11,6 +11,6 @@ properties {
 
 access {
 	allow User as accessor {
-		if accessor == accessed.user
+		if accessor == this.user
 	}
 }

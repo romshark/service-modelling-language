@@ -30,8 +30,8 @@ errors {
 
 
 # UpdateUser is accessible to the profile owner only
-access UpdateUser as accessed {
+access UpdateUser {
 	allow User as accessor {
-        if accessor == accessed.user
+        if accessor == this.user
     }
 }

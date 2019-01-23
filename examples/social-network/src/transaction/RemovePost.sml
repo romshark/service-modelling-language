@@ -5,12 +5,12 @@ arguments {
 	post ID<Post>
 }
 
-access RemovePost as accessed {
+access RemovePost {
 	# Only users are allowed to publish posts
 	allow User as accessor {
-		accessed.post.publisher {
+		this.post.publisher {
 		User:
-			if accessor == accessed.publisher
+			if accessor == this.publisher
 		}
 	}
 }

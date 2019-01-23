@@ -18,8 +18,8 @@ errors RequestFriendship as transaction {
 	}
 }
 
-access RequestFriendship as accessed {
+access RequestFriendship {
 	allow User as accessor {
-		if accessor.activation != null && accessor == sender
+		if accessor.activation != null && accessor == this.sender
 	}
 }

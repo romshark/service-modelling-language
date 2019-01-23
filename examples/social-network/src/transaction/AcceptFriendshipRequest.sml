@@ -11,8 +11,8 @@ results {
 	newFriend -> User
 }
 
-access AcceptFriendshipRequest as transaction {
+access AcceptFriendshipRequest {
 	allow User as accessor {
-		if accessor == transaction.user
+		if accessor == this.user
 	}
 }

@@ -16,8 +16,8 @@ errors ActivateAccount {
 	ErrActivationSecretExpired
 }
 
-access ActivateAccount as accessed {
+access ActivateAccount {
 	allow User as accessor {
-		if accessor == accessed.account
+		if accessor == this.account
 	}
 }

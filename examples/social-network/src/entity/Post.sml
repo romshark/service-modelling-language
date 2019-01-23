@@ -14,25 +14,25 @@ properties {
 
 # Posts are either public, only accessible to the friends of a user, to a
 # whitelist of friends or to all friends except the blacklisted ones
-access Post as accessed {
+access Post {
 	allow Admin
 	allow User as accessor {
-		accessed.access {
+		this.access {
 		Visibility:
 			# The post is public
-			if accessed.access == Public
+			if this.access == Public
 			
 			# The post is accessible to all friends by default and the user is
 			# a friend
-			if accessed.access == Friends && accessor in accessed.friends
+			if this.access == Friends && accessor in this.friends
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
-			if accessor !in accessed.access
+			if accessor !in this.access
 
 		VisibilityWhitelist:
 			# The user is in the whitelist
-			if accessor in accessed.access
+			if accessor in this.access
 		}
 	}
 }

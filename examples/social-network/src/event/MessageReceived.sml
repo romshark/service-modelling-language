@@ -12,6 +12,6 @@ properties {
 access {
 	allow User as accessor {
 		# Only the receiver may subscribe to message events
-		if accessor == accessed.receiver
+		if accessor == this.receiver
 	}
 }

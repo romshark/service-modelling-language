@@ -7,8 +7,8 @@ arguments {
 	from ID<User>
 }
 
-access DeclineFriendshipRequest as accessed {
+access DeclineFriendshipRequest {
 	allow User as accessor {
-		if accessor == accessed.user
+		if accessor == this.user
 	}
 }

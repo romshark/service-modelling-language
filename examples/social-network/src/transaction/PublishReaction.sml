@@ -13,9 +13,9 @@ results {
 }
 
 # Users can only publish reactions on their own behalf
-access PublishReaction as accessed {
+access PublishReaction {
 	allow User as accessor {
 		# The user is the author of the reaction
-		if accessor.activation != null && accessor == accessed.author
+		if accessor.activation != null && accessor == this.author
 	}
 }

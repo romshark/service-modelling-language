@@ -11,9 +11,9 @@ results {
 	publishedPost -> Post
 }
 
-access PublishPostOrganization as accessed {
+access PublishPostOrganization {
 	# Only page administrators are allowed to publish posts
 	allow User as accessor {
-		if accessor in accessed.organization.pageAdmins
+		if accessor in this.organization.pageAdmins
 	}
 }

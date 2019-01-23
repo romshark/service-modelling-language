@@ -12,9 +12,9 @@ results {
 }
 
 # Allow sending messages to users only on their own behalf
-access SendMessage as accessed {
+access SendMessage {
 	allow User as accessor {
-		if accessor.activation != null && accessor == accessed.sender &&
-			accessor in accessed.receiver.friends
+		if accessor.activation != null && accessor == this.sender &&
+			accessor in this.receiver.friends
 	}
 }

@@ -14,10 +14,10 @@ results {
 	publishedPost -> Post
 }
 
-access PublishPost as accessed {
+access PublishPost {
 	# Allow users to publish posts on their own behalf only and only if their
 	# account has already been activated
 	allow User as accessor {
-		if accessor.activation != null && accessor == accessed.author
+		if accessor.activation != null && accessor == this.author
 	}
 }

@@ -45,19 +45,19 @@ access Organization {
 }
 
 # The list of page administrators is only accessible to page administrators
-access pageAdmins from Organization {
+access pageAdmins {
 	allow Admin
 	allow User as accessor {
-		if accessor in accessed.pageAdmins
+		if accessor in this.pageAdmins
 	}
 }
 
 # All post nodes except the published and trending ones are only be accessible
 # to the organization's page administrators
-access posts from Organization as accessed {
+access posts {
 	allow Admin
 	allow User as accessor {
-		if accessor in accessed.pageAdmins
+		if accessor in this.pageAdmins
 	}
 }
 
