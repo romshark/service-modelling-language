@@ -29,10 +29,10 @@ properties {
 	posts Entities<Post>
 
 	# mutualFriends lists all mutual friends between the given users
-	mutualFriends(
+	mutualFriends -> []User (
 		target ID<User>
 		friend ID<User>
-	) -> []User = Math.intersection(target.friends, friend.friends)
+	) = Math.intersection(target.friends, friend.friends)
 }
 
 access {
