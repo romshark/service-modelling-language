@@ -20,11 +20,11 @@ access Post {
 		this.access {
 		Visibility:
 			# The post is public
-			if this.access == Public
+			if this.access == Visibility::public
 			
 			# The post is accessible to all friends by default and the user is
 			# a friend
-			if this.access == Friends && accessor in this.friends
+			if this.access == Visibility::friends && accessor in this.friends
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist

@@ -1,7 +1,7 @@
 enum SocialNetwork::Visibility
 
 values {
-	Private
-	Friends
-	Public
+	private
+	friends
+	public
 }

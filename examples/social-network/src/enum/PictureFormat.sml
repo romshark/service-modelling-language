@@ -1,8 +1,8 @@
 enum SocialNetwork::PictureFormat
 
 values {
-	Png
-	Jpeg
-	Tiff
-	Gif
+	png
+	jpeg
+	tiff
+	gif
 }

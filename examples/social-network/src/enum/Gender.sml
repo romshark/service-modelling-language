@@ -1,6 +1,6 @@
 enum SocialNetwork::Gender
 
 values {
-	Male
-	Female
+	male
+	female
 }

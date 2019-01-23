@@ -14,11 +14,11 @@ access OrganizationRating {
 		this.access.organizationRatings {
 		Visibility:
 			# The organizationRatings is public
-			if this.access.organizationRatings == Visibility(Public)
+			if this.access.organizationRatings == Visibility::public
 
 			# The organizationRatings is visible to friends only and the user is
 			# a friend
-			if this.access.organizationRatings == organizationRatings &&
+			if this.access.organizationRatings == Visibility::friends &&
 				accessor in this.organizationRatings
 
 		VisibilityBlacklist:

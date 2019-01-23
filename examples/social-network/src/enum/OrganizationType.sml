@@ -1,19 +1,19 @@
 enum SocialNetwork::OrganizationType
 
 values {
-	CorporateBusiness
-	LocalBusiness
-	NonProfit
-	Charity
-	Restaurant
-	Bar
-	Club
-	Nightclub
-	Cinema
-	School
-	University
-	Museum
-	Institute
-	GovernmentalInstitution
-	FinancialInstitution
+	corporateBusiness
+	localBusiness
+	nonProfit
+	charity
+	restaurant
+	bar
+	club
+	nightclub
+	cinema
+	school
+	university
+	museum
+	institute
+	governmentalInstitution
+	financialInstitution
 }

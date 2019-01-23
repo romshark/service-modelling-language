@@ -1,5 +1,5 @@
 enum SocialNetwork::AdminActivityType
 
 values {
-	BannedUser
+	bannedUser
 }

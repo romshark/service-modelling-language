@@ -7,7 +7,7 @@ access {
 		this.access.profile {
 		Visibility:
 			# The profile is public
-			if this.access.profile == Public
+			if this.access.profile == Visibility::public
 			
 			# The profile is accessible to all friends by default and the user
 			# is a friend
@@ -48,11 +48,12 @@ access email {
 		this.access.email {
 		Visibility:
 			# The email is public
-			if this.access.email == Public
+			if this.access.email == Visibility::public
 			
 			# The email address is visible to friends only and the user is a
 			# friend
-			if this.access.email == Friends && accessor in this.friends
+			if this.access.email == Visibility::friends &&
+                accessor in this.friends
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
@@ -72,11 +73,12 @@ access phone {
 		this.access.phone {
 		Visibility:
 			# The phone number is public
-			if this.access.phone == Public
+			if this.access.phone == Visibility::public
 			
 			# The phone number is visible to friends only and the user is a
 			# friend
-			if this.access.phone == Friends && accessor in this.friends
+			if this.access.phone == Visibility::friends &&
+                accessor in this.friends
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
@@ -96,10 +98,11 @@ access birthDate {
 		this.access.birthDate {
 		Visibility:
 			# The birthDate is public
-			if this.access.birthDate == Public
+			if this.access.birthDate == Visibility::public
 			
 			# The birthDate is visible to friends only and the user is a friend
-			if this.access.birthDate == Friends && accessor in this.friends
+			if this.access.birthDate == Visibility::friends &&
+                accessor in this.friends
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
@@ -120,11 +123,12 @@ access friends {
 		this.access.friends {
 		Visibility:
 			# The friend list is public
-			if this.access.friends == Public
+			if this.access.friends == Visibility::public
 
 			# The friend list is visible to friends only and the user is a
 			# friend
-			if this.access.friends == Friends && accessor in this.friends
+			if this.access.friends == Visibility::friends &&
+                accessor in this.friends
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
@@ -153,10 +157,10 @@ access residence {
 		this.access.residence {
 		Visibility:
 			# The residence is public
-			if this.access.residence == Public
+			if this.access.residence == Visibility::public
 
 			# The residence is visible to friends only and the user is a friend
-			if this.access.residence == residence &&
+			if this.access.residence == Visibility::friends &&
 				accessor in this.residence
 
 		VisibilityBlacklist:
@@ -177,11 +181,11 @@ access mutualFriends {
 		this.target == accessor && this.access.friends {
 		Visibility:
 			# The friend list is public
-			if this.access.friends == Public
+			if this.access.friends == Visibility::public
 
 			# The friend list is visible to friends only and the user is a
 			# friend
-			if this.access.friends == friends &&
+			if this.access.friends == Visibility::friends &&
 				accessor in this.friends
 
 		VisibilityBlacklist:

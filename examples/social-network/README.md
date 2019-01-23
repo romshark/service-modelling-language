@@ -146,7 +146,7 @@ query(
 	PublishPost (
 		author  $userId
 		content $contents
-		access 	Visibility(Public)
+		access 	Visibility::public
 	)
 }
 ```

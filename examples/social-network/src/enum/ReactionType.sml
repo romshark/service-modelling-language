@@ -2,8 +2,8 @@
 enum SocialNetwork::ReactionType
 
 values {
-	Happy
-	Confused
-	Sad
-	Angry
+	happy
+	confused
+	sad
+	angry
 }

@@ -1,23 +1,23 @@
 enum SocialNetwork::Language
 
 values {
-	German
-	Russian
-	English
-	Japanese
-	French
-	Chinese
-	Spanish
-	Hindi
-	Arabic
-	Portuguese
-	Bengali
-	Lahnda
-	Javanese
-	Korean
-	Turkish
-	Tamil
-	Vietnamese
-	Urdu
+	german
+	russian
+	english
+	japanese
+	french
+	chinese
+	spanish
+	hindi
+	arabic
+	portuguese
+	bengali
+	lahnda
+	javanese
+	korean
+	turkish
+	tamil
+	vietnamese
+	urdu
 	// and many others
 }
