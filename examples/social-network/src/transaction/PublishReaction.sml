@@ -2,7 +2,7 @@
 transaction SocialNetwork::PublishReaction
 
 arguments {
-	target  ID<Post> | ID<Reaction>
+	target  ReactionTarget
 	author  ID<User>
 	type    ReactionType
 	comment ?Text

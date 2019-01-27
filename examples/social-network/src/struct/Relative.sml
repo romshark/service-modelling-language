@@ -6,5 +6,5 @@ properties {
 
 	# relative either represents a user registered in the network or just a name
 	# of a person that's not registered on the network
-	relative PersonName | <-> Relative.relative
+	relative Relative
 }

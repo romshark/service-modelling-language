@@ -13,7 +13,7 @@ properties {
 	address      Address
 	website      URL
 	contactEmail EmailAddress
-	openingHours ?(OpeningHoursSpecial | OpeningHoursSchedule)
+	openingHours ?OrganizationOpeningHours
 	imprint      Text
 	posts        Posts
 	ratings      <-> []OrganizationRating.organization

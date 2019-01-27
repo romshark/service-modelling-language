@@ -10,7 +10,6 @@
 - alias types
 - custom scalar types
 - optional types
-- implicit unions
 - various relation types
   - bidirectional
   - unidirectional
