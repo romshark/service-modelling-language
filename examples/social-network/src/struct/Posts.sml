@@ -3,25 +3,21 @@ struct SocialNetwork::Posts
 
 properties {
 	# all links all posts ever created including the archived ones
-	all <-> []Post.publisher as posts {
-		sort desc posts.publication
-	}
+	all <-> []Post.publisher |>
+		sort desc Post.publication
 
 	# published links all currently published posts
-	published -> posts as posts {
-		sort   desc posts.publication
-		filter posts.archived == null
-	}
+	published -> []Post = this.all |>
+		filter (p) => p.archived == null |>
+		sort desc Post.publication
 
 	# archived links all archived posts
-	archived -> posts as posts {
-		sort   desc posts.publication
-		filter posts.archived != null
-	}
+	archived -> []Post = this.all |>
+		filter (p) => p.archived != null |>
+		sort   desc Post.publication
 
 	# trending lists the most relevant posts sorted by the number of
 	# reactions
-	trending -> published as posts {
-		sort desc posts.reactions.all:length
-	}
+	trending -> []Post = this.published |>
+		sort desc Post.reactions.all:length
 }

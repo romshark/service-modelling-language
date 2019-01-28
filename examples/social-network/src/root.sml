@@ -3,36 +3,34 @@ root SocialNetwork
 properties {
 	# trendingPublicPosts lists all currently trending public posts sorted by
 	# the number of reactions
-	trendingPublicPosts Entities<Post> as posts {
-		sort   desc posts.reactions:length
-		filter posts.access == Visibility::public &&
-			posts.publication >= (now - day * 7) &&
-			posts.archived == null
-	}
+	trendingPublicPosts -> []Post = entities Post |>
+		filter (p) => p.access == Visibility::public &&
+			p.archived == null &&
+			p.publication >= (now - Std::Day(7)) |>
+		sort desc Post.reactions:length
 
-	admins Entities<Admin>
+	admins -> []Admin = entities Admin
 
-	adminActivities Entities<AdminActivity> as adminActivities {
-		sort desc adminActivities.time
-	}
+	adminActivities -> []AdminActivity = entities AdminActivity |>
+		sort desc AdminActivity.time
 
-	users Entities<User>
+	users -> []User = entities User
 
-	countries Entities<Country>
+	countries -> []Country = entities Country
 
-	cities Entities<City>
+	cities -> []City = entities City
 
-	organizations Entities<Organization>
+	organizations -> []Organization = entities Organization
 
-	reactions Entities<Reactions>
+	reactions -> []Reactions = entities Reactions
 
-	posts Entities<Post>
+	posts -> []Post = entities Post
 
 	# mutualFriends lists all mutual friends between the given users
 	mutualFriends -> []User (
 		target ID<User>
 		friend ID<User>
-	) = Math.intersection(target.friends, friend.friends)
+	) = intersection target.friends friend.friends
 }
 
 access {

@@ -13,9 +13,7 @@ properties {
 	spokenLanguages []Language
 
 	# employmentHistory lists all employment entries sorted by their begin
-	employmentHistory <-> []Organization.employees as organizations {
-		sort desc organizations:relation.begin
-	}
+	employmentHistory <-> []Organization.employees |> Employment.begin
 
 	# registration represents the time of the profile creation
 	registration Time
@@ -31,31 +29,25 @@ properties {
 	posts Posts
 
 	# inbox lists all received messages
-	inbox <-> []Message.receiver as messages {
-		sort desc messages.sent
-	}
+	inbox <-> []Message.receiver |> sort desc Message.sent
 
 	# outbox lists all sent messages
-	outbox <-> []Message.sender as messages {
-		sort desc messages.sent
-	}
+	outbox <-> []Message.sender |> sort desc Message.sent
 
 	# managedOrganizationPages links all organization pages the user administers
 	managedOrganizationPages <-> []Organization.pageAdmins
 
 	# outgoingFriendshipRequests lists all outgoing friendship requests the user
 	# initiated sorted by their age
-	outgoingFriendshipRequests <-> []FriendshipRequest.from as outFriendReq {
-		sort   asc outFriendReq.creation
+	outgoingFriendshipRequests <-> []FriendshipRequest.from |>
+		sort   asc outFriendReq.creation |>
 		filter outFriendReq.status == null
-	}
 
 	# incomingFriendshipRequests lists all incoming friendship requests the user
 	# received sorted by their age
-	incomingFriendshipRequests <-> []FriendshipRequest.to as inFriendReq {
-		sort   asc inFriendReq.creation
+	incomingFriendshipRequests <-> []FriendshipRequest.to |>
+		sort   asc inFriendReq.creation |>
 		filter inFriendReq.status == null
-	}
 
 	# banned is null as long as the profile isn't banned
 	banned ?Time
@@ -68,7 +60,5 @@ properties {
 	organizationRatings <-> []OrganizationRating.author
 
 	# reactions links all reactions posted by this user
-	reactions <-> []Reaction.author as reactions {
-		sort desc reactions.publication
-	}
+	reactions <-> []Reaction.author |> sort desc Reaction.publication
 }

@@ -4,9 +4,7 @@ properties {
 	name       PersonName
 	email      EmailAddress
 	rights     AdminRights
-	activities <-> []AdminActivity.admin as adminActivity {
-		sort desc adminActivity.time
-	}
+	activities <-> []AdminActivity.admin |> sort desc AdminActivity.time
 }
 
 # Accessing administrator is allowed to view other administrator's profiles
