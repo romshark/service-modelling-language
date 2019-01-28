@@ -28,9 +28,9 @@ properties {
 
 	# mutualFriends lists all mutual friends between the given users
 	mutualFriends -> []User (
-		target ID<User>
-		friend ID<User>
-	) = intersection target.friends friend.friends
+		$target ID<User>
+		$friend ID<User>
+	) = intersection $target.friends $friend.friends
 }
 
 access {

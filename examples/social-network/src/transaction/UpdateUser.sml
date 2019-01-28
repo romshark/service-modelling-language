@@ -2,19 +2,19 @@
 transaction SocialNetwork::UpdateUser
 
 arguments {
-    user ID<User>
+    $user ID<User>
 
-	name              ?PersonName
-	gender            ?Gender
-	biography         ?Text
-	avatar            ?Picture
-	email             ?EmailAddress
-	phone             ?PhoneNumber
-	birthDate         ?Time
-	residence         ?City
-	spokenLanguages   ?[]Language
-	employmentHistory ?[]EmploymentForm
-	access            ?ProfileAccessPermissions
+	$name              ?PersonName
+	$gender            ?Gender
+	$biography         ?Text
+	$avatar            ?Picture
+	$email             ?EmailAddress
+	$phone             ?PhoneNumber
+	$birthDate         ?Time
+	$residence         ?City
+	$spokenLanguages   ?[]Language
+	$employmentHistory ?[]EmploymentForm
+	$access            ?ProfileAccessPermissions
 }
 
 results {
@@ -32,6 +32,6 @@ errors {
 # UpdateUser is accessible to the profile owner only
 access UpdateUser {
 	allow User as accessor {
-        if accessor == this.user
+        if accessor == $user
     }
 }

@@ -2,17 +2,17 @@
 transaction SocialNetwork::SignUp
 
 arguments {
-	name              PersonName
-	email             EmailAddress
-	gender            ?Gender
-	biography         ?Text
-	avatar            ?Picture
-	phone             ?PhoneNumber
-	birthDate         ?Time
-	residence         ?Residence
-	spokenLanguages   ?[]Language
-	employmentHistory ?[]Organization
-	access            ?ProfileAccessPermissions
+	$name              PersonName
+	$email             EmailAddress
+	$gender            ?Gender
+	$biography         ?Text
+	$avatar            ?Picture
+	$phone             ?PhoneNumber
+	$birthDate         ?Time
+	$residence         ?Residence
+	$spokenLanguages   ?[]Language
+	$employmentHistory ?[]Organization
+	$access            ?ProfileAccessPermissions
 }
 
 results {

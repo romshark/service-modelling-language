@@ -2,9 +2,9 @@
 transaction SocialNetwork::PublishPostOrganization
 
 arguments {
-	organization ID<Organization>
-	admin        ID<User>
-	content      Text
+	$organization ID<Organization>
+	$admin        ID<User>
+	$content      Text
 }
 
 results {
@@ -14,6 +14,6 @@ results {
 access PublishPostOrganization {
 	# Only page administrators are allowed to publish posts
 	allow User as accessor {
-		if accessor in this.organization.pageAdmins
+		if accessor in $organization.pageAdmins
 	}
 }

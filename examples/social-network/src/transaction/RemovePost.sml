@@ -2,15 +2,15 @@
 transaction SocialNetwork::RemovePost
 
 arguments {
-	post ID<Post>
+	$post ID<Post>
 }
 
 access RemovePost {
 	# Only users are allowed to publish posts
 	allow User as accessor {
-		this.post.publisher {
+		$post.publisher {
 		User:
-			if accessor == this.publisher
+			if accessor == $post.publisher
 		}
 	}
 }

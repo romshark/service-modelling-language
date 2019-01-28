@@ -2,24 +2,24 @@
 transaction SocialNetwork::RequestFriendship
 
 arguments {
-	sender   ID<User>
-	receiver ID<User>
+	$sender   ID<User>
+	$receiver ID<User>
 }
 
 results {
 	newRequest -> FriendshipRequest
 }
 
-errors RequestFriendship as transaction {
+errors RequestFriendship {
 	# ErrAlreadyBefriended is returned if the sender already befriends the
 	# receiver
 	ErrAlreadyBefriended if {
-		transaction.sender in transaction.receiver.friends
+		$sender in $receiver.friends
 	}
 }
 
 access RequestFriendship {
 	allow User as accessor {
-		if accessor.activation != null && accessor == this.sender
+		if accessor.activation != null && accessor == $sender
 	}
 }

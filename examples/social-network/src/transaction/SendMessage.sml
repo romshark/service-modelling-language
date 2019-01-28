@@ -2,9 +2,9 @@
 transaction SocialNetwork::SendMessage
 
 arguments {
-	sender   ID<User>
-	receiver ID<User>
-	contents Text
+	$sender   ID<User>
+	$receiver ID<User>
+	$contents Text
 }
 
 results {
@@ -14,7 +14,7 @@ results {
 # Allow sending messages to users only on their own behalf
 access SendMessage {
 	allow User as accessor {
-		if accessor.activation != null && accessor == this.sender &&
-			accessor in this.receiver.friends
+		if accessor.activation != null && accessor == $sender &&
+			accessor in $receiver.friends
 	}
 }

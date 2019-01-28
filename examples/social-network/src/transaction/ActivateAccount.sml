@@ -2,8 +2,8 @@
 transaction SocialNetwork::ActivateAccount
 
 arguments (
-	account          ID<User>
-	activationSecret String
+	$account          ID<User>
+	$activationSecret String
 )
 
 errors ActivateAccount {
@@ -18,6 +18,6 @@ errors ActivateAccount {
 
 access ActivateAccount {
 	allow User as accessor {
-		if accessor == this.account
+		if accessor == $account
 	}
 }

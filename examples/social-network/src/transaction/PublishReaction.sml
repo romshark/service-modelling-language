@@ -2,10 +2,10 @@
 transaction SocialNetwork::PublishReaction
 
 arguments {
-	target  ReactionTarget
-	author  ID<User>
-	type    ReactionType
-	comment ?Text
+	$target  ReactionTarget
+	$author  ID<User>
+	$type    ReactionType
+	$comment ?Text
 }
 
 results {
@@ -16,6 +16,6 @@ results {
 access PublishReaction {
 	allow User as accessor {
 		# The user is the author of the reaction
-		if accessor.activation != null && accessor == this.author
+		if accessor.activation != null && accessor == $author
 	}
 }

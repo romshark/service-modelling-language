@@ -2,8 +2,8 @@
 transaction BanUser::SocialNetwork
 
 arguments {
-	admin ID<Admin>
-	user  ID<User>
+	$admin ID<Admin>
+	$user  ID<User>
 }
 
 results {
