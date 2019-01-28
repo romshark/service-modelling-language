@@ -4,21 +4,24 @@
 
 - entity types
 - pure structure types
-- relational structure types
+- linked structure types
 - enumeration types
 - union types
-- alias types
 - custom scalar types
 - optional types
-- various relation types
+- various link- and relation types
   - bidirectional
   - unidirectional
-  - composite
   - plural
-- filter parameters
-- sorting parameters
-- hidden field references
-- views
+- functional expressions
+- boolean expressions
+- built-in functions
+  - filter
+  - sort
+  - intersection
+  - the + operator
+  - the - operator
+- hidden properties
 - complex graph access permissions
 - transactions
 - transaction errors
