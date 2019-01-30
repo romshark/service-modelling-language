@@ -41,14 +41,14 @@ properties {
 	# outgoingFriendshipRequests lists all outgoing friendship requests the user
 	# initiated sorted by their age
 	outgoingFriendshipRequests <-> []FriendshipRequest.from |>
-		sort   asc FriendshipRequest.creation |>
-		filter ($fr) => $fr.status == null
+		filter ($fr) => $fr.status == null |>
+		sort   asc FriendshipRequest.creation
 
 	# incomingFriendshipRequests lists all incoming friendship requests the user
 	# received sorted by their age
 	incomingFriendshipRequests <-> []FriendshipRequest.to |>
-		sort   asc FriendshipRequest.creation |>
-		filter ($fr) => $fr.status == null
+		filter ($fr) => $fr.status == null |>
+		sort   asc FriendshipRequest.creation
 
 	# banned is null as long as the profile isn't banned
 	banned ?Time
