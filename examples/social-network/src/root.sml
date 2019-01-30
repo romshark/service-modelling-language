@@ -4,15 +4,15 @@ properties {
 	# trendingPublicPosts lists all currently trending public posts sorted by
 	# the number of reactions
 	trendingPublicPosts -> []Post = entities Post |>
-		filter ($p) => $p.access == Visibility::public &&
+		filter $ ($p) => $p.access == Visibility::public &&
 			$p.archived == null &&
 			$p.publication >= (now - Std::Day(7)) |>
-		sort desc Post.reactions:length
+		sort $ desc Post.reactions:length
 
 	admins -> []Admin = entities Admin
 
 	adminActivities -> []AdminActivity = entities AdminActivity |>
-		sort desc AdminActivity.time
+		sort $ desc AdminActivity.time
 
 	users -> []User = entities User
 

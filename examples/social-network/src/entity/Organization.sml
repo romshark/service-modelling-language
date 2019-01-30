@@ -26,11 +26,11 @@ properties {
 	subsidiaries <-> []Organization.parentOrganization
 
 	# employees links all present and past employees
-	employees <-> []User.employmentHistory |> sort asc Employment.start
+	employees <-> []User.employmentHistory |> sort $ asc Employment.start
 
 	# presentEmployees links all current employees
 	presentEmployees -> []User = this.employees |>
-		filter ($e) => $e.end == null
+		filter $ ($e) => $e.end == null
 
 	# pageAdmins lists all page administrators
 	pageAdmins <-> []User.managedOrganizationPages

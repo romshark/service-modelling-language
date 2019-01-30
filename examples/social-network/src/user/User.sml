@@ -14,7 +14,7 @@ properties {
 
 	# employmentHistory lists all employment entries sorted by their begin
 	employmentHistory <-> []Organization.employees |>
-		sort desc Employment.begin
+		sort $ desc Employment.begin
 
 	# registration represents the time of the profile creation
 	registration Time
@@ -30,10 +30,10 @@ properties {
 	posts Posts
 
 	# inbox lists all received messages
-	inbox <-> []Message.receiver |> sort desc Message.sent
+	inbox <-> []Message.receiver |> sort $ desc Message.sent
 
 	# outbox lists all sent messages
-	outbox <-> []Message.sender |> sort desc Message.sent
+	outbox <-> []Message.sender |> sort $ desc Message.sent
 
 	# managedOrganizationPages links all organization pages the user administers
 	managedOrganizationPages <-> []Organization.pageAdmins
@@ -41,14 +41,14 @@ properties {
 	# outgoingFriendshipRequests lists all outgoing friendship requests the user
 	# initiated sorted by their age
 	outgoingFriendshipRequests <-> []FriendshipRequest.from |>
-		filter ($fr) => $fr.status == null |>
-		sort   asc FriendshipRequest.creation
+		filter $ ($fr) => $fr.status == null |>
+		sort   $ asc FriendshipRequest.creation
 
 	# incomingFriendshipRequests lists all incoming friendship requests the user
 	# received sorted by their age
 	incomingFriendshipRequests <-> []FriendshipRequest.to |>
-		filter ($fr) => $fr.status == null |>
-		sort   asc FriendshipRequest.creation
+		filter $ ($fr) => $fr.status == null |>
+		sort   $ asc FriendshipRequest.creation
 
 	# banned is null as long as the profile isn't banned
 	banned ?Time
@@ -61,5 +61,5 @@ properties {
 	organizationRatings <-> []OrganizationRating.author
 
 	# reactions links all reactions posted by this user
-	reactions <-> []Reaction.author |> sort desc Reaction.publication
+	reactions <-> []Reaction.author |> sort $ desc Reaction.publication
 }
