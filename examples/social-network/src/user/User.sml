@@ -13,7 +13,8 @@ properties {
 	spokenLanguages []Language
 
 	# employmentHistory lists all employment entries sorted by their begin
-	employmentHistory <-> []Organization.employees |> Employment.begin
+	employmentHistory <-> []Organization.employees |>
+		sort desc Employment.begin
 
 	# registration represents the time of the profile creation
 	registration Time
