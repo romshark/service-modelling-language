@@ -30,7 +30,7 @@ properties {
 
 	# presentEmployees links all current employees
 	presentEmployees -> []User = this.employees |>
-		filter Employment.end == null
+		filter ($e) => $e.end == null
 
 	# pageAdmins lists all page administrators
 	pageAdmins <-> []User.managedOrganizationPages
