@@ -1,4 +1,5 @@
-# PostPublished is triggered when a friend published a new post
+# PostPublished is emitted when a friend published a new post. It's received by
+# anyone who's allowed to access the post.
 event SocialNetwork::PostPublished
 
 properties {
