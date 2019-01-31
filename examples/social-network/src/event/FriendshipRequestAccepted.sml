@@ -7,7 +7,7 @@ arguments {
 }
 
 properties {
-	request -> FriendshipRequest
+	request FriendshipRequest
 }
 
 access {
