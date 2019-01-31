@@ -1,17 +1,11 @@
-# FriendshipRequestAccepted is triggered when a friendship request initiated by
-# the given user is accepted
+# FriendshipRequestAccepted is emitted when a friendship request is accepted.
+# It's received by both the sender and the receiver of the request.
 event SocialNetwork::FriendshipRequestAccepted
-
-arguments {
-	user ID<User>
-}
 
 properties {
 	request FriendshipRequest
 }
 
 access {
-	allow User as accessor {
-		if accessor == this.user
-	}
+	allow User
 }
