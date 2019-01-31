@@ -1,16 +1,10 @@
 # PostPublished is triggered when a friend published a new post
 event SocialNetwork::PostPublished
 
-arguments {
-	user ID<User>
-}
-
 properties {
-	requestingUser ID<User>
+	newPost Post
 }
 
 access {
-	allow User as accessor {
-		if accessor == this.user
-	}
+	allow User
 }
