@@ -8,7 +8,7 @@ arguments {
 }
 
 results {
-	sentMessage -> Message
+	sentMessage Message
 }
 
 # Allow sending messages to users only on their own behalf

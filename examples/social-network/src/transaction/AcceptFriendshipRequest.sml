@@ -8,7 +8,7 @@ arguments {
 }
 
 results {
-	newFriend -> User
+	newFriend User
 }
 
 access AcceptFriendshipRequest {

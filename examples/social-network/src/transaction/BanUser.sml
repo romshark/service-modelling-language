@@ -7,7 +7,7 @@ arguments {
 }
 
 results {
-	bannedUser -> User
+	bannedUser User
 }
 
 access BanUser {

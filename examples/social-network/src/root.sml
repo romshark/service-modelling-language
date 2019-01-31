@@ -3,31 +3,31 @@ root SocialNetwork
 properties {
 	# trendingPublicPosts lists all currently trending public posts sorted by
 	# the number of reactions
-	trendingPublicPosts -> []Post = entities Post |>
+	trendingPublicPosts []Post = entities Post |>
 		filter $ ($p) => $p.access == Visibility::public &&
 			$p.archived == null &&
 			$p.publication >= (now - Std::Day(7)) |>
 		sort $ desc Post.reactions:length
 
-	admins -> []Admin = entities Admin
+	admins []Admin = entities Admin
 
-	adminActivities -> []AdminActivity = entities AdminActivity |>
+	adminActivities []AdminActivity = entities AdminActivity |>
 		sort $ desc AdminActivity.time
 
-	users -> []User = entities User
+	users []User = entities User
 
-	countries -> []Country = entities Country
+	countries []Country = entities Country
 
-	cities -> []City = entities City
+	cities []City = entities City
 
-	organizations -> []Organization = entities Organization
+	organizations []Organization = entities Organization
 
-	reactions -> []Reactions = entities Reactions
+	reactions []Reactions = entities Reactions
 
-	posts -> []Post = entities Post
+	posts []Post = entities Post
 
 	# mutualFriends lists all mutual friends between the given users
-	mutualFriends -> []User (
+	mutualFriends []User (
 		$target ID<User>
 		$friend ID<User>
 	) = intersection $target.friends $friend.friends

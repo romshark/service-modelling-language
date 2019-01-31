@@ -11,7 +11,7 @@ arguments {
 }
 
 results {
-	publishedPost -> Post
+	publishedPost Post
 }
 
 access PublishPost {

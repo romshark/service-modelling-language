@@ -9,7 +9,7 @@ arguments {
 }
 
 results {
-	publishedReaction -> Reaction
+	publishedReaction Reaction
 }
 
 # Users can only publish reactions on their own behalf

@@ -16,7 +16,7 @@ arguments {
 }
 
 results {
-	newUser -> User
+	newUser User
 }
 
 # SignUp is accessible to the public

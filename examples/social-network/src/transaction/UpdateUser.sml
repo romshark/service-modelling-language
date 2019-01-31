@@ -18,7 +18,7 @@ arguments {
 }
 
 results {
-	user -> User
+	user User
 }
 
 errors {
