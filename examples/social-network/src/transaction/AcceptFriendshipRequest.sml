@@ -1,5 +1,5 @@
 # AcceptFriendshipRequest declines a friendship request triggering the
-# FriendshipRequestDeclined event
+# FriendshipRequestAccepted event
 transaction SocialNetwork::AcceptFriendshipRequest
 
 arguments {
