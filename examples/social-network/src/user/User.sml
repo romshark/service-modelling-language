@@ -47,20 +47,20 @@ properties {
 	# outgoingFriendshipRequests lists all outgoing friendship requests the user
 	# initiated sorted by their age
 	outgoingFriendshipRequests <-> []FriendshipRequest.from |>
-		filter $ ($fr) => $fr.status == null |>
+		filter $ ($fr) => $fr.status == nil |>
 		sort   $ asc FriendshipRequest.creation
 
 	# incomingFriendshipRequests lists all incoming friendship requests the user
 	# received sorted by their age
 	incomingFriendshipRequests <-> []FriendshipRequest.to |>
-		filter $ ($fr) => $fr.status == null |>
+		filter $ ($fr) => $fr.status == nil |>
 		sort   $ asc FriendshipRequest.creation
 
-	# banned is null as long as the profile isn't banned
+	# banned is nil as long as the profile isn't banned
 	banned ?Time
 
 	# activation represents the time of account activation. When activation
-	# is null the account must be considered yet not activated.
+	# is nil the account must be considered yet not activated.
 	activation ?Time
 
 	# organizationRatings links all organization ratings posted by this user

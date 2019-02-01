@@ -16,6 +16,6 @@ results {
 access PublishReaction {
 	allow User as accessor {
 		# The user is the author of the reaction
-		if accessor.activation != null && accessor == $author
+		if accessor.activation != nil && accessor == $author
 	}
 }

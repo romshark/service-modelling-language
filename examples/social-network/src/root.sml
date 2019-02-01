@@ -5,7 +5,7 @@ properties {
 	# the number of reactions
 	trendingPublicPosts []Post = entities Post |>
 		filter $ ($p) => $p.access == Visibility::public &&
-			$p.archived == null &&
+			$p.archived == nil &&
 			$p.publication >= (now - Std::Day(7)) |>
 		sort $ desc Post.reactions:length
 

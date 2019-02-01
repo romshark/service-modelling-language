@@ -14,7 +14,7 @@ results {
 # Allow sending messages to users only on their own behalf
 access SendMessage {
 	allow User as accessor {
-		if accessor.activation != null && accessor == $sender &&
+		if accessor.activation != nil && accessor == $sender &&
 			accessor in $receiver.friends
 	}
 }

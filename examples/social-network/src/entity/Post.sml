@@ -7,7 +7,7 @@ properties {
 	access      VisibilityPermission
 	reactions   Reactions
 
-	# archived specifies the time the post was removed. This field is null when
+	# archived specifies the time the post was removed. This field is nil when
 	# the post was not removed
 	archived ?Time
 }

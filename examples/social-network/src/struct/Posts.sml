@@ -8,12 +8,12 @@ properties {
 
 	# published links all currently published posts
 	published -> []Post = this.all |>
-		filter $ ($p) => $p.archived == null |>
+		filter $ ($p) => $p.archived == nil |>
 		sort $ desc Post.publication
 
 	# archived links all archived posts
 	archived -> []Post = this.all |>
-		filter $ ($p) => $p.archived != null |>
+		filter $ ($p) => $p.archived != nil |>
 		sort $ desc Post.publication
 
 	# trending lists the most relevant posts sorted by the number of
