@@ -12,17 +12,23 @@ properties {
 	residence       ? -> City
 	spokenLanguages []Language
 
-	# employmentHistory lists all employment entries sorted by their begin
-	employmentHistory <-> []Organization.employees |>
+	# employmentHistory lists all employments sorted by their begin
+	employmentHistory <-> []Employment.user |>
 		sort $ desc Employment.begin
 
 	# registration represents the time of the profile creation
 	registration Time
 
 	// Connections
-	friends      <-> []User.friends
+	friendships  <-> []Friendship.users
 	relatives    []Relative
 	relationship Relationship
+
+	friends -> []User =
+		map this.friendships ($friendship) =>
+			filterMap $friendship.users ($user) => select {
+				case ($user != this) = $user
+			}
 
 	# access defines all access permissions
 	access ProfileAccessPermissions
