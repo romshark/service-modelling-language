@@ -14,7 +14,7 @@ arguments {
 	$residence         ?City
 	$spokenLanguages   ?[]Language
 	$employmentHistory ?[]EmploymentForm
-	$access            ?ProfileAccessPermissions
+	$access            ?ProfileAccessPermissionsForm
 }
 
 results {
