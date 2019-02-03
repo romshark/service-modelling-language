@@ -16,22 +16,23 @@ properties {
 # whitelist of friends or to all friends except the blacklisted ones
 access Post {
 	allow Admin
-	allow User as accessor {
+	allow User as $accessor {
 		this.access {
 		Visibility:
 			# The post is public
 			if this.access == Visibility::public
 			
-			# The post is accessible to all friends and the accessor is a friend
-			if this.access == Visibility::friends && accessor in this.friends
+			# The post is accessible to all friends
+			# and the $accessor is a friend
+			if this.access == Visibility::friends && $accessor in this.friends
 
 		VisibilityBlacklist:
 			# The user is not in the blacklist
-			if accessor !in this.access
+			if $accessor !in this.access
 
 		VisibilityWhitelist:
 			# The user is in the whitelist
-			if accessor in this.access
+			if $accessor in this.access
 		}
 	}
 }

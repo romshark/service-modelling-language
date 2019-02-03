@@ -7,10 +7,10 @@ arguments {
 
 access RemovePost {
 	# Only users are allowed to publish posts
-	allow User as accessor {
+	allow User as $accessor {
 		$post.publisher {
 		User:
-			if accessor == $post.publisher
+			if $accessor == $post.publisher
 		}
 	}
 }

@@ -13,7 +13,7 @@ results {
 
 access PublishPostOrganization {
 	# Only page administrators are allowed to publish posts
-	allow User as accessor {
-		if accessor in $organization.pageAdmins
+	allow User as $accessor {
+		if $accessor in $organization.pageAdmins
 	}
 }

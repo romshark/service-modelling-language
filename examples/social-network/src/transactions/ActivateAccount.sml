@@ -17,7 +17,7 @@ errors ActivateAccount {
 }
 
 access ActivateAccount {
-	allow User as accessor {
-		if accessor == $account
+	allow User as $accessor {
+		if $accessor == $account
 	}
 }

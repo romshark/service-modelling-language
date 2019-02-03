@@ -44,15 +44,15 @@ access trendingPublicPosts {
 # Allow only admins and authors of reactions to access them directly
 access reactions {
 	allow Admin
-	allow User as accessor {
-		if accessor == properties::author
+	allow User as $accessor {
+		if $accessor == properties::author
 	}
 }
 
 # Allow users to find mutual friends between themselves and their friends only
 access mutualFriends as mf {
 	allow Admin
-	allow User as accessor {
-		if accessor == mf.target && mf.target in mf.friend.friends
+	allow User as $accessor {
+		if $accessor == mf.target && mf.target in mf.friend.friends
 	}
 }

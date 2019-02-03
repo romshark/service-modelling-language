@@ -11,7 +11,7 @@ results {
 }
 
 access BanUser {
-	allow Admin as accessor {
-		if accessor.rights.banUsers
+	allow Admin as $accessor {
+		if $accessor.rights.banUsers
 	}
 }

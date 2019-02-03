@@ -44,8 +44,8 @@ access Organization {
 # The list of page administrators is only accessible to page administrators
 access pageAdmins {
 	allow Admin
-	allow User as accessor {
-		if accessor in this.pageAdmins
+	allow User as $accessor {
+		if $accessor in this.pageAdmins
 	}
 }
 
@@ -53,8 +53,8 @@ access pageAdmins {
 # to the organization's page administrators
 access posts {
 	allow Admin
-	allow User as accessor {
-		if accessor in this.pageAdmins
+	allow User as $accessor {
+		if $accessor in this.pageAdmins
 	}
 }
 
