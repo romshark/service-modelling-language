@@ -31,7 +31,5 @@ errors {
 
 # UpdateUser is accessible to the profile owner only
 access UpdateUser {
-	allow User as $accessor {
-        if $accessor == $user
-    }
+	allow User as $accessor if $accessor == $user
 }

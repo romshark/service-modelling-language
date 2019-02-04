@@ -19,7 +19,6 @@ errors RequestFriendship {
 }
 
 access RequestFriendship {
-	allow User as $accessor {
-		if $accessor.activation != nil && $accessor == $sender
-	}
+	allow User as $accessor if $accessor.activation != nil &&
+		$accessor == $sender
 }

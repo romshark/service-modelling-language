@@ -3,7 +3,7 @@ struct SocialNetwork::Posts
 
 properties {
 	# all links all posts ever created including the archived ones
-	all <-> []Post.publisher |>
+	all <-> []Post.collection |>
 		sort $ desc Post.publication
 
 	# published links all currently published posts

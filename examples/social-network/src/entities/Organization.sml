@@ -36,7 +36,7 @@ properties {
 	pageAdmins <-> []User.managedOrganizationPages
 }
 
-access Organization {
+access {
 	# An organization is publicly accessible
 	allow public
 }
@@ -44,18 +44,14 @@ access Organization {
 # The list of page administrators is only accessible to page administrators
 access pageAdmins {
 	allow Admin
-	allow User as $accessor {
-		if $accessor in this.pageAdmins
-	}
+	allow User as $accessor if $accessor in this.pageAdmins
 }
 
 # All post nodes except the published and trending ones are only be accessible
 # to the organization's page administrators
 access posts {
 	allow Admin
-	allow User as $accessor {
-		if $accessor in this.pageAdmins
-	}
+	allow User as $accessor if $accessor in this.pageAdmins
 }
 
 access posts.published from Organization {

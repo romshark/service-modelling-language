@@ -8,7 +8,5 @@ arguments {
 }
 
 access RejectFriendshipRequest {
-	allow User as $accessor {
-		if $accessor == $user
-	}
+	allow User as $accessor if $accessor == $user
 }

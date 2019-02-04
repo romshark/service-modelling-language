@@ -1,7 +1,7 @@
 entity SocialNetwork::Post
 
 properties {
-	publisher   <-> Posts.all
+	collection  <-> Posts.all
 	publication Time
 	content     Text
 	access      VisibilityPermission
@@ -16,23 +16,17 @@ properties {
 # whitelist of friends or to all friends except the blacklisted ones
 access Post {
 	allow Admin
-	allow User as $accessor {
-		this.access {
-		Visibility:
-			# The post is public
-			if this.access == Visibility::public
-			
-			# The post is accessible to all friends
-			# and the $accessor is a friend
-			if this.access == Visibility::friends && $accessor in this.friends
-
-		VisibilityBlacklist:
-			# The user is not in the blacklist
-			if $accessor !in this.access
-
-		VisibilityWhitelist:
-			# The user is in the whitelist
-			if $accessor in this.access
+	allow User as $accessor if (
+		select (typeof this.collection:entity) as $v {
+			case User         = $accessor == $v
+			case Organization = true
 		}
-	}
+	) || select (typeof this.access) as $v {
+			case Visibility = select $v {
+				case Visibility::public  = true
+				case Visibility::friends = $accessor in this.friends
+			}
+			case VisibilityBlacklist = $accessor !in this.access
+			case VisibilityWhitelist = $accessor in this.access
+		}
 }

@@ -14,8 +14,6 @@ results {
 
 # Users can only publish reactions on their own behalf
 access PublishReaction {
-	allow User as $accessor {
-		# The user is the author of the reaction
-		if $accessor.activation != nil && $accessor == $author
-	}
+	allow User as $accessor if $accessor.activation != nil &&
+		$accessor == $author
 }

@@ -9,7 +9,5 @@ properties {
 
 # Accessing administrator is allowed to view other administrator's profiles
 access Admin {
-	allow Admin as $accessor {
-		if $accessor.rights.viewAdminProfiles
-	}
+	allow Admin as $accessor if $accessor.rights.viewAdminProfiles
 }

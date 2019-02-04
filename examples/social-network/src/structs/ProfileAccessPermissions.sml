@@ -2,9 +2,9 @@
 struct SocialNetwork::ProfileAccessPermissions
 
 properties {
-	profile   VisiblityPermission
-	email     VisiblityPermission
-	phone     VisiblityPermission
-	birthDate VisiblityPermission
-	residence VisiblityPermission
+	profile             VisibilityPermission
+	email               VisibilityPermission
+	phone               VisibilityPermission
+	birthDate           VisibilityPermission
+	residence           VisibilityPermission
 }
