@@ -8,6 +8,6 @@ properties {
 
 	# trendingReactions links the most relevant reactions sorted by the number
 	# of sub-reactions
-	trendingReactions -> this.all |>
+	trendingReactions = this.all |>
 		sort $ desc Reaction.reactions.all:length
 }
