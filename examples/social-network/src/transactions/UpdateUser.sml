@@ -1,7 +1,7 @@
 # UpdateUser updates a user profile changing the given fields
 transaction SocialNetwork::UpdateUser
 
-arguments {
+parameters {
     $user ID<User>
 
 	$name              ?PersonName

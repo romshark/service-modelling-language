@@ -2,7 +2,7 @@
 # FriendshipRequestRejected event
 transaction SocialNetwork::RejectFriendshipRequest
 
-arguments {
+parameters {
 	$user ID<User>
 	$from ID<User>
 }

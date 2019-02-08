@@ -1,7 +1,7 @@
 # ActivateAccount activates an account
 transaction SocialNetwork::ActivateAccount
 
-arguments (
+parameters (
 	$account          ID<User>
 	$activationSecret String
 )

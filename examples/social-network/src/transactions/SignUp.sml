@@ -1,7 +1,7 @@
 # SignUp creates a new user account that must yet be activated
 transaction SocialNetwork::SignUp
 
-arguments {
+parameters {
 	$name              PersonName
 	$email             EmailAddress
 	$gender            ?Gender

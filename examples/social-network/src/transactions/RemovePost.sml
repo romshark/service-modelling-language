@@ -1,7 +1,7 @@
 # RemovePost removes a published post
 transaction SocialNetwork::RemovePost
 
-arguments {
+parameters {
 	$post ID<Post>
 }
 

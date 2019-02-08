@@ -1,7 +1,7 @@
 # PublishReaction publishes a new reaction to either a post or another reaction
 transaction SocialNetwork::PublishReaction
 
-arguments {
+parameters {
 	$target  ReactionTarget
 	$author  ID<User>
 	$type    ReactionType

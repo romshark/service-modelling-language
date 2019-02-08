@@ -2,7 +2,7 @@
 # FriendshipRequestAccepted event
 transaction SocialNetwork::AcceptFriendshipRequest
 
-arguments {
+parameters {
 	$user ID<User>
 	$from ID<User>
 }

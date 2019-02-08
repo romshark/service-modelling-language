@@ -1,7 +1,7 @@
 # SendMessage sends a message to the receiver user from the sender user
 transaction SocialNetwork::SendMessage
 
-arguments {
+parameters {
 	$sender   ID<User>
 	$receiver ID<User>
 	$contents Text
