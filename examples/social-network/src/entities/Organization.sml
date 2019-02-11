@@ -54,17 +54,20 @@ access pageAdmins {
 
 # All post nodes except the published and trending ones are only be accessible
 # to the organization's page administrators
-access posts {
+access posts.all {
 	allow Admin
 	allow User as $accessor if $accessor in this.pageAdmins
 }
 
-// TODO: update obsolete from syntax
-access posts.published from Organization {
+access posts.archived {
+	allow Admin
+	allow User as $accessor if $accessor in this.pageAdmins
+}
+
+access posts.published {
 	allow public
 }
 
-// TODO: update obsolete from syntax
-access posts.trending from Organization {
+access posts.trending {
 	allow public
 }
