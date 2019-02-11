@@ -1,6 +1,10 @@
 # PublishPostOrganization publishes a new organization post
 transaction SocialNetwork::PublishPostOrganization
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$organization ID<Organization>
 	$admin        ID<User>

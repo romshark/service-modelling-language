@@ -1,6 +1,10 @@
 # Reaction represents a reaction to either a post or another reaction
 entity SocialNetwork::Reaction
 
+use {
+	"std" 1.0
+}
+
 properties {
 	# target represents the target of the reaction which may be a post or just
 	# another reaction

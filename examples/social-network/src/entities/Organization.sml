@@ -1,6 +1,10 @@
 # Organization represents a profile of an organization
 entity SocialNetwork::Organization
 
+use {
+	"std" 1.0
+}
+
 properties {
 	# id represents a configurable unique profile id
 	id ?String
@@ -26,11 +30,12 @@ properties {
 	subsidiaries <-> []Organization.parentOrganization
 
 	# employments links all present and past employments
-	employments <-> []Employment.organization |> sort $ asc Employment.start
+	employments <-> []Employment.organization |>
+		sort($, Order::Ascending, Employment.start)
 
 	# presentEmployments links all current employments
-	presentEmployments -> []Employment = this.employments |>
-		filter $ ($e) => $e.end == nil
+	presentEmployments -> []Employment =
+		filter(this.employments, ($e) => $e.end == nil)
 
 	# pageAdmins lists all page administrators
 	pageAdmins <-> []User.managedOrganizationPages
@@ -54,10 +59,12 @@ access posts {
 	allow User as $accessor if $accessor in this.pageAdmins
 }
 
+// TODO: update obsolete from syntax
 access posts.published from Organization {
 	allow public
 }
 
+// TODO: update obsolete from syntax
 access posts.trending from Organization {
 	allow public
 }

@@ -1,5 +1,9 @@
 user SocialNetwork::User
 
+use {
+	"std" 1.0
+}
+
 properties {
 	// Personal information
 	name            PersonName
@@ -14,7 +18,7 @@ properties {
 
 	# employmentHistory lists all employments sorted by their begin
 	employmentHistory <-> []Employment.user |>
-		sort $ desc Employment.begin
+		sort($, Order::Descending, Employment.begin)
 
 	# registration represents the time of the profile creation
 	registration Time
@@ -25,10 +29,11 @@ properties {
 	relationship Relationship
 
 	friends -> []User =
-		map this.friendships ($friendship) =>
-			filterMap $friendship.users ($user) => select {
+		map(this.friendships, ($friendship) =>
+			filterMap($friendship.users, ($user) => select {
 				case ($user != this) = $user
-			}
+			})
+		)
 
 	# access defines all access permissions
 	access ProfileAccessPermissions
@@ -36,10 +41,12 @@ properties {
 	posts Posts
 
 	# inbox lists all received messages
-	inbox <-> []Message.receiver |> sort $ desc Message.sent
+	inbox <-> []Message.receiver |>
+		sort($, Order::Descending, Message.sent)
 
 	# outbox lists all sent messages
-	outbox <-> []Message.sender |> sort $ desc Message.sent
+	outbox <-> []Message.sender |>
+		sort($, Order::Descending, Message.sent)
 
 	# managedOrganizationPages links all organization pages the user administers
 	managedOrganizationPages <-> []Organization.pageAdmins
@@ -47,14 +54,14 @@ properties {
 	# outgoingFriendshipRequests lists all outgoing friendship requests the user
 	# initiated sorted by their age
 	outgoingFriendshipRequests <-> []FriendshipRequest.from |>
-		filter $ ($fr) => $fr.status == nil |>
-		sort   $ asc FriendshipRequest.creation
+		filter($, ($fr) => $fr.status == nil) |>
+		sort($, Order::Ascending, FriendshipRequest.creation)
 
 	# incomingFriendshipRequests lists all incoming friendship requests the user
 	# received sorted by their age
 	incomingFriendshipRequests <-> []FriendshipRequest.to |>
-		filter $ ($fr) => $fr.status == nil |>
-		sort   $ asc FriendshipRequest.creation
+		filter($, ($fr) => $fr.status == nil) |>
+		sort($, Order::Ascending, FriendshipRequest.creation)
 
 	# banned is nil as long as the profile isn't banned
 	banned ?Time
@@ -67,5 +74,6 @@ properties {
 	organizationRatings <-> []OrganizationRating.author
 
 	# reactions links all reactions posted by this user
-	reactions <-> []Reaction.author |> sort $ desc Reaction.publication
+	reactions <-> []Reaction.author |>
+		sort($, Order::Descending, Reaction.publication)
 }

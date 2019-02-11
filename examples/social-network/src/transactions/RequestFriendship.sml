@@ -1,6 +1,10 @@
 # RequestFriendship creates a friendship request
 transaction SocialNetwork::RequestFriendship
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$sender   ID<User>
 	$receiver ID<User>

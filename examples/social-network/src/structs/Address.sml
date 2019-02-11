@@ -1,5 +1,9 @@
 struct SocialNetwork::Address
 
+use {
+	"std" 1.0
+}
+
 properties {
 	city       -> City
 	street     Text

@@ -1,5 +1,9 @@
 user SocialNetwork::User
 
+use {
+	"std" 1.0
+}
+
 # Basic user profile access permissions
 access {
 	allow Admin
@@ -10,7 +14,7 @@ access {
 	# the profile is white-list protected then the user is only allowed to
 	# access if listed in the white-list
 	allow User as $accessor if $accessor == this ||
-		select (typeof this.access.profile) as $v {
+		select (typeof(this.access.profile)) as $v {
 			case Visibility = $v == Visibility::public ||
 				$accessor in this.friends
 			case VisibilityBlacklist = $accessor !in $v
@@ -31,7 +35,7 @@ access posts.archived {
 access email {
 	allow Admin
 	allow User as $accessor if $accessor == this ||
-		select (typeof this.access.email) as $v {
+		select (typeof(this.access.email)) as $v {
 			case Visibility = select $v {
 				case Visibility::public  = true
 				case Visibility::friends = $accessor in this.friends
@@ -45,7 +49,7 @@ access email {
 access phone {
 	allow Admin
 	allow User as $accessor if $accessor == this ||
-		select (typeof this.access.phone) as $v {
+		select (typeof(this.access.phone)) as $v {
 			case Visibility = select $v {
 				case Visibility::public  = true
 				case Visibility::friends = $accessor in this.friends
@@ -59,7 +63,7 @@ access phone {
 access birthDate {
 	allow Admin
 	allow User as $accessor if $accessor == this ||
-		select (typeof this.access.birthDate) as $v {
+		select (typeof(this.access.birth)Date) as $v {
 			case Visibility = select $v {
 				case Visibility::public  = true
 				case Visibility::friends = $accessor in this.friends
@@ -74,7 +78,7 @@ access birthDate {
 access friends {
 	allow Admin
 	allow User as $accessor if $accessor == this ||
-		select (typeof this.access.friends) as $v {
+		select (typeof(this.access.friends)) as $v {
 			case Visibility = select $v {
 				case Visibility::public  = true
 				case Visibility::friends = $accessor in this.friends
@@ -97,7 +101,7 @@ access access {
 access residence {
 	allow Admin
 	allow User as $accessor if $accessor == this ||
-		select (typeof this.access.residence) as $v {
+		select (typeof(this.access.residence)) as $v {
 			case Visibility = select $v {
 				case Visibility::public  = true
 				case Visibility::friends = $accessor in this.friends

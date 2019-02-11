@@ -2,6 +2,10 @@
 # and a user
 entity SocialNetwork::Employment
 
+use {
+	"std" 1.0
+}
+
 properties {
 	organization <-> Organization.employments
 	user         <-> User.employmentHistory

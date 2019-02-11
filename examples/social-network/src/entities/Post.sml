@@ -1,5 +1,9 @@
 entity SocialNetwork::Post
 
+use {
+	"std" 1.0
+}
+
 properties {
 	collection  <-> Posts.all
 	publication Time
@@ -17,11 +21,11 @@ properties {
 access Post {
 	allow Admin
 	allow User as $accessor if (
-		select (typeof this.collection:entity) as $v {
+		select typeof(this.collection:entity) as $v {
 			case User         = $accessor == $v
 			case Organization = true
 		}
-	) || select (typeof this.access) as $v {
+	) || select typeof(this.access) as $v {
 			case Visibility = select $v {
 				case Visibility::public  = true
 				case Visibility::friends = $accessor in this.friends

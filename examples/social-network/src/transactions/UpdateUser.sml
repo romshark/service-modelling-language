@@ -1,8 +1,12 @@
 # UpdateUser updates a user profile changing the given fields
 transaction SocialNetwork::UpdateUser
 
+use {
+	"std" 1.0
+}
+
 parameters {
-    $user ID<User>
+	$user ID<User>
 
 	$name              ?PersonName
 	$gender            ?Gender

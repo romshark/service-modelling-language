@@ -1,6 +1,10 @@
 # PublishPost publishes a new post
 transaction SocialNetwork::PublishPost
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$author  ID<User>
 	$content Text

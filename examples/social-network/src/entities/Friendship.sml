@@ -1,6 +1,10 @@
 # Friendship represents a friendship relation between two users
 entity SocialNetwork::Friendship
 
+use {
+	"std" 1.0
+}
+
 properties {
 	users <-> []User.friendships
 
@@ -10,5 +14,5 @@ properties {
 
 constraints {
 	# The list of users in a friendship must contain exactly two different users
-	require (length this.users) == 2 && !(hasDuplicates this.users User:id)
+	require length(this.users) == 2
 }

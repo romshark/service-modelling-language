@@ -1,5 +1,9 @@
 entity SocialNetwork::OrganizationRating
 
+use {
+	"std" 1.0
+}
+
 properties {
 	author       <-> User.organizationRatings
 	organization <-> Organization.ratings
@@ -11,7 +15,7 @@ properties {
 access {
 	allow Admin
 	allow User as $accessor if $accessor == this.author ||
-		select (typeof this.access) as $v {
+		select typeof(this.access) as $v {
 			case Visibility = select $v {
 				case Visibility::public  = true
 				case Visibility::friends = $accessor in this.author.friends
