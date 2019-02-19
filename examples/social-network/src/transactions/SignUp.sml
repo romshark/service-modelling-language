@@ -25,7 +25,7 @@ results {
 
 # SignUp is accessible to the public
 access SignUp {
-	allow  public
+	allow  anyone
 	forbid User
 	forbid Admin
 }

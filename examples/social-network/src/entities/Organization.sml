@@ -43,7 +43,7 @@ properties {
 
 access {
 	# An organization is publicly accessible
-	allow public
+	allow anyone
 }
 
 # The list of page administrators is only accessible to page administrators
@@ -65,9 +65,9 @@ access posts.archived {
 }
 
 access posts.published {
-	allow public
+	allow anyone
 }
 
 access posts.trending {
-	allow public
+	allow anyone
 }

@@ -10,5 +10,5 @@ properties {
 }
 
 access Country {
-	allow public
+	allow anyone
 }

@@ -41,11 +41,11 @@ properties {
 }
 
 access {
-	allow public
+	allow anyone
 }
 
 access trendingPublicPosts {
-	allow public
+	allow anyone
 }
 
 # Allow only admins

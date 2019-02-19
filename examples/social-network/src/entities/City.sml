@@ -10,5 +10,5 @@ properties {
 }
 
 access City {
-	allow public
+	allow anyone
 }
