@@ -9,26 +9,26 @@ parameters {
 }
 
 attributes {
-	*filter  ?function (@T) Bool |> select { case ($ == nil) = ($x) => true }
-	*order   ?Order
-	*orderBy ?(Selector<@T> or Array<Selector<@T>>)
+	*predicate ?function (@T) Bool |> select { case ($ == nil) = ($x) => true }
+	*order     ?Order
+	*orderBy   ?(Selector<@T> or Array<Selector<@T>>)
 }
 
 value Array<@T> = select {
 	case ($ids != nil) = find<@T>(
-		($t) => $t:id in $ids and *filter($t),
+		($t) => $t:id in $ids and *predicate($t),
 		*order,
 		*orderBy,
 		$limit
 	)
 	case ($after != nil) = find<@T>(
-		($t) => $t:id > $after and *filter($t),
+		($t) => $t:id > $after and *predicate($t),
 		*order,
 		*orderBy,
 		$limit
 	)
 	case ($before != nil) = find<@T>(
-		($t) => $t:id < $before and *filter($t),
+		($t) => $t:id < $before and *predicate($t),
 		*order,
 		*orderBy,
 		negate($limit)
