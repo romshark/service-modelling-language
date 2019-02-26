@@ -1,6 +1,10 @@
 # dim equals the maximum of $x - $y or 0
 function math::dim
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$x Float64
 	$y Float64

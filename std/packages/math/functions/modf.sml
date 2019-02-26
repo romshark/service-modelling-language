@@ -2,6 +2,10 @@
 # Both values have the same sign as $f
 function math::modf
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$f Float64
 }

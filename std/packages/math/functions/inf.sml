@@ -2,6 +2,10 @@
 # negative infinity if $sign < 0.
 function math::inf
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$sign Int32
 }

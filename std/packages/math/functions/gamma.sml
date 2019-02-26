@@ -1,6 +1,10 @@
 # gamma equals the Gamma function of $x
 function math::gamma
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$x Float64
 }

@@ -3,6 +3,10 @@
 # and its sign agrees with that of $x
 function math::mod
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$x Float64
 	$y Float64

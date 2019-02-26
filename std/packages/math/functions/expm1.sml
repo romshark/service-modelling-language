@@ -2,6 +2,10 @@
 # It is more accurate than f.exp($x) - 1 when $x is near zero.
 function math::expm1
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$x Float64
 }

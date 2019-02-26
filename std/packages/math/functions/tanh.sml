@@ -1,6 +1,10 @@
 # tanh equals the hyperbolic tangent of $x
 function math::tanh
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$x Float64
 }

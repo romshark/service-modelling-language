@@ -1,6 +1,10 @@
 # min equals the smaller of $numbers
 function math::min
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$numbers ...Float64
 }

@@ -4,6 +4,10 @@
 # If $sign == 0, isInf equals either infinity.
 function math::isInf
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$f    Float64
 	$sign Int32

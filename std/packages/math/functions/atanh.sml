@@ -1,6 +1,10 @@
 # atanh equals the inverse hyperbolic tangent of $x
 function math::atanh
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$x Float64
 }

@@ -1,6 +1,10 @@
 # erfcinv equals the inverse of f.erfc($x)
 function math::erfcinv
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$x Float64
 }

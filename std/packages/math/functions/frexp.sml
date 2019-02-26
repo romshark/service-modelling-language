@@ -3,6 +3,10 @@
 # with the absolute value of frac in the interval [½, 1).
 function math::frexp
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$f Float64
 }

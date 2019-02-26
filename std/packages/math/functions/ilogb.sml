@@ -1,6 +1,10 @@
 # ilogb equals the binary exponent of $x as an integer
 function math::ilogb
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$x Float64
 }

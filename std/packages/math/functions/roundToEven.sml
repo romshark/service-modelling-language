@@ -1,6 +1,10 @@
 # roundToEven equals the nearest integer, rounding ties to even
 function math::round
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$x Float64
 }

@@ -1,6 +1,10 @@
 # sum equals the sum of the 
 function math::sum
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	numbers ...Float64
 }

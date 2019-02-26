@@ -1,6 +1,10 @@
 # cbrt equals the cube root of $x
 function math::cbrt
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$x Float64
 }

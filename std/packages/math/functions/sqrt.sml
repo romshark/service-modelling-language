@@ -1,6 +1,10 @@
 # sqrt equals the square root of $x
 function math::sqrt
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$x Float64
 }

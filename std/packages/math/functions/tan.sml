@@ -1,6 +1,10 @@
 # tan equals the tangent of the radian argument $x
 function math::tan
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$x Float64
 }

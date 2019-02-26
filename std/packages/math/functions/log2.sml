@@ -2,6 +2,10 @@
 # The special cases are the same as for f.log
 function math::log2
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$x Float64
 }

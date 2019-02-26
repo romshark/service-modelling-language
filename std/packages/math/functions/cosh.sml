@@ -1,6 +1,10 @@
 # cosh equals the hyperbolic cosine of $x
 function math::cosh
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$x Float64
 }

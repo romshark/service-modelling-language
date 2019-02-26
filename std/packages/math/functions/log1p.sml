@@ -2,6 +2,10 @@
 # It is more accurate than f.log(1 + $x) when $x is near zero
 function math::log1p
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$x Float64
 }

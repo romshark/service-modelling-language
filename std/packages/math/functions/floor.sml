@@ -1,6 +1,10 @@
 # floor equals the largest integer less than or equal to $x
 function math::floor
 
+use {
+	"std" 1.0
+}
+
 parameters {
 	$x Float64
 }
