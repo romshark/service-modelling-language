@@ -1,9 +1,5 @@
 type SocialNetwork::Address
 
-use {
-	"std" 1.0
-}
-
 value struct {
 	city       City
 	street     Text
