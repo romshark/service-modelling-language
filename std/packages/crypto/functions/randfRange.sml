@@ -2,10 +2,6 @@
 # between $min and $max
 function crypto::randfRange
 
-use {
-	"std" 1.0
-}
-
 parameters {
 	$min Float64
 	$max Float64

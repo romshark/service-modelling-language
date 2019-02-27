@@ -9,10 +9,6 @@
 # describe standard and convenient representations of the reference time.
 function time::format
 
-use {
-	"std" 1.0
-}
-
 parameters {
 	$tm     Time
 	$layout String

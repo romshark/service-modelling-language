@@ -3,10 +3,6 @@
 # and its offset in seconds east of UTC
 function time::zone
 
-use {
-	"std" 1.0
-}
-
 parameters {
 	$tm Time
 }

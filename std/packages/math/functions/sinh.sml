@@ -1,10 +1,6 @@
 # sinh equals the hyperbolic sine of $x
 function math::sinh
 
-use {
-	"std" 1.0
-}
-
 parameters {
 	$x Float64
 }

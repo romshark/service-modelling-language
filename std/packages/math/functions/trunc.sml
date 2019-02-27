@@ -1,10 +1,6 @@
 # trunc equals the integer part of $x
 function math::trunc
 
-use {
-	"std" 1.0
-}
-
 parameters {
 	$x Float64
 }

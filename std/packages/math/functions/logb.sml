@@ -1,10 +1,6 @@
 # logb equals the binary exponent of $x
 function math::logb
 
-use {
-	"std" 1.0
-}
-
 parameters {
 	$x Float64
 }

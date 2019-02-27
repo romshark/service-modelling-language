@@ -1,10 +1,6 @@
 # log equals the natural logarithm of $x
 function math::log
 
-use {
-	"std" 1.0
-}
-
 parameters {
 	$x Float64
 }

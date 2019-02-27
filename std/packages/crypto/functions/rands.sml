@@ -1,10 +1,6 @@
 # rands equals a random 7-bit ASCII string
 function crypto::rands
 
-use {
-	"std" 1.0
-}
-
 parameters {
 	$minLength Size
 	$maxLength Size

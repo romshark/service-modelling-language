@@ -1,9 +1,5 @@
 function scrypt::hash
 
-use {
-	"std" 1.0
-}
-
 parameters {
 	$password String
 	$salt     String

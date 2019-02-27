@@ -2,10 +2,6 @@
 # using the signs of the two to determine the quadrant of the return value
 function math::atan2
 
-use {
-	"std" 1.0
-}
-
 parameters {
 	$y Float64
 	$x Float64

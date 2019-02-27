@@ -2,10 +2,6 @@
 # It equals $frac × 2 ** $exp.
 function math::ldexp
 
-use {
-	"std" 1.0
-}
-
 parameters {
 	$frac Float64
 	$exp  Int32

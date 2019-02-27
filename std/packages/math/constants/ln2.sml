@@ -2,9 +2,5 @@
 # (as defined in https://oeis.org/A002162)
 constant math::ln2
 
-use {
-	"std" 1.0
-}
-
 value Float64 =
 	0.693147180559945309417232121458176568075500134360255254120680009

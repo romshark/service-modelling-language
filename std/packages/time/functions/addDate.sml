@@ -7,10 +7,6 @@
 # the normalized form for November 31
 function time::addDate
 
-use {
-	"std" 1.0
-}
-
 parameters {
 	$tm     Time
 	$years  Uint32

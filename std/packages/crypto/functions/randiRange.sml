@@ -1,10 +1,6 @@
 # randiRange equals a random signed 32-bit integer between $min and $max
 function crypto::randiRange
 
-use {
-	"std" 1.0
-}
-
 parameters {
 	$min Int32
 	$max Int32

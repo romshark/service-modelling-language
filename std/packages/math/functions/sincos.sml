@@ -1,10 +1,6 @@
 # sincos equals f.sin($x), f.cos($x).
 function math::sincos
 
-use {
-	"std" 1.0
-}
-
 parameters {
 	$x Float64
 }

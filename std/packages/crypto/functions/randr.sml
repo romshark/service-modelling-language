@@ -1,10 +1,6 @@
 # randr equals a random unlimited precision real number
 function crypto::randr
 
-use {
-	"std" 1.0
-}
-
 parameters {
 	$minLength Real
 	$maxLength Real

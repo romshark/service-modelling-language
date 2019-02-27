@@ -1,10 +1,6 @@
 # fract equals the fractional part of $x
 function math::fract
 
-use {
-	"std" 1.0
-}
-
 parameters {
 	$x Float64
 }
