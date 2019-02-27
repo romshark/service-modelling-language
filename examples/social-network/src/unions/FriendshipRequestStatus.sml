@@ -1,6 +1,6 @@
 union SocialNetwork::FriendshipRequestStatus
 
 types {
-    FriendshipRequestAcceptance
-    FriendshipRequestRejection
+	FriendshipRequestAcceptance
+	FriendshipRequestRejection
 }
