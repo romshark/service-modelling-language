@@ -5,11 +5,14 @@ use {
 }
 
 properties {
-	collection  <-> Posts.all
+	publisher   (User or Organization)
 	publication Time
 	content     Text
 	access      VisibilityPermission
-	reactions   Reactions
+
+	reactions Reactions {
+		source: this
+	}
 
 	# archived specifies the time the post was removed. This field is nil when
 	# the post was not removed
@@ -20,17 +23,16 @@ properties {
 # whitelist of friends or to all friends except the blacklisted ones
 access Post {
 	allow Admin
-	allow User as $accessor if (
-		select typeof(this.collection:entity) as $v {
-			case User         = $accessor == $v
-			case Organization = true
+	allow User as $accessor if select typeof(this.publisher) {
+		case User         = $accessor == this.publisher
+		case Organization = true
+		default           = false
+	} || select typeof(this.access) {
+		case Visibility = select this.access {
+			case Visibility::public  = true
+			case Visibility::friends = $accessor in this.friends
 		}
-	) || select typeof(this.access) as $v {
-			case Visibility = select $v {
-				case Visibility::public  = true
-				case Visibility::friends = $accessor in this.friends
-			}
-			case VisibilityBlacklist = $accessor !in this.access
-			case VisibilityWhitelist = $accessor in this.access
-		}
+		case VisibilityBlacklist = $accessor !in this.access
+		case VisibilityWhitelist = $accessor in this.access
+	}
 }

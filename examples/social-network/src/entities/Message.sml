@@ -6,7 +6,7 @@ use {
 
 properties {
 	contents Text
-	sender   <-> User.outbox
-	receiver <-> User.inbox
+	sender   User
+	receiver User
 	sent     Time
 }

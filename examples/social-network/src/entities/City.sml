@@ -5,7 +5,7 @@ use {
 }
 
 properties {
-	country <-> Country.cities
+	country Country
 	name    Text
 }
 

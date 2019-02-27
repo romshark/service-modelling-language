@@ -177,7 +177,7 @@ query(
 	PublishPost (
 		author  $userId
 		content $contents
-		access 	VisibilityBlacklistForm {
+		access 	VisibilityBlacklist {
 			users $blacklistedUserIds
 		}
 	)
@@ -194,7 +194,7 @@ query(
 	PublishPost (
 		author  $userId
 		content $contents
-		access 	VisibilityWhitelistForm {
+		access 	VisibilityWhitelist {
 			users $whitelistedUserIds
 		}
 	)

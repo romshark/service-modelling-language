@@ -1,15 +1,17 @@
 entity SocialNetwork::OrganizationRating
 
 use {
-	"std" 1.0
+	"std"      1.0
+	"std/time" 1.0
 }
 
 properties {
-	author       <-> User.organizationRatings
-	organization <-> Organization.ratings
+	author       User
+	organization Organization
 	rating       ReactionType
 	comment      Text
 	access       VisiblityPermission
+	publication  Time
 }
 
 access {

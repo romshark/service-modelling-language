@@ -1,5 +1,5 @@
 struct SocialNetwork::VisibilityBlacklist
 
 properties {
-	users -> []User
+	users Array<User>
 }

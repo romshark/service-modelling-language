@@ -6,13 +6,13 @@ use {
 }
 
 properties {
-	users <-> []User.friendships
+	users Array<User>
 
 	# request links the friendship request that initiated this friendship
-	request -> FriendshipRequest
+	request FriendshipRequest
 }
 
 constraints {
 	# The list of users in a friendship must contain exactly two different users
-	require length(this.users) == 2
+	require (users as $u) => length($u) == 2
 }

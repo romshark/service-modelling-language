@@ -8,8 +8,8 @@ use {
 properties {
 	# target represents the target of the reaction which may be a post or just
 	# another reaction
-	target <-> Reactions.all
-	author <-> User.reactions
+	target (Post or Reaction)
+	author User
 	type   ReactionType
 
 	# publication specifies the time the reaction was published
@@ -19,5 +19,7 @@ properties {
 	comment ?Text
 
 	# reactions links the reactions to this reaction
-	reactions Reactions
+	reactions Reactions {
+		source: this
+	}
 }

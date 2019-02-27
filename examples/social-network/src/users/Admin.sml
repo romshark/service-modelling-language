@@ -8,8 +8,11 @@ properties {
 	name       PersonName
 	email      EmailAddress
 	rights     AdminRights
-	activities <-> []AdminActivity.admin |>
-		sort($, Order::Descending, AdminActivity.time)
+	activities Collection<AdminActivity> {
+		predicate: ($a) => $a.admin == this
+		order:     Order::desc
+		orderBy:   AdminActivity.time
+	}
 }
 
 # Accessing administrator is allowed to view other administrator's profiles

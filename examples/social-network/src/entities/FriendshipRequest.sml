@@ -5,9 +5,9 @@ use {
 }
 
 properties {
-    from     <-> User.outgoingFriendshipRequests
-    to       <-> User.incomingFriendshipRequests
-    message  Text
-    creation Time
-    status   ?FriendshipRequestStatus
+	from     User
+	to       User
+	message  Text
+	creation Time
+	status   ?FriendshipRequestStatus
 }

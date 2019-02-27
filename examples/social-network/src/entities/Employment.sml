@@ -7,8 +7,8 @@ use {
 }
 
 properties {
-	organization <-> Organization.employments
-	user         <-> User.employmentHistory
+	organization Organization
+	user         User
 
 	# begin specifies the time at which the employment began
 	begin Time

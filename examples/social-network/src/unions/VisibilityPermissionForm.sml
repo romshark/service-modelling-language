@@ -3,6 +3,6 @@ union SocialNetwork::VisibilityPermissionForm
 
 types {
 	Visibility
-	VisibilityBlacklistForm
-	VisibilityWhitelistForm
+	VisibilityBlacklist
+	VisibilityWhitelist
 }

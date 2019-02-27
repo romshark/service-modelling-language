@@ -5,7 +5,7 @@ use {
 }
 
 properties {
-	admin <-> Admin.activities
+	admin Admin
 	type  AdminActivityType
 	time  Time
 }

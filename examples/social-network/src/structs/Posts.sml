@@ -5,23 +5,37 @@ use {
 	"std" 1.0
 }
 
+attributes {
+	*publisher (User or Organization)
+}
+
 properties {
 	# all links all posts ever created including the archived ones
-	all <-> []Post.collection |>
-		sort($, Order::Descending, Post.publication)
+	all Collection<Post> {
+		predicate: ($p) => $p.publisher == *publisher
+		order:     Order::desc
+		orderBy:   Post.publication
+	}
 
 	# published links all currently published posts
-	published -> []Post = this.all |>
-		filter($, ($p) => $p.archived == nil) |>
-		sort($, Order::Descending, Post.publication)
+	published Collection<Post> {
+		predicate: ($p) => $p.publisher == *publisher && $p.archived == nil
+		order:     Order::desc
+		orderBy:   Post.publication
+	}
 
 	# archived links all archived posts
-	archived -> []Post = this.all |>
-		filter($, ($p) => $p.archived != nil) |>
-		sort($, Order::Descending, Post.publication)
+	archived Collection<Post> {
+		predicate: ($p) => $p.publisher == *publisher && $p.archived != nil
+		order:     Order::desc
+		orderBy:   Post.publication
+	}
 
 	# trending lists the most relevant posts sorted by the number of
 	# reactions
-	trending -> []Post =
-		sort(this.published, Order::Descending, Post.reactions.all:length)
+	trending Collection<Post> {
+		predicate: ($p) => $p.publisher == *publisher && $p.archived == nil
+		order:     Order::desc
+		orderBy:   Post.reactions.all:length
+	}
 }

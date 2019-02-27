@@ -19,26 +19,42 @@ properties {
 	contactEmail EmailAddress
 	openingHours ?OrganizationOpeningHours
 	imprint      Text
-	posts        Posts
-	ratings      <-> []OrganizationRating.organization
+
+	posts Posts {
+		publisher: this
+	}
+
+	ratings Collection<OrganizationRating> {
+		predicate: ($or) => $or.organization == this
+		order:     Order::desc
+		orderBy:   OrganizationRating.publication
+	}
 
 	# parentOrganization links the parent organization if this organization
 	# is a subsidiary
-	parentOrganization ?<-> Organization.subsidiaries
+	parentOrganization ?Organization
 	
 	# subsidiaries links any subsidiary organizations
-	subsidiaries <-> []Organization.parentOrganization
+	subsidiaries Collection<Organization> {
+		predicate: ($o) => $o.parentOrganization
+	}
 
 	# employments links all present and past employments
-	employments <-> []Employment.organization |>
-		sort($, Order::Ascending, Employment.start)
+	employments Collection<Employment> {
+		predicate: ($e) => $e.organization == this
+		order:     Order::asc
+		orderBy:   Employment.start
+	}
 
 	# presentEmployments links all current employments
-	presentEmployments -> []Employment =
-		filter(this.employments, ($e) => $e.end == nil)
+	presentEmployments Collection<Employment> {
+		predicate: ($e) => $e.organization == this && $e.end == nil
+		order:     Order::asc
+		orderBy:   Employment.start
+	}
 
 	# pageAdmins lists all page administrators
-	pageAdmins <-> []User.managedOrganizationPages
+	pageAdmins Array<User>
 }
 
 access {

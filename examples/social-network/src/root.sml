@@ -9,35 +9,38 @@ use {
 properties {
 	# trendingPublicPosts lists all currently trending public posts sorted by
 	# the number of reactions
-	trendingPublicPosts []Post =
-		find(Post, ($p) => $p.access == Visibility::public &&
+	trendingPublicPosts Collection<Post> {
+		predicate: ($p) => $p.access == Visibility::public &&
 			$p.archived == nil &&
-			$p.publication >= (now - Day(7))
-		) |>
-		sort($, Order::Descending, Post.reactions:length)
+			$p.publication >= time::add(now(), Day(7))
+		order:   Order::desc
+		orderBy: Post.reactions:length
+	}
 
-	admins []Admin = entities(Admin)
+	admins Collection<Admin>
 
-	adminActivities []AdminActivity = entities(AdminActivity) |>
-		sort($, Order::Descending, AdminActivity.time)
+	adminActivities Collection<AdminActivity> {
+		order:   Order::desc
+		orderBy: AdminActivity.time
+	}
 
-	users []User = entities(User)
+	users Collection<User>
 
-	countries []Country = entities(Country)
+	countries Collection<Country>
 
-	cities []City = entities(City)
+	cities Collection<City>
 
-	organizations []Organization = entities(Organization)
+	organizations Collection<Organization>
 
-	reactions []Reactions = entities(Reactions)
+	reactions Collection<Reaction>
 
-	posts []Post = entities(Post)
+	posts Collection<Post>
 
 	# mutualFriends lists all mutual friends between the given users
-	mutualFriends []User (
+	mutualFriends (
 		$target ID<User>
 		$friend ID<User>
-	) = intersection($target.friends, $friend.friends)
+	) Array<User> = intersection($target.friends, $friend.friends)
 }
 
 access {

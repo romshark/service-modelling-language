@@ -7,5 +7,5 @@ properties {
 
 	# partner either represents a user registered in the network or just a name
 	# of a person that's not registered on the network
-	partner ?RelationshipPartner
+	partner ?(PersonName or User)
 }

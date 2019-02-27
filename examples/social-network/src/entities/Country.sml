@@ -6,7 +6,11 @@ use {
 
 properties {
 	name   Text
-	cities <-> []City.country |> sort($, Order::Descending, City.name)
+	cities Collection<City> {
+		predicate: ($c) => $c.country == this
+		order:     Order::desc
+		orderBy:   City.name
+	}
 }
 
 access Country {

@@ -5,8 +5,8 @@ use {
 }
 
 properties {
-    organization ID<Organization>
-    begin        Time
-    end          ?Time
+	organization ID<Organization>
+	begin        Time
+	end          ?Time
 	position     ?Text
 }
