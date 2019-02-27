@@ -42,8 +42,8 @@ value Array<@T> = {
 }
 
 hiddenProperties {
-	lenght  Uint32 = count(Type<@E>)
-	version ID = collectionVersion(Type<@E>)
+	lenght  Size = count(Type<@E>)
+	version Version = collectionVersion(Type<@E>)
 }
 
 constraints {

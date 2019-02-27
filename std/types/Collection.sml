@@ -37,8 +37,8 @@ value Array<@T> = select {
 }
 
 hiddenProperties {
-	lenght  Uint32 = count(Type<@T>)
-	version ID = collectionVersion(Type<@T>)
+	lenght  Size = count(Type<@T>)
+	version Version = collectionVersion(Type<@T>)
 }
 
 constraints {
