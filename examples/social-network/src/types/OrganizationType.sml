@@ -1,6 +1,6 @@
-enum SocialNetwork::OrganizationType
+type SocialNetwork::OrganizationType
 
-values {
+value enum {
 	corporateBusiness
 	localBusiness
 	nonProfit

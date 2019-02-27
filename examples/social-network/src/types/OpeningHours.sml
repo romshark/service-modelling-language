@@ -1,6 +1,6 @@
-struct SocialNetwork::OpeningHoursSchedule
+type SocialNetwork::OpeningHoursSchedule
 
-properties {
+value struct {
 	monday    TimeRange
 	tuesday   TimeRange
 	wednesday TimeRange

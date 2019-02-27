@@ -1,10 +1,10 @@
-struct SocialNetwork::TimeRange
+type SocialNetwork::TimeRange
 
 use {
 	"std" 1.0
 }
 
-properties {
+value struct {
 	from Time
 	to   Time
 }

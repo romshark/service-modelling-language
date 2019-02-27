@@ -1,10 +1,10 @@
-struct SocialNetwork::PersonName
+type SocialNetwork::PersonName
 
 use {
 	"std" 1.0
 }
 
-properties {
+value struct {
 	firstName Text
 	lastName  Text
 }

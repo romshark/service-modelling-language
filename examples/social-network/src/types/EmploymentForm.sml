@@ -1,11 +1,11 @@
-struct SocialNetwork::EmploymentForm
+type SocialNetwork::EmploymentForm
 
 use {
 	"std" 1.0
 }
 
-properties {
-	organization ID<Organization>
+value struct {
+	organization Organization
 	begin        Time
 	end          ?Time
 	position     ?Text

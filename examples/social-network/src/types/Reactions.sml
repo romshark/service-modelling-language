@@ -1,5 +1,5 @@
 # Reactions bundles all reaction related nodes
-struct SocialNetwork::Reactions
+type SocialNetwork::Reactions
 
 use {
 	"std" 1.0
@@ -9,7 +9,7 @@ attributes {
 	*source (Post or Reaction)
 }
 
-properties {
+value struct {
 	# all links all reactions sorted by publication time
 	all Collection<Reaction> {
 		predicate: ($r) => $r.target == *source

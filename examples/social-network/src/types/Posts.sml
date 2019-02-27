@@ -1,5 +1,5 @@
 # Posts bundles together nodes related to posts
-struct SocialNetwork::Posts
+type SocialNetwork::Posts
 
 use {
 	"std" 1.0
@@ -9,7 +9,7 @@ attributes {
 	*publisher (User or Organization)
 }
 
-properties {
+value struct {
 	# all links all posts ever created including the archived ones
 	all Collection<Post> {
 		predicate: ($p) => $p.publisher == *publisher

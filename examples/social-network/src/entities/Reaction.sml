@@ -8,7 +8,7 @@ use {
 properties {
 	# target represents the target of the reaction which may be a post or just
 	# another reaction
-	target (Post or Reaction)
+	target ReactionTarget
 	author User
 	type   ReactionType
 

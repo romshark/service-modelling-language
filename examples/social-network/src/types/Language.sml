@@ -1,6 +1,6 @@
-enum SocialNetwork::Language
+type SocialNetwork::Language
 
-values {
+value enum {
 	german
 	russian
 	english

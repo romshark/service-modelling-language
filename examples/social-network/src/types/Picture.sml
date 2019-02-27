@@ -1,10 +1,10 @@
-struct SocialNetwork::Picture
+type SocialNetwork::Picture
 
 use {
 	"std" 1.0
 }
 
-properties {
+value struct {
 	format PictureFormat
 	size   PictureSize
 	file   Binary

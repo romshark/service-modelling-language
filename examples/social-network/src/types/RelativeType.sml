@@ -1,6 +1,6 @@
-enum SocialNetwork::RelativeType
+type SocialNetwork::RelativeType
 
-values {
+value enum {
 	child
 	sibling
 	mother

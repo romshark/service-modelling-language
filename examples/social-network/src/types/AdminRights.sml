@@ -1,10 +1,10 @@
-struct SocialNetwork::AdminRights
+type SocialNetwork::AdminRights
 
 use {
 	"std" 1.0
 }
 
-properties {
+value struct {
 	viewAdminProfiles Bool
 	banUsers          Bool
 }
