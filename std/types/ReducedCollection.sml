@@ -10,8 +10,8 @@ parameters {
 }
 
 attributes {
-	*predicate ?function (@E) Bool |> select { case ($ == nil) = ($x) => true }
-	*reducer   function (@E) @T
+	*predicate ?(@E) => Bool |> select { case ($ == nil) = ($x) => true }
+	*reducer   (@E) => @T
 	*order     ?Order
 	*orderBy   ?(Selector<@E> or Array<Selector<@E>>)
 }
