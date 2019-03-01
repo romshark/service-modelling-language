@@ -3,7 +3,7 @@ function std::sort
 
 parameters {
 	$array   Array<@T>
-	$order   ?Order |> select { case ($ == nil) = Order::descending}
+	$order   ?Order |> select { case ($ == nil) = Order::desc}
 }
 
 // Implementation is provided by the implementing engine

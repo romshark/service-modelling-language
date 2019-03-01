@@ -4,7 +4,7 @@ function std::sortBy
 
 parameters {
 	$array   Array<@T>
-	$order   ?Order |> select { case ($ == nil) = Order::descending}
+	$order   ?Order |> select { case ($ == nil) = Order::desc}
 	$orderBy ?(Selector<@T> or Array<Selector<@T>>)
 }
 
