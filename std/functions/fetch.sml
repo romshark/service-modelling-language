@@ -1,6 +1,6 @@
-# find equals an array of entity instances which match $predicate.
+# fetch equals an array of entity instances which match $predicate.
 # It equals an empty array if no entity instances match $predicate
-function std::find<@T>
+function std::fetch<@T>
 
 parameters {
 	# $predicate is applied to the collection of stored entity instances.

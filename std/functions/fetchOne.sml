@@ -1,8 +1,8 @@
-# findOne equals an optional entity instances which matches $predicate.
+# fetchOne equals an optional entity instances which matches $predicate.
 # It equals nil if no entity instances matches $predicate.
 #
 # If $predicate equals nil it's counted as false
-function std::findOne<@T>
+function std::fetchOne<@T>
 
 parameters {
 	$predicate ?(@T) => ?Bool

@@ -18,19 +18,19 @@ attributes {
 
 value Array<@T> = {
 	$found = select {
-		case ($ids != nil) = find<@E>(
+		case ($ids != nil) = fetch<@E>(
 			($t) => $t:id in $ids and *predicate($t),
 			*order,
 			*orderBy,
 			$limit
 		)
-		case ($after != nil) = find<@E>(
+		case ($after != nil) = fetch<@E>(
 			($t) => $t:id > $after and *predicate($t),
 			*order,
 			*orderBy,
 			$limit
 		)
-		case ($before != nil) = find<@E>(
+		case ($before != nil) = fetch<@E>(
 			($t) => $t:id < $before and *predicate($t),
 			*order,
 			*orderBy,
