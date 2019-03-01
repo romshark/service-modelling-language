@@ -2,8 +2,13 @@
 function math::ilogb
 
 parameters {
-	$x Float64
+	$x @N
 }
 
 // Implementation is provided by the implementing engine
-value Int32
+value @I
+
+constraints {
+	require @N numeric
+	require @I integer
+}

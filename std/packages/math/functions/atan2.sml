@@ -3,9 +3,13 @@
 function math::atan2
 
 parameters {
-	$y Float64
-	$x Float64
+	$y @N
+	$x @N
 }
 
 // Implementation is provided by the implementing engine
-value Float64
+value @N
+
+constraints {
+	require @N numeric
+}

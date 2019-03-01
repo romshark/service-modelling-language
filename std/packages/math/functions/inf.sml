@@ -3,8 +3,12 @@
 function math::inf
 
 parameters {
-	$sign Int32
+	$sign @I
 }
 
 // Implementation is provided by the implementing engine
 value Float64
+
+constraints {
+	require @I integer
+}

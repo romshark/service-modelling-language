@@ -2,11 +2,15 @@
 function math::sincos
 
 parameters {
-	$x Float64
+	$x @N
 }
 
 // Implementation is provided by the implementing engine
 value struct {
-	sin Float64
-	cos Float64
+	sin @N
+	cos @N
+}
+
+constraints {
+	require @N numeric
 }

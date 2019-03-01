@@ -5,9 +5,14 @@
 function math::isInf
 
 parameters {
-	$f    Float64
-	$sign Int32
+	$f    @N
+	$sign @I
 }
 
 // Implementation is provided by the implementing engine
 value Bool
+
+constraints {
+	require @N numeric
+	require @I integer
+}

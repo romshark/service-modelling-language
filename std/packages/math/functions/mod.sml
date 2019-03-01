@@ -4,9 +4,13 @@
 function math::mod
 
 parameters {
-	$x Float64
-	$y Float64
+	$x @N
+	$y @N
 }
 
 // Implementation is provided by the implementing engine
-value Float64
+value @N
+
+constraints {
+	require @N numeric
+}

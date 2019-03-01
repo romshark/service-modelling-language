@@ -2,9 +2,14 @@
 function math::copysign
 
 parameters {
-	$x Float64
-	$y Float64
+	$x @X
+	$y @Y
 }
 
 // Implementation is provided by the implementing engine
-value Float64
+value @X
+
+constraints {
+	require @X signed
+	require @Y numeric
+}

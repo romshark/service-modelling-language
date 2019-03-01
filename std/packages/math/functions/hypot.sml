@@ -3,9 +3,13 @@
 function math::hypot
 
 parameters {
-	$p Float64
-	$q Float64
+	$p @N
+	$q @N
 }
 
 // Implementation is provided by the implementing engine
-value Float64
+value @N
+
+constraints {
+	require @N numeric
+}

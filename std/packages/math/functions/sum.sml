@@ -2,8 +2,12 @@
 function math::sum
 
 parameters {
-	numbers ...Float64
+	numbers ...@N
 }
 
 // Implementation is provided by the implementing engine
-value Float64
+value @N
+
+constraints {
+	require @N numeric
+}

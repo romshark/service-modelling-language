@@ -4,11 +4,16 @@
 function math::frexp
 
 parameters {
-	$f Float64
+	$f @N
 }
 
 // Implementation is provided by the implementing engine
 value struct {
-	frac Float64,
-	exp  Int32,
+	frac @N,
+	exp  @I,
+}
+
+constraints {
+	require @N numeric
+	require @I integer
 }

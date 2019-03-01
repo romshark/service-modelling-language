@@ -2,9 +2,14 @@
 function math::yn
 
 parameters {
-	$n Int32
-	$x Float64
+	$n @I
+	$x @N
 }
 
 // Implementation is provided by the implementing engine
-value Float64
+value @N
+
+constraints {
+	require @I integer
+	require @N numeric
+}

@@ -1,8 +1,9 @@
-# j1 equals the order-one Bessel function of the first kind
-function math::j1
+# pow equals $x raised to a floating point power $power
+function math::pow
 
 parameters {
-	$x @N
+	$x     @N
+	$power @N
 }
 
 // Implementation is provided by the implementing engine

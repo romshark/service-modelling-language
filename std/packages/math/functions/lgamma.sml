@@ -2,11 +2,16 @@
 function math::lgamma
 
 parameters {
-	$x Float64
+	$x @N
 }
 
 // Implementation is provided by the implementing engine
 value struct {
-	lgamma Float64
-	sign   Int32
+	lgamma @N
+	sign   @I
+}
+
+constraints {
+	require @N numeric
+	require @I integer
 }

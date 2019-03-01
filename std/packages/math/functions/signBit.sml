@@ -2,8 +2,12 @@
 function math::signBit
 
 parameters {
-	$x Float64
+	$x @N
 }
 
 // Implementation is provided by the implementing engine
 value Bool
+
+constraints {
+	require @N numeric
+}

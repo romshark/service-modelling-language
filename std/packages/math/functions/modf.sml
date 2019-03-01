@@ -3,11 +3,15 @@
 function math::modf
 
 parameters {
-	$f Float64
+	$f @N
 }
 
 // Implementation is provided by the implementing engine
 value struct {
-	int  Float64
-	frac Float64
+	int  @N
+	frac @N
+}
+
+constraints {
+	require @N numeric
 }

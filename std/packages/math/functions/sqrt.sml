@@ -2,8 +2,12 @@
 function math::sqrt
 
 parameters {
-	$x Float64
+	$x @N
 }
 
 // Implementation is provided by the implementing engine
-value Float64
+value @N
+
+constraints {
+	require @N numeric
+}

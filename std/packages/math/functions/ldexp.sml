@@ -3,9 +3,14 @@
 function math::ldexp
 
 parameters {
-	$frac Float64
-	$exp  Int32
+	$frac @N
+	$exp  @I
 }
 
 // Implementation is provided by the implementing engine
-value Float64
+value @N
+
+constraints {
+	require @N numeric
+	require @I integer
+}
