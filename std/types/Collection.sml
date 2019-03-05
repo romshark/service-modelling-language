@@ -8,7 +8,7 @@ parameters {
 	})
 }
 
-attributes {
+constParameters {
 	*predicate ?(@T) => Bool |> select { case ($ == nil) = ($x) => true }
 	*order     ?Order
 	*orderBy   ?(Selector<@T> or Array<Selector<@T>>)
@@ -41,7 +41,7 @@ value Array<@T> = typeof $page as $p {
 	default = []
 }
 
-hiddenProperties {
+attributes {
 	lenght  Size = count(Type<@T>)
 	version Version = collectionVersion(Type<@T>)
 }

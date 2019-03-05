@@ -9,7 +9,7 @@ parameters {
 	})
 }
 
-attributes {
+constParameters {
 	*predicate ?(@E) => Bool |> select { case ($ == nil) = ($x) => true }
 	*reducer   (@E) => @T
 	*order     ?Order
@@ -46,7 +46,7 @@ value Array<@T> = {
 	& = map($found, ($e) => *reducer($e))
 }
 
-hiddenProperties {
+attributes {
 	lenght  Size = count(Type<@E>)
 	version Version = collectionVersion(Type<@E>)
 }
