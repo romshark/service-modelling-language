@@ -3,10 +3,10 @@
 type std::ReducedCollection<@E, @T>
 
 parameters {
-	$ids    ?Array<ID<@E>>
-	$after  ?ID<@E>
-	$before ?ID<@E>
-	$limit  ?Int32
+	$page (Array<ID<@T>> or struct {
+		cursor ID<@T>
+		limit  Int32
+	})
 }
 
 attributes {
@@ -17,26 +17,31 @@ attributes {
 }
 
 value Array<@T> = {
-	$found = select {
-		case ($ids != nil) = fetch<@E>(
-			($t) => $t:id in $ids and *predicate($t),
+	$found = typeof $page as $p {
+		case Array<ID<@T>> = fetch<@T>(
+			($t) => $t:id in $p and *predicate($t),
 			*order,
 			*orderBy,
 			$limit
 		)
-		case ($after != nil) = fetch<@E>(
-			($t) => $t:id > $after and *predicate($t),
-			*order,
-			*orderBy,
-			$limit
-		)
-		case ($before != nil) = fetch<@E>(
-			($t) => $t:id < $before and *predicate($t),
-			*order,
-			*orderBy,
-			negate($limit)
-		)
-		default = @T[]
+		case struct {
+			cursor ID<@T>
+			limit  Int32
+		} = select {
+			case ($p.limit > 0) = fetch<@T>(
+				($t) => $t:id > $p.cursor and *predicate($t),
+				*order,
+				*orderBy,
+				$limit,
+			)
+			case ($p.limit < 0) = fetch<@T>(
+				($t) => $t:id < $p.cursor and *predicate($t),
+				*order,
+				*orderBy,
+				$limit,
+			)
+		}
+		default = []
 	}
 	& = map($found, ($e) => *reducer($e))
 }

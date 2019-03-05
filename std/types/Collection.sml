@@ -2,10 +2,10 @@
 type std::Collection<@T>
 
 parameters {
-	$ids    ?Array<ID<@T>>
-	$after  ?ID<@T>
-	$before ?ID<@T>
-	$limit  ?Int32
+	$page (Array<ID<@T>> or struct {
+		cursor ID<@T>
+		limit  Int32
+	})
 }
 
 attributes {
@@ -14,25 +14,30 @@ attributes {
 	*orderBy   ?(Selector<@T> or Array<Selector<@T>>)
 }
 
-value Array<@T> = select {
-	case ($ids != nil) = find<@T>(
-		($t) => $t:id in $ids and *predicate($t),
+value Array<@T> = typeof $page as $p {
+	case Array<ID<@T>> = fetch<@T>(
+		($t) => $t:id in $p and *predicate($t),
 		*order,
 		*orderBy,
 		$limit
 	)
-	case ($after != nil) = find<@T>(
-		($t) => $t:id > $after and *predicate($t),
-		*order,
-		*orderBy,
-		$limit
-	)
-	case ($before != nil) = find<@T>(
-		($t) => $t:id < $before and *predicate($t),
-		*order,
-		*orderBy,
-		negate($limit)
-	)
+	case struct {
+		cursor ID<@T>
+		limit  Int32
+	} = select {
+		case ($p.limit > 0) = fetch<@T>(
+			($t) => $t:id > $p.cursor and *predicate($t),
+			*order,
+			*orderBy,
+			$limit,
+		)
+		case ($p.limit < 0) = fetch<@T>(
+			($t) => $t:id < $p.cursor and *predicate($t),
+			*order,
+			*orderBy,
+			$limit,
+		)
+	}
 	default = []
 }
 
