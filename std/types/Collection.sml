@@ -48,7 +48,6 @@ value struct {
 
 constraints {
 	require @T entity
-
 	require @L integer
 
 	require ($ids, $limit, $after, $before) => select {
