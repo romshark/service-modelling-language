@@ -49,10 +49,4 @@ value struct {
 constraints {
 	require @T entity
 	require @L integer
-
-	require ($ids, $limit, $after, $before) => select {
-		case ($ids == nil) = $limit != nil and ($after != nil or $before != nil)
-		case ($ids != nil) = $limit == nil and $after == nil and $before == nil
-		default = false
-	}
 }
