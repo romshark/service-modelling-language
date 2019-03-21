@@ -1,17 +1,17 @@
 # Collection represents a paginable collection of entities
-type std::Collection<@T>
+template std::Collection<@T>
+
+attributes {
+	*predicate ?(@T) => Bool |> select { case ($ == nil) = ($x) => true }
+	*order     ?Order
+	*orderBy   ?(Selector<@T> or Array<Selector<@T>>)
+}
 
 parameters {
 	$page (Array<ID<@T>> or struct {
 		cursor ID<@T>
 		limit  @L
 	})
-}
-
-attributes {
-	*predicate ?(@T) => Bool |> select { case ($ == nil) = ($x) => true }
-	*order     ?Order
-	*orderBy   ?(Selector<@T> or Array<Selector<@T>>)
 }
 
 value struct {

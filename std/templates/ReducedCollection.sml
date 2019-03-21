@@ -1,19 +1,19 @@
 # ReducedCollection represents a paginable collection of entity instances
 # reduced to a specific type
-type std::ReducedCollection<@E, @T>
-
-parameters {
-	$page (Array<ID<@T>> or struct {
-		cursor ID<@T>
-		limit  @L
-	})
-}
+template std::ReducedCollection<@E, @T>
 
 attributes {
 	*predicate ?(@E) => Bool |> select { case ($ == nil) = ($x) => true }
 	*reducer   (@E) => @T
 	*order     ?Order
 	*orderBy   ?(Selector<@E> or Array<Selector<@E>>)
+}
+
+parameters {
+	$page (Array<ID<@T>> or struct {
+		cursor ID<@T>
+		limit  @L
+	})
 }
 
 value struct {
