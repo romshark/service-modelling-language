@@ -66,7 +66,7 @@ properties {
 	# outgoingFriendshipRequests lists all outgoing friendship requests the user
 	# initiated sorted by their age
 	outgoingFriendshipRequests Collection<FriendshipRequest> {
-		predicate: ($fr) => $fr.from == this && $fr.status == nil
+		predicate: ($fr) => $fr.from == this and $fr.status == nil
 		order:     Order::asc
 		orderBy:   FriendshipRequest.creation
 	}
@@ -74,7 +74,7 @@ properties {
 	# incomingFriendshipRequests lists all incoming friendship requests the user
 	# received sorted by their age
 	incomingFriendshipRequests Collection<FriendshipRequest> {
-		predicate: ($fr) => $fr.to == this && $fr.status == nil
+		predicate: ($fr) => $fr.to == this and $fr.status == nil
 		order:     Order::asc
 		orderBy:   FriendshipRequest.creation
 	}

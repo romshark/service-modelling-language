@@ -49,7 +49,7 @@ properties {
 
 	# presentEmployments links all current employments
 	presentEmployments Collection<Employment> {
-		predicate: ($e) => $e.organization == this && $e.end == nil
+		predicate: ($e) => $e.organization == this and $e.end == nil
 		order:     Order::asc
 		orderBy:   Employment.start
 	}

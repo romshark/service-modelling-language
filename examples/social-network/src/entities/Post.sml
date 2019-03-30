@@ -28,7 +28,7 @@ access Post {
 		case User         = $accessor == this.publisher
 		case Organization = true
 		default           = false
-	} || select typeof(this.access) {
+	} or select typeof(this.access) {
 		case Visibility = select this.access {
 			case Visibility::public  = true
 			case Visibility::friends = $accessor in this.friends

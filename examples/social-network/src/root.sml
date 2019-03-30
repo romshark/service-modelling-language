@@ -10,8 +10,8 @@ properties {
 	# trendingPublicPosts lists all currently trending public posts sorted by
 	# the number of reactions
 	trendingPublicPosts Collection<Post> {
-		predicate: ($p) => $p.access == Visibility::public &&
-			$p.archived == nil &&
+		predicate: ($p) => $p.access == Visibility::public and
+			$p.archived == nil and
 			$p.publication >= time::add(now(), Day(7))
 		order:   Order::desc
 		orderBy: Post.reactions:length
@@ -59,6 +59,6 @@ access reactions {
 # Allow users to find mutual friends between themselves and their friends only
 access mutualFriends as $mf {
 	allow Admin
-	allow User as $accessor if $accessor == $mf.$target &&
+	allow User as $accessor if $accessor == $mf.$target and
 		$mf.$target in $mf.$friend.friends
 }

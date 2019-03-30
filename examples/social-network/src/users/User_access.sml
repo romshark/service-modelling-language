@@ -13,9 +13,9 @@ access {
 	# is only allowed to access if not listed in the black-list, otherwise if
 	# the profile is white-list protected then the user is only allowed to
 	# access if listed in the white-list
-	allow User as $accessor if $accessor == this ||
+	allow User as $accessor if $accessor == this or
 		select (typeof(this.access.profile)) as $v {
-			case Visibility = $v == Visibility::public ||
+			case Visibility = $v == Visibility::public or
 				$accessor in this.friends
 			case VisibilityBlacklist = $accessor !in $v
 			case VisibilityWhitelist = $accessor in $v
@@ -34,7 +34,7 @@ access posts.archived {
 # User email address access permissions
 access email {
 	allow Admin
-	allow User as $accessor if $accessor == this ||
+	allow User as $accessor if $accessor == this or
 		select (typeof(this.access.email)) as $v {
 			case Visibility = select $v {
 				case Visibility::public  = true
@@ -48,7 +48,7 @@ access email {
 # User phone number permissions
 access phone {
 	allow Admin
-	allow User as $accessor if $accessor == this ||
+	allow User as $accessor if $accessor == this or
 		select (typeof(this.access.phone)) as $v {
 			case Visibility = select $v {
 				case Visibility::public  = true
@@ -62,7 +62,7 @@ access phone {
 # User birthDate access permissions
 access birthDate {
 	allow Admin
-	allow User as $accessor if $accessor == this ||
+	allow User as $accessor if $accessor == this or
 		select (typeof(this.access.birth)Date) as $v {
 			case Visibility = select $v {
 				case Visibility::public  = true
@@ -77,7 +77,7 @@ access birthDate {
 # User friend list access permissions
 access friends {
 	allow Admin
-	allow User as $accessor if $accessor == this ||
+	allow User as $accessor if $accessor == this or
 		select (typeof(this.access.friends)) as $v {
 			case Visibility = select $v {
 				case Visibility::public  = true
@@ -100,7 +100,7 @@ access access {
 # User residence access permissions
 access residence {
 	allow Admin
-	allow User as $accessor if $accessor == this ||
+	allow User as $accessor if $accessor == this or
 		select (typeof(this.access.residence)) as $v {
 			case Visibility = select $v {
 				case Visibility::public  = true

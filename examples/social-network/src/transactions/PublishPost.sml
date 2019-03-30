@@ -21,6 +21,6 @@ results {
 access PublishPost {
 	# Allow users to publish posts on their own behalf only and only if their
 	# account has already been activated
-	allow User as $accessor if $accessor.activation != nil &&
+	allow User as $accessor if $accessor.activation != nil and
 		$accessor == $author
 }

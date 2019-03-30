@@ -19,14 +19,14 @@ value struct {
 
 	# published links all currently published posts
 	published Collection<Post> {
-		predicate: ($p) => $p.publisher == *publisher && $p.archived == nil
+		predicate: ($p) => $p.publisher == *publisher and $p.archived == nil
 		order:     Order::desc
 		orderBy:   Post.publication
 	}
 
 	# archived links all archived posts
 	archived Collection<Post> {
-		predicate: ($p) => $p.publisher == *publisher && $p.archived != nil
+		predicate: ($p) => $p.publisher == *publisher and $p.archived != nil
 		order:     Order::desc
 		orderBy:   Post.publication
 	}
@@ -34,7 +34,7 @@ value struct {
 	# trending lists the most relevant posts sorted by the number of
 	# reactions
 	trending Collection<Post> {
-		predicate: ($p) => $p.publisher == *publisher && $p.archived == nil
+		predicate: ($p) => $p.publisher == *publisher and $p.archived == nil
 		order:     Order::desc
 		orderBy:   Post.reactions.all:length
 	}

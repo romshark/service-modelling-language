@@ -16,7 +16,7 @@ properties {
 
 access {
 	allow Admin
-	allow User as $accessor if $accessor == this.author ||
+	allow User as $accessor if $accessor == this.author or
 		select typeof(this.access) as $v {
 			case Visibility = select $v {
 				case Visibility::public  = true
