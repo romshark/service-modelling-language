@@ -2,7 +2,7 @@
 template std::Collection<@T>
 
 attributes {
-	*predicate ?(@T) => Bool |> select { case ($ == nil) = ($x) => true }
+	*predicate ?(@T) => Bool |> match { $ == nil = ($x) => true }
 	*order     ?Order
 	*orderBy   ?(Selector<@T> or Array<Selector<@T>>)
 }
@@ -19,23 +19,23 @@ value struct {
 	version     Version = collectionVersion<@T>()
 
 	items Array<@T> = typeof $page as $p {
-		case Array<ID<@T>> = fetch<@T>(
+		Array<ID<@T>> = fetch<@T>(
 			($t) => $t:id in $p and *predicate($t),
 			*order,
 			*orderBy,
 			$limit
 		)
-		case struct {
+		struct {
 			cursor ID<@T>
 			limit  Int32
-		} = select {
-			case ($p.limit > 0) = fetch<@T>(
+		} = match {
+			$p.limit > 0 = fetch<@T>(
 				($t) => $t:id > $p.cursor and *predicate($t),
 				*order,
 				*orderBy,
 				$limit,
 			)
-			case ($p.limit < 0) = fetch<@T>(
+			$p.limit < 0 = fetch<@T>(
 				($t) => $t:id < $p.cursor and *predicate($t),
 				*order,
 				*orderBy,

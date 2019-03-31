@@ -4,7 +4,7 @@ function std::sortAs
 
 parameters {
 	$array Array<@T>
-	$order ?Order |> select { case ($ == nil) = Order::desc}
+	$order ?Order |> match { $ == nil = Order::desc }
 	$less  (i @T, j @T) => Bool
 }
 

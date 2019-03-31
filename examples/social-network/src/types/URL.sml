@@ -8,11 +8,11 @@ use {
 value Text
 
 conversion Text as $t -> EmailAddress {
-	error = select {
-		case (!regexp::match(
+	error = match {
+		!regexp::match(
 			$t,
 			/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/,
-		)) == `invalid URL ($t)`
+		) = `invalid URL ($t)`
 	}
 	value = $t
 }

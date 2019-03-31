@@ -17,12 +17,12 @@ properties {
 access {
 	allow Admin
 	allow User as $accessor if $accessor == this.author or
-		select typeof(this.access) as $v {
-			case Visibility = select $v {
-				case Visibility::public  = true
-				case Visibility::friends = $accessor in this.author.friends
+		typeof this.access as $v {
+			Visibility = match $v {
+				Visibility::public = true
+				Visibility::friends = $accessor in this.author.friends
 			}
-			case VisibilityBlacklist = $accessor !in $v
-			case VisibilityWhitelist = $accessor in $v
+			VisibilityBlacklist = $accessor !in $v
+			VisibilityWhitelist = $accessor in $v
 		}
 }

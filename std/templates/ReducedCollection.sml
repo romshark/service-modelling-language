@@ -3,7 +3,7 @@
 template std::ReducedCollection<@E, @T>
 
 attributes {
-	*predicate ?(@E) => Bool |> select { case ($ == nil) = ($x) => true }
+	*predicate ?(@E) => Bool |> match { $ == nil = ($x) => true }
 	*reducer   (@E) => @T
 	*order     ?Order
 	*orderBy   ?(Selector<@E> or Array<Selector<@E>>)
@@ -22,23 +22,23 @@ value struct {
 
 	items Array<@T> = {
 		$found = typeof $page as $p {
-			case Array<ID<@T>> = fetch<@T>(
+			Array<ID<@T>> = fetch<@T>(
 				($t) => $t:id in $p and *predicate($t),
 				*order,
 				*orderBy,
 				$limit
 			)
-			case struct {
+			struct {
 				cursor ID<@T>
 				limit  Int32
-			} = select {
-				case ($p.limit > 0) = fetch<@T>(
+			} = match {
+				$p.limit > 0 = fetch<@T>(
 					($t) => $t:id > $p.cursor and *predicate($t),
 					*order,
 					*orderBy,
 					$limit,
 				)
-				case ($p.limit < 0) = fetch<@T>(
+				$p.limit < 0 = fetch<@T>(
 					($t) => $t:id < $p.cursor and *predicate($t),
 					*order,
 					*orderBy,

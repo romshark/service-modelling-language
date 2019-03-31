@@ -14,11 +14,10 @@ access {
 	# the profile is white-list protected then the user is only allowed to
 	# access if listed in the white-list
 	allow User as $accessor if $accessor == this or
-		select (typeof(this.access.profile)) as $v {
-			case Visibility = $v == Visibility::public or
-				$accessor in this.friends
-			case VisibilityBlacklist = $accessor !in $v
-			case VisibilityWhitelist = $accessor in $v
+		typeof this.access.profile as $v {
+			Visibility = $v == Visibility::public or $accessor in this.friends
+			VisibilityBlacklist = $accessor !in $v
+			VisibilityWhitelist = $accessor in $v
 		}
 }
 
@@ -35,13 +34,13 @@ access posts.archived {
 access email {
 	allow Admin
 	allow User as $accessor if $accessor == this or
-		select (typeof(this.access.email)) as $v {
-			case Visibility = select $v {
-				case Visibility::public  = true
-				case Visibility::friends = $accessor in this.friends
+		typeof this.access.email as $v {
+			Visibility = match $v {
+				Visibility::public  = true
+				Visibility::friends = $accessor in this.friends
 			}
-			case VisibilityBlacklist = $accessor !in $v
-			case VisibilityWhitelist = $accessor in $v
+			VisibilityBlacklist = $accessor !in $v
+			VisibilityWhitelist = $accessor in $v
 		}
 }
 
@@ -49,13 +48,13 @@ access email {
 access phone {
 	allow Admin
 	allow User as $accessor if $accessor == this or
-		select (typeof(this.access.phone)) as $v {
-			case Visibility = select $v {
-				case Visibility::public  = true
-				case Visibility::friends = $accessor in this.friends
+		typeof this.access.phone as $v {
+			Visibility = match $v {
+				Visibility::public  = true
+				Visibility::friends = $accessor in this.friends
 			}
-			case VisibilityBlacklist = $accessor !in $v
-			case VisibilityWhitelist = $accessor in $v
+			VisibilityBlacklist = $accessor !in $v
+			VisibilityWhitelist = $accessor in $v
 		}
 }
 
@@ -63,13 +62,13 @@ access phone {
 access birthDate {
 	allow Admin
 	allow User as $accessor if $accessor == this or
-		select (typeof(this.access.birth)Date) as $v {
-			case Visibility = select $v {
-				case Visibility::public  = true
-				case Visibility::friends = $accessor in this.friends
+		typeof this.access.birthDate as $v {
+			Visibility = match $v {
+				Visibility::public  = true
+				Visibility::friends = $accessor in this.friends
 			}
-			case VisibilityBlacklist = $accessor !in $v
-			case VisibilityWhitelist = $accessor in $v
+			VisibilityBlacklist = $accessor !in $v
+			VisibilityWhitelist = $accessor in $v
 		}
 }
 
@@ -78,13 +77,13 @@ access birthDate {
 access friends {
 	allow Admin
 	allow User as $accessor if $accessor == this or
-		select (typeof(this.access.friends)) as $v {
-			case Visibility = select $v {
-				case Visibility::public  = true
-				case Visibility::friends = $accessor in this.friends
+		typeof this.access.friends as $v {
+			Visibility = match $v {
+				Visibility::public  = true
+				Visibility::friends = $accessor in this.friends
 			}
-			case VisibilityBlacklist = $accessor !in $v
-			case VisibilityWhitelist = $accessor in $v
+			VisibilityBlacklist = $accessor !in $v
+			VisibilityWhitelist = $accessor in $v
 		}
 }
 
@@ -101,13 +100,13 @@ access access {
 access residence {
 	allow Admin
 	allow User as $accessor if $accessor == this or
-		select (typeof(this.access.residence)) as $v {
-			case Visibility = select $v {
-				case Visibility::public  = true
-				case Visibility::friends = $accessor in this.friends
+		typeof this.access.residence as $v {
+			Visibility = match $v {
+				Visibility::public  = true
+				Visibility::friends = $accessor in this.friends
 			}
-			case VisibilityBlacklist = $accessor !in $v
-			case VisibilityWhitelist = $accessor in $v
+			VisibilityBlacklist = $accessor !in $v
+			VisibilityWhitelist = $accessor in $v
 		}
 }
 

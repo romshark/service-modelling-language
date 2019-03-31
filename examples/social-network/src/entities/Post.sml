@@ -24,16 +24,16 @@ properties {
 # whitelist of friends or to all friends except the blacklisted ones
 access Post {
 	allow Admin
-	allow User as $accessor if select typeof(this.publisher) {
-		case User         = $accessor == this.publisher
-		case Organization = true
-		default           = false
-	} or select typeof(this.access) {
-		case Visibility = select this.access {
-			case Visibility::public  = true
-			case Visibility::friends = $accessor in this.friends
+	allow User as $accessor if typeof this.publisher as $publisher {
+		User         = $accessor == $publisher
+		Organization = true
+		default      = false
+	} or typeof this.access as $access {
+		Visibility = match $access {
+			Visibility::public  = true
+			Visibility::friends = $accessor in this.friends
 		}
-		case VisibilityBlacklist = $accessor !in this.access
-		case VisibilityWhitelist = $accessor in this.access
+		VisibilityBlacklist = $accessor !in $access
+		VisibilityWhitelist = $accessor in $access
 	}
 }

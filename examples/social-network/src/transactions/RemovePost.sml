@@ -11,8 +11,8 @@ parameters {
 
 access RemovePost {
 	# Only users are allowed to publish posts
-	allow User as $accessor if select typeof($post.collection:entity) as $v {
-		case User         = $accessor == $v
-		case Organization = $accessor in $v.pageAdmins
+	allow User as $accessor if typeof $post.collection:entity as $v {
+		User         = $accessor == $v
+		Organization = $accessor in $v.pageAdmins
 	}
 }
