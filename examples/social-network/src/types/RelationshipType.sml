@@ -1,4 +1,4 @@
-type SocialNetwork::RelationshipType
+type socialNetwork::RelationshipType
 
 value enum {
 	single

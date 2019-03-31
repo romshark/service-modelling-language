@@ -1,5 +1,5 @@
 # PublishReaction publishes a new reaction to either a post or another reaction
-transaction SocialNetwork::PublishReaction
+transaction socialNetwork::PublishReaction
 
 use {
 	"std" 1.0

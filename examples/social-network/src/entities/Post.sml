@@ -1,4 +1,4 @@
-entity SocialNetwork::Post
+entity socialNetwork::Post
 
 use {
 	"std"      1.0

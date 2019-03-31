@@ -1,5 +1,5 @@
 # RequestFriendship creates a friendship request
-transaction SocialNetwork::RequestFriendship
+transaction socialNetwork::RequestFriendship
 
 use {
 	"std" 1.0

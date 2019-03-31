@@ -1,4 +1,4 @@
-type SocialNetwork::PictureSize
+type socialNetwork::PictureSize
 
 value struct {
 	width  Uint32

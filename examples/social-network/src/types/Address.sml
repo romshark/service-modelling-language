@@ -1,4 +1,4 @@
-type SocialNetwork::Address
+type socialNetwork::Address
 
 value struct {
 	city       City

@@ -1,5 +1,5 @@
 # ProfileAccessPermissions bundles all user profile access permissions
-type SocialNetwork::ProfileAccessPermissions
+type socialNetwork::ProfileAccessPermissions
 
 value struct {
 	profile   VisibilityPermission

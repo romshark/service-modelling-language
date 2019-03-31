@@ -1,4 +1,4 @@
-type SocialNetwork::RelativeType
+type socialNetwork::RelativeType
 
 value enum {
 	child

@@ -1,5 +1,5 @@
 # Relative represents a relation between two users or just a relative's name
-type SocialNetwork::Relative
+type socialNetwork::Relative
 
 value struct {
 	type RelativeType

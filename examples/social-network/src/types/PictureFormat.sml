@@ -1,4 +1,4 @@
-type SocialNetwork::PictureFormat
+type socialNetwork::PictureFormat
 
 value enum {
 	png

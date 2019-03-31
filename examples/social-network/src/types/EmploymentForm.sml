@@ -1,4 +1,4 @@
-type SocialNetwork::EmploymentForm
+type socialNetwork::EmploymentForm
 
 use {
 	"std/time" 1.0

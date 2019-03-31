@@ -1,5 +1,5 @@
 # PublishPost publishes a new post
-transaction SocialNetwork::PublishPost
+transaction socialNetwork::PublishPost
 
 use {
 	"std" 1.0

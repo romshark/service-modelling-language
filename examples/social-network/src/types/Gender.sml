@@ -1,4 +1,4 @@
-type SocialNetwork::Gender
+type socialNetwork::Gender
 
 value enum {
 	male

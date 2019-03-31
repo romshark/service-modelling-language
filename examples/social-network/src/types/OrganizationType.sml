@@ -1,4 +1,4 @@
-type SocialNetwork::OrganizationType
+type socialNetwork::OrganizationType
 
 value enum {
 	corporateBusiness

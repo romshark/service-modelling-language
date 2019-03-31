@@ -1,4 +1,4 @@
-type SocialNetwork::Picture
+type socialNetwork::Picture
 
 value struct {
 	format PictureFormat

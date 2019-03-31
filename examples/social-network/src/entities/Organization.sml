@@ -1,5 +1,5 @@
 # Organization represents a profile of an organization
-entity SocialNetwork::Organization
+entity socialNetwork::Organization
 
 use {
 	"std"      1.0

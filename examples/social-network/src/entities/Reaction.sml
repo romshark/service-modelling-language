@@ -1,5 +1,5 @@
 # Reaction represents a reaction to either a post or another reaction
-entity SocialNetwork::Reaction
+entity socialNetwork::Reaction
 
 use {
 	"std"      1.0

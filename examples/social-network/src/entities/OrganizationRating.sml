@@ -1,4 +1,4 @@
-entity SocialNetwork::OrganizationRating
+entity socialNetwork::OrganizationRating
 
 use {
 	"std"      1.0

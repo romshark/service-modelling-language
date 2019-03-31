@@ -1,4 +1,4 @@
-user SocialNetwork::User
+user socialNetwork::User
 
 use {
 	"std" 1.0

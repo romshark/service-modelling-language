@@ -1,4 +1,4 @@
-type SocialNetwork::EmailAddress
+type socialNetwork::EmailAddress
 
 use {
 	"std/regexp" 1.0

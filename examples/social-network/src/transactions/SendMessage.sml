@@ -1,5 +1,5 @@
 # SendMessage sends a message to the receiver user from the sender user
-transaction SocialNetwork::SendMessage
+transaction socialNetwork::SendMessage
 
 use {
 	"std" 1.0

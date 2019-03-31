@@ -1,5 +1,5 @@
 # SignUp creates a new user account that must yet be activated
-transaction SocialNetwork::SignUp
+transaction socialNetwork::SignUp
 
 use {
 	"std"      1.0

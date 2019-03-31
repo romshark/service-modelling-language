@@ -1,5 +1,5 @@
 # Posts bundles together nodes related to posts
-type SocialNetwork::Posts
+type socialNetwork::Posts
 
 use {
 	"std" 1.0

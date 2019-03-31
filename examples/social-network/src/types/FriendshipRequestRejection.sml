@@ -1,4 +1,4 @@
-type SocialNetwork::FriendshipRequestRejection
+type socialNetwork::FriendshipRequestRejection
 
 use {
 	"std/time" 1.0

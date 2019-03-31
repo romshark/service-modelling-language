@@ -1,4 +1,4 @@
-type SocialNetwork::AdminActivityType
+type socialNetwork::AdminActivityType
 
 value enum {
 	bannedUser

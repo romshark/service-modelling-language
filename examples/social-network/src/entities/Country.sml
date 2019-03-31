@@ -1,4 +1,4 @@
-entity SocialNetwork::Country
+entity socialNetwork::Country
 
 use {
 	"std" 1.0

@@ -1,4 +1,4 @@
-type SocialNetwork::OpeningHoursSpecial
+type socialNetwork::OpeningHoursSpecial
 
 value enum {
 	alwaysOpen

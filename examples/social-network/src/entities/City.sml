@@ -1,4 +1,4 @@
-entity SocialNetwork::City
+entity socialNetwork::City
 
 properties {
 	country Country

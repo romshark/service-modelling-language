@@ -1,5 +1,5 @@
 # UpdateUser updates a user profile changing the given fields
-transaction SocialNetwork::UpdateUser
+transaction socialNetwork::UpdateUser
 
 use {
 	"std"      1.0

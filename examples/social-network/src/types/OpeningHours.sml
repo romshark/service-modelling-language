@@ -1,4 +1,4 @@
-type SocialNetwork::OpeningHoursSchedule
+type socialNetwork::OpeningHoursSchedule
 
 value struct {
 	monday    TimeRange

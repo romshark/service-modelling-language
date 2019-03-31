@@ -1,4 +1,4 @@
-type SocialNetwork::Language
+type socialNetwork::Language
 
 value enum {
 	german

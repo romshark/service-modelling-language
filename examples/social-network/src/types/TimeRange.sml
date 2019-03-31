@@ -1,4 +1,4 @@
-type SocialNetwork::TimeRange
+type socialNetwork::TimeRange
 
 use {
 	"std/time" 1.0

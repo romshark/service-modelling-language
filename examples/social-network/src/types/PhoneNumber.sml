@@ -1,5 +1,5 @@
 # PhoneNumber represents an international generic phone number
-type SocialNetwork::PhoneNumber
+type socialNetwork::PhoneNumber
 
 use {
 	"std/regexp" 1.0

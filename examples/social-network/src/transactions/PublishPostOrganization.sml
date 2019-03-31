@@ -1,5 +1,5 @@
 # PublishPostOrganization publishes a new organization post
-transaction SocialNetwork::PublishPostOrganization
+transaction socialNetwork::PublishPostOrganization
 
 use {
 	"std" 1.0

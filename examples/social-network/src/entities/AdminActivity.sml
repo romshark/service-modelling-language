@@ -1,4 +1,4 @@
-entity SocialNetwork::AdminActivity
+entity socialNetwork::AdminActivity
 
 use {
 	"std/time" 1.0

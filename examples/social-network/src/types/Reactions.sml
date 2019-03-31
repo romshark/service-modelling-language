@@ -1,5 +1,5 @@
 # Reactions bundles all reaction related nodes
-type SocialNetwork::Reactions
+type socialNetwork::Reactions
 
 use {
 	"std" 1.0

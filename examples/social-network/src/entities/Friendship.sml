@@ -1,5 +1,5 @@
 # Friendship represents a friendship relation between two users
-entity SocialNetwork::Friendship
+entity socialNetwork::Friendship
 
 use {
 	"std" 1.0

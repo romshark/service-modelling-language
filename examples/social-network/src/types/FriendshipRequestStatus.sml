@@ -1,3 +1,3 @@
-type SocialNetwork::FriendshipRequestStatus
+type socialNetwork::FriendshipRequestStatus
 
 value (FriendshipRequestAcceptance or FriendshipRequestRejection)

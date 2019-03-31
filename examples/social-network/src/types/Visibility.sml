@@ -1,4 +1,4 @@
-type SocialNetwork::Visibility
+type socialNetwork::Visibility
 
 value enum {
 	private

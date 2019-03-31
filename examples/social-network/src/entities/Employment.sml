@@ -1,6 +1,6 @@
 # Employment represents an employment relationship between an organization
 # and a user
-entity SocialNetwork::Employment
+entity socialNetwork::Employment
 
 use {
 	"std/time" 1.0

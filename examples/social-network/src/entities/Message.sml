@@ -1,4 +1,4 @@
-entity SocialNetwork::Message
+entity socialNetwork::Message
 
 use {
 	"std/time" 1.0

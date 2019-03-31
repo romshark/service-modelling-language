@@ -1,5 +1,5 @@
 # ReactionType represents the type of a reaction
-type SocialNetwork::ReactionType
+type socialNetwork::ReactionType
 
 value enum {
 	happy

@@ -1,5 +1,5 @@
 # URL represents a uniform resource locator
-type SocialNetwork::URL
+type socialNetwork::URL
 
 use {
 	"std/regexp" 1.0

@@ -1,4 +1,4 @@
-entity SocialNetwork::FriendshipRequest
+entity socialNetwork::FriendshipRequest
 
 use {
 	"std/time" 1.0

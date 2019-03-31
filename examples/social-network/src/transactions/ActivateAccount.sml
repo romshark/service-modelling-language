@@ -1,5 +1,5 @@
 # ActivateAccount activates an account
-transaction SocialNetwork::ActivateAccount
+transaction socialNetwork::ActivateAccount
 
 use {
 	"std" 1.0

@@ -1,4 +1,4 @@
-type SocialNetwork::PersonName
+type socialNetwork::PersonName
 
 value struct {
 	firstName Text
