@@ -2,16 +2,33 @@
 transaction socialNetwork::RequestFriendship
 
 use {
-	"std" 1.0
+	"std"      1.0
+	"std/time" 1.0
 }
 
 parameters {
 	$sender   User
 	$receiver User
+	$message  ?Text
+}
+
+scope {
+	$newRequest = new<FriendshipRequest>({
+		from     = $sender
+		to       = $receiver
+		message  = $message
+		creation = now()
+		status   = nil
+	})
+
+	// Notify the receiver
+	emit<FriendshipRequestReceived>($receiver, {
+		request = $newRequest
+	})
 }
 
 results {
-	newRequest FriendshipRequest
+	newRequest FriendshipRequest = $newRequest
 }
 
 errors {

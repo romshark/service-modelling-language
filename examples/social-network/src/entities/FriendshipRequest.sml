@@ -7,7 +7,7 @@ use {
 properties {
 	from     User
 	to       User
-	message  Text
+	message  ?Text
 	creation Time
 	status   ?FriendshipRequestStatus
 }
