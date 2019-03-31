@@ -11,13 +11,13 @@ parameters (
 )
 
 errors ActivateAccount {
-	# ErrActivationSecretInvalid is returned if the provided activation secret
-	# is invalid
-	ErrActivationSecretInvalid
+	// # ActivationSecretInvalid is returned if the provided activation secret
+	// # is invalid
+	// ActivationSecretInvalid 
 
-	# ErrActivationSecretExpired is returned if the provided activation secret
-	# is expired
-	ErrActivationSecretExpired
+	// # ActivationSecretExpired is returned if the provided activation secret
+	// # is expired
+	// ActivationSecretExpired
 }
 
 access ActivateAccount {

@@ -1,1 +1,0 @@
-error SocialNetwork::ErrInvalidEmploymentHistory

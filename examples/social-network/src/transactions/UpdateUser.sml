@@ -27,10 +27,10 @@ results {
 }
 
 errors {
-	# ErrInvalidEmploymentHistory is returned if the employment history
-	# contains semantic errors like intersecting time periods or multiple
-	# active employments
-	ErrInvalidEmploymentHistory
+	// # ErrInvalidEmploymentHistory is returned if the employment history
+	// # contains semantic errors like intersecting time periods or multiple
+	// # active employments
+	// ErrInvalidEmploymentHistory
 }
 
 
