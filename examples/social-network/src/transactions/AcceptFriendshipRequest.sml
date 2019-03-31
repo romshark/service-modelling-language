@@ -3,8 +3,7 @@
 transaction SocialNetwork::AcceptFriendshipRequest
 
 parameters {
-	$user ID<User>
-	$from ID<User>
+	$request FriendshipRequest
 }
 
 results {
@@ -12,5 +11,5 @@ results {
 }
 
 access AcceptFriendshipRequest {
-	allow User as $accessor if $accessor == $user
+	allow User as $accessor if $accessor == $request.to
 }
