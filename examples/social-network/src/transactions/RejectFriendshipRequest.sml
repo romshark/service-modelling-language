@@ -3,10 +3,9 @@
 transaction SocialNetwork::RejectFriendshipRequest
 
 parameters {
-	$user ID<User>
-	$from ID<User>
+	$request FriendshipRequest
 }
 
 access RejectFriendshipRequest {
-	allow User as $accessor if $accessor == $user
+	allow User as $accessor if $accessor == $request.to
 }
