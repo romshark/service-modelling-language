@@ -17,7 +17,7 @@ properties {
 access {
 	allow Admin
 	allow User as $accessor if $accessor == this.author or
-		typeof this.access as $v {
+		this.access as $v {
 			Visibility = match $v {
 				Visibility::public = true
 				Visibility::friends = $accessor in this.author.friends

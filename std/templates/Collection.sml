@@ -18,7 +18,7 @@ value struct {
 	totalLength Uint64 = collectionLength<@T>()
 	version     Version = collectionVersion<@T>()
 
-	items Array<@T> = typeof $page as $p {
+	items Array<@T> = $page as $p {
 		Array<ID<@T>> = fetch<@T>(
 			($t) => $t:id in $p and *predicate($t),
 			*order,

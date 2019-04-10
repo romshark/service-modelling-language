@@ -11,67 +11,57 @@ parameters {
 
 	$name            ?PersonName
 	$gender          ?Gender
-	$biography       ?Text
-	$avatar          ?Picture
+	$biography       ?(Text or ResetValue)
+	$avatar          ?(Picture or ResetValue)
 	$email           ?EmailAddress
-	$phone           ?PhoneNumber
-	$birthDate       ?Time
-	$residence       ?City
+	$phone           ?(PhoneNumber or ResetValue)
+	$birthDate       ?(Time or ResetValue)
+	$residence       ?(City or ResetValue)
 	$spokenLanguages ?Array<Language>
 	$access          ?ProfileAccessPermissions
 }
 
 scope {
 	$updated = mutate($user, {
-		name = typeof $name as $v {
-			PersonName = $v
-			default = $user.name
+		name = $name as PersonName or $user.name
+		gender = $gender as Gender or $user.gender
+
+		biography = $biography as $v {
+			ResetValue = nil
+			Text       = $v
+			default    = $user.biography
 		}
 
-		gender = typeof $gender as $v {
-			Gender = $v
-			default = $user.gender
+		avatar = $avatar as $v {
+			ResetValue = nil
+			Picture    = $v
+			default    = $user.avatar
 		}
 
-		biography = typeof $biography as $v {
-			Text = $v
-			default = $user.biography
-		}
+		email = $email as EmailAddress or $user.email
 
-		avatar = typeof $avatar as $v {
-			Picture = $v
-			default = $user.avatar
-		}
-
-		email = typeof $email as $v {
-			EmailAddress = $v
-			default = $user.email
-		}
-
-		phone = typeof $phone as $v {
+		phone = $phone as $v {
+			ResetValue  = nil
 			PhoneNumber = $v
-			default = $user.phone
+			default     = $user.phone
 		}
 	
-		birthDate = typeof $birthDate as $v {
-			Time = $v
-			default = $user.birthDate
+		birthDate = $birthDate as $v {
+			ResetValue = nil
+			Time       = $v
+			default    = $user.birthDate
 		}
 	
-		residence = typeof $residence as $v {
-			City = $v
-			default = $user.residence
+		residence = $residence as $v {
+			ResetValue = nil
+			City       = $v
+			default    = $user.residence
 		}
 		
-		spokenLanguages = typeof $spokenLanguages as $v {
-			Array<Language> = $v
-			default = $user.spokenLanguages
-		}
+		spokenLanguages = $spokenLanguages as
+			Array<Language> or $user.spokenLanguages
 		
-		access = typeof $access as $v {
-			ProfileAccessPermissions = $v
-			default = $user.access
-		}
+		access = $access as ProfileAccessPermissions or $user.access
 	})
 }
 
@@ -85,12 +75,12 @@ access UpdateUser {
 }
 
 constraints {
-	require => typeof $spokenLanguages as $v {
+	require => $spokenLanguages as {
 		Array<Language> = len($spokenLanguages) > 0
-		default = true
+		default         = true
 	}
 
-	require => typeof $name as $v {
+	require => $name as $v {
 		PersonName = match {
 			len($v.firstName) < 2  = `first name too short`
 			len($v.lastName) < 2   = `last name too short`

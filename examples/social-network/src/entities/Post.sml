@@ -24,11 +24,11 @@ properties {
 # whitelist of friends or to all friends except the blacklisted ones
 access Post {
 	allow Admin
-	allow User as $accessor if typeof this.publisher as $publisher {
+	allow User as $accessor if this.publisher as $publisher {
 		User         = $accessor == $publisher
 		Organization = true
 		default      = false
-	} or typeof this.access as $access {
+	} or this.access as $access {
 		Visibility = match $access {
 			Visibility::public  = true
 			Visibility::friends = $accessor in this.friends

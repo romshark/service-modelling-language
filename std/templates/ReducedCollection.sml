@@ -21,7 +21,7 @@ value struct {
 	version     Version = collectionVersion<@T>()
 
 	items Array<@T> = {
-		$found = typeof $page as $p {
+		$found = $page as $p {
 			Array<ID<@T>> = fetch<@T>(
 				($t) => $t:id in $p and *predicate($t),
 				*order,

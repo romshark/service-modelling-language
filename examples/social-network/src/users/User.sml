@@ -9,7 +9,7 @@ properties {
 	// Personal information
 	name            PersonName
 	gender          Gender
-	biography       Text
+	biography       ?Text
 	avatar          ?Picture
 	email           EmailAddress
 	phone           ?PhoneNumber

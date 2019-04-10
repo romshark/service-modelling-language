@@ -14,7 +14,7 @@ access {
 	# the profile is white-list protected then the user is only allowed to
 	# access if listed in the white-list
 	allow User as $accessor if $accessor == this or
-		typeof this.access.profile as $v {
+		this.access.profile as $v {
 			Visibility = $v == Visibility::public or $accessor in this.friends
 			VisibilityBlacklist = $accessor !in $v
 			VisibilityWhitelist = $accessor in $v
@@ -34,7 +34,7 @@ access posts.archived {
 access email {
 	allow Admin
 	allow User as $accessor if $accessor == this or
-		typeof this.access.email as $v {
+		this.access.email as $v {
 			Visibility = match $v {
 				Visibility::public  = true
 				Visibility::friends = $accessor in this.friends
@@ -48,7 +48,7 @@ access email {
 access phone {
 	allow Admin
 	allow User as $accessor if $accessor == this or
-		typeof this.access.phone as $v {
+		this.access.phone as $v {
 			Visibility = match $v {
 				Visibility::public  = true
 				Visibility::friends = $accessor in this.friends
@@ -62,7 +62,7 @@ access phone {
 access birthDate {
 	allow Admin
 	allow User as $accessor if $accessor == this or
-		typeof this.access.birthDate as $v {
+		this.access.birthDate as $v {
 			Visibility = match $v {
 				Visibility::public  = true
 				Visibility::friends = $accessor in this.friends
@@ -77,7 +77,7 @@ access birthDate {
 access friends {
 	allow Admin
 	allow User as $accessor if $accessor == this or
-		typeof this.access.friends as $v {
+		this.access.friends as $v {
 			Visibility = match $v {
 				Visibility::public  = true
 				Visibility::friends = $accessor in this.friends
@@ -100,7 +100,7 @@ access access {
 access residence {
 	allow Admin
 	allow User as $accessor if $accessor == this or
-		typeof this.access.residence as $v {
+		this.access.residence as $v {
 			Visibility = match $v {
 				Visibility::public  = true
 				Visibility::friends = $accessor in this.friends
