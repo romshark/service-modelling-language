@@ -20,7 +20,7 @@ entity socialNetwork::Post {
 
 # Posts are either public, only accessible to the friends of a user, to a
 # whitelist of friends or to all friends except the blacklisted ones
-access Post {
+access {
 	allow Admin
 	allow User as $accessor if this.publisher as $publisher {
 		User         = $accessor == $publisher

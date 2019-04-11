@@ -11,6 +11,6 @@ entity socialNetwork::Country {
 	}
 }
 
-access Country {
+access {
 	allow anyone
 }

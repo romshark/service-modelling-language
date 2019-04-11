@@ -3,6 +3,6 @@ entity socialNetwork::City {
 	name    Text
 }
 
-access City {
+access {
 	allow anyone
 }

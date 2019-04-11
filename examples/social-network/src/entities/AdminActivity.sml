@@ -8,6 +8,6 @@ entity socialNetwork::AdminActivity {
 	time  Time
 }
 
-access AdminActivity {
+access {
 	allow Admin
 }
