@@ -34,7 +34,3 @@ access SendMessage {
 		$accessor == $sender and
 		$accessor in $receiver.friends
 }
-
-constraints {
-	require => length($contents) > 0
-}

@@ -12,5 +12,9 @@ entity socialNetwork::Friendship {
 
 constraints {
 	# The list of users in a friendship must contain exactly two different users
-	require (users as $u) => length($u) == 2
+	error => match {
+		len(this.users) != 2 = "a friendship must reference exactly 2 users"
+		any(this.users, ($u) => len(filter(this.user, ($x) => $x == $u) > 1)) =
+			"a friendship must reference two different users"
+	}
 }

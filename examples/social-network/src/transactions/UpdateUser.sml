@@ -15,7 +15,7 @@ transaction socialNetwork::UpdateUser {
 	$phone           ?(PhoneNumber or ResetValue)
 	$birthDate       ?(Time or ResetValue)
 	$residence       ?(City or ResetValue)
-	$spokenLanguages ?Array<Language>
+	$spokenLanguages ?SpokenLanguages
 	$access          ?ProfileAccessPermissions
 }
 
@@ -57,7 +57,7 @@ scope {
 		}
 		
 		spokenLanguages = $spokenLanguages as
-			Array<Language> or $user.spokenLanguages
+			SpokenLanguages or $user.spokenLanguages
 		
 		access = $access as ProfileAccessPermissions or $user.access
 	})
@@ -70,21 +70,4 @@ results {
 # UpdateUser is accessible to the profile owner only
 access UpdateUser {
 	allow User as $accessor if $accessor == $user
-}
-
-constraints {
-	require => $spokenLanguages as {
-		Array<Language> = len($spokenLanguages) > 0
-		default         = true
-	}
-
-	require => $name as $v {
-		PersonName = match {
-			len($v.firstName) < 2  = `first name too short`
-			len($v.lastName) < 2   = `last name too short`
-			len($v.firstName) > 64 = `first name too long`
-			len($v.lastName) > 64  = `last name too long`
-		}
-		default = true
-	}
 }

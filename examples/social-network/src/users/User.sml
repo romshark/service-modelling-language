@@ -13,7 +13,7 @@ user socialNetwork::User {
 	phone           ?PhoneNumber
 	birthDate       ?Time
 	residence       ?City
-	spokenLanguages Array<Language>
+	spokenLanguages SpokenLanguages
 
 	# employmentHistory lists all employments sorted by their begin
 	employmentHistory Collection<Employment> {
