@@ -52,5 +52,7 @@ access RequestFriendship {
 }
 
 constraints {
-	require => $sender != $receiver
+	error => match {
+		$sender == $receiver = "sender and receiver must be two different users"
+	}
 }
