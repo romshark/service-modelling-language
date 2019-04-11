@@ -1,7 +1,5 @@
 # j1 equals the order-one Bessel function of the first kind
-function math::j1
-
-parameters {
+function math::j1 {
 	$x @N
 }
 

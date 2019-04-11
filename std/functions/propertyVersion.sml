@@ -1,7 +1,5 @@
 # propertyVersion equals the version of the property of type @T
-function std::propertyVersion
-
-parameters {
+function std::propertyVersion {
 	$property Selector<@T>
 }
 

@@ -1,10 +1,8 @@
-entity socialNetwork::AdminActivity
-
 use {
 	"std/time" 1.0
 }
 
-properties {
+entity socialNetwork::AdminActivity {
 	admin Admin
 	type  AdminActivityType
 	time  Time

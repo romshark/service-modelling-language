@@ -1,3 +1,2 @@
-type socialNetwork::VisibilityPermission
-
-value (Visibility or VisibilityBlacklist or VisibilityWhitelist)
+type socialNetwork::VisibilityPermission =
+    (Visibility or VisibilityBlacklist or VisibilityWhitelist)

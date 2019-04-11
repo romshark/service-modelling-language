@@ -1,7 +1,5 @@
 # atanh equals the inverse hyperbolic tangent of $x
-function math::atanh
-
-parameters {
+function math::atanh {
 	$x @N
 }
 

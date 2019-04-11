@@ -1,7 +1,5 @@
 # cbrt equals the cube root of $x
-function math::cbrt
-
-parameters {
+function math::cbrt {
 	$x @N
 }
 

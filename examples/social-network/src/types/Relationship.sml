@@ -1,8 +1,6 @@
 # Relationship represents a relationship between two users or just a name of the
 # partner
-type socialNetwork::Relationship
-
-value struct {
+type socialNetwork::Relationship = struct {
 	type RelationshipType
 
 	# partner either represents a user registered in the network or just a name

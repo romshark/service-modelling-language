@@ -1,7 +1,5 @@
 # hours equals the number of hours in $duration
-function time::hours
-
-parameters {
+function time::hours {
 	$duration Duration
 }
 

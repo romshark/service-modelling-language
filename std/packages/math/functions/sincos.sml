@@ -1,7 +1,5 @@
 # sincos equals f.sin($x), f.cos($x).
-function math::sincos
-
-parameters {
+function math::sincos {
 	$x @N
 }
 

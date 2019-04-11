@@ -1,7 +1,5 @@
 # floor equals the largest integer less than or equal to $x
-function math::floor
-
-parameters {
+function math::floor {
 	$x @N
 }
 

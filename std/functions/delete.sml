@@ -4,9 +4,7 @@
 #
 # This is a mutating function, it atomically mutates the state
 # of the underlying database
-function std::delete
-
-parameters {
+function std::delete {
 	$entity (@E or ID<@E>)
 }
 

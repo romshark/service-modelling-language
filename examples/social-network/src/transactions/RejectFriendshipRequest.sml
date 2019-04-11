@@ -1,8 +1,6 @@
 # RejectFriendshipRequest rejects a friendship request triggering the
 # FriendshipRequestRejected event
-transaction socialNetwork::RejectFriendshipRequest
-
-parameters {
+transaction socialNetwork::RejectFriendshipRequest {
 	$request FriendshipRequest
 }
 

@@ -1,7 +1,5 @@
 # seconds equals the number of seconds in $duration
-function time::seconds
-
-parameters {
+function time::seconds {
 	$duration Duration
 }
 

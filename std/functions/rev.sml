@@ -1,7 +1,5 @@
 # rev equals the reversed version of $array
-function std::rev
-
-parameters {
+function std::rev {
 	$array Array<@T>
 }
 

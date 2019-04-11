@@ -1,6 +1,4 @@
-type socialNetwork::Visibility
-
-value enum {
+type socialNetwork::Visibility = enum {
 	private
 	friends
 	public

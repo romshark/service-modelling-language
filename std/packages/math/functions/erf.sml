@@ -1,7 +1,5 @@
 # erf equals the error function of $x
-function math::erf
-
-parameters {
+function math::erf {
 	$x @N
 }
 

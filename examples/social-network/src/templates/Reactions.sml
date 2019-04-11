@@ -1,11 +1,9 @@
-# Reactions bundles all reaction related nodes
-type socialNetwork::Reactions
-
 use {
 	"std" 1.0
 }
 
-attributes {
+# Reactions bundles all reaction related nodes
+template socialNetwork::Reactions {
 	*source (Post or Reaction)
 }
 

@@ -1,6 +1,4 @@
-type socialNetwork::Address
-
-value struct {
+type socialNetwork::Address = struct {
 	city       City
 	street     Text
 	postalCode Text

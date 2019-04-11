@@ -1,7 +1,5 @@
 # year equals the year in which $tm occurs
-function time::year
-
-parameters {
+function time::year {
 	$tm Time
 }
 

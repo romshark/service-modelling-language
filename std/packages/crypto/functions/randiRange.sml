@@ -1,7 +1,5 @@
 # randiRange equals a random signed 32-bit integer between $min and $max
-function crypto::randiRange
-
-parameters {
+function crypto::randiRange {
 	$min Int32
 	$max Int32
 }

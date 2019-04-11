@@ -1,7 +1,5 @@
-type socialNetwork::FriendshipRequestRejection
-
 use {
 	"std/time" 1.0
 }
 
-value Time
+type socialNetwork::FriendshipRequestRejection = Time

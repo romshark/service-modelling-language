@@ -5,9 +5,7 @@
 #
 # Applying f.update to $entity multiple times within the scope of a
 # transaction will cause an engine panic
-function std::update
-
-parameters {
+function std::update {
 	$entity  @E
 	$mutator Mutator<@E>
 }

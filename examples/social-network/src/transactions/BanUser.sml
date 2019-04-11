@@ -1,7 +1,5 @@
 # BanUser temporarily disables a user's profile
-transaction BanUser::SocialNetwork
-
-parameters {
+transaction BanUser::SocialNetwork {
 	$admin ID<Admin>
 	$user  ID<User>
 }

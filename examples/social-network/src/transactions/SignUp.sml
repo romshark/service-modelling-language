@@ -1,12 +1,10 @@
-# SignUp creates a new user account that must yet be activated
-transaction socialNetwork::SignUp
-
 use {
 	"std"      1.0
 	"std/time" 1.0
 }
 
-parameters {
+# SignUp creates a new user account that must yet be activated
+transaction socialNetwork::SignUp {
 	$name              PersonName
 	$email             EmailAddress
 	$gender            ?Gender

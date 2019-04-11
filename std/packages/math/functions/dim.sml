@@ -1,7 +1,5 @@
 # dim equals the maximum of $x - $y or 0
-function math::dim
-
-parameters {
+function math::dim {
 	$x @N
 	$y @N
 }

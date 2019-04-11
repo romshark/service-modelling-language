@@ -1,10 +1,8 @@
-user socialNetwork::Admin
-
 use {
 	"std" 1.0
 }
 
-properties {
+user socialNetwork::Admin {
 	name       PersonName
 	email      EmailAddress
 	rights     AdminRights
@@ -16,6 +14,6 @@ properties {
 }
 
 # Accessing administrator is allowed to view other administrator's profiles
-access Admin {
+access {
 	allow Admin as $accessor if $accessor.rights.viewAdminProfiles
 }

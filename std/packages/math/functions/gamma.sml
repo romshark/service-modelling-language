@@ -1,7 +1,5 @@
 # gamma equals the Gamma function of $x
-function math::gamma
-
-parameters {
+function math::gamma {
 	$x @N
 }
 

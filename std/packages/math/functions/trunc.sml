@@ -1,7 +1,5 @@
 # trunc equals the integer part of $x
-function math::trunc
-
-parameters {
+function math::trunc {
 	$x @N
 }
 

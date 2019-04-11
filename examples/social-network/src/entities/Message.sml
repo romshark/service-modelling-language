@@ -1,10 +1,8 @@
-entity socialNetwork::Message
-
 use {
 	"std/time" 1.0
 }
 
-properties {
+entity socialNetwork::Message {
 	contents Text
 	sender   User
 	receiver User

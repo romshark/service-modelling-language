@@ -1,12 +1,10 @@
-# RequestFriendship creates a friendship request
-transaction socialNetwork::RequestFriendship
-
 use {
 	"std"      1.0
 	"std/time" 1.0
 }
 
-parameters {
+# RequestFriendship creates a friendship request
+transaction socialNetwork::RequestFriendship {
 	$sender   User
 	$receiver User
 	$message  ?Text

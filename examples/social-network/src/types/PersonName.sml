@@ -1,10 +1,8 @@
-type socialNetwork::PersonName
-
-value struct {
+type socialNetwork::PersonName = struct {
 	firstName Text
 	lastName  Text
 }
 
-conversion PersonName as $pn -> Text {
-	value = $pn.firstName + " " + $pn.lastName
+conversion PersonName as $pn -> Text as $v {
+	$v = $pn.firstName + " " + $pn.lastName
 }

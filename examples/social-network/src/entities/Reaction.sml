@@ -1,12 +1,10 @@
-# Reaction represents a reaction to either a post or another reaction
-entity socialNetwork::Reaction
-
 use {
 	"std"      1.0
 	"std/time" 1.0
 }
 
-properties {
+# Reaction represents a reaction to either a post or another reaction
+entity socialNetwork::Reaction {
 	# target represents the target of the reaction which may be a post or just
 	# another reaction
 	target ReactionTarget

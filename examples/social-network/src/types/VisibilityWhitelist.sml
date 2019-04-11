@@ -1,5 +1,3 @@
-type socialNetwork::VisibilityWhitelist
-
-value struct {
+type socialNetwork::VisibilityWhitelist = struct {
 	users Array<User>
 }

@@ -1,7 +1,5 @@
 # yn equals the order-n Bessel function of the second kind
-function math::yn
-
-parameters {
+function math::yn {
 	$n @I
 	$x @N
 }

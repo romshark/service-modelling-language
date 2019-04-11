@@ -2,9 +2,7 @@
 #
 # This is a mutating function, it atomically mutates the state
 # of the underlying database
-function std::new<@E>
-
-parameters {
+function std::new<@E> {
 	$constructor Constructor<@E>
 }
 

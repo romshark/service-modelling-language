@@ -1,7 +1,5 @@
 # roundToEven equals the nearest integer, rounding ties to even
-function math::round
-
-parameters {
+function math::round {
 	$x @N
 }
 

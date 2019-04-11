@@ -1,12 +1,10 @@
-# Organization represents a profile of an organization
-entity socialNetwork::Organization
-
 use {
 	"std"      1.0
 	"std/time" 1.0
 }
 
-properties {
+# Organization represents a profile of an organization
+entity socialNetwork::Organization {
 	# id represents a configurable unique profile id
 	id ?String
 

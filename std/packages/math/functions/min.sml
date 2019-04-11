@@ -1,7 +1,5 @@
 # min equals the smaller of $numbers
-function math::min
-
-parameters {
+function math::min {
 	$numbers ...@N
 }
 

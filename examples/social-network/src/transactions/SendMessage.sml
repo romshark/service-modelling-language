@@ -1,12 +1,10 @@
-# SendMessage sends a message to the receiver user from the sender user
-transaction socialNetwork::SendMessage
-
 use {
 	"std"      1.0
 	"std/time" 1.0
 }
 
-parameters {
+# SendMessage sends a message to the receiver user from the sender user
+transaction socialNetwork::SendMessage {
 	$sender   User
 	$receiver User
 	$contents Text

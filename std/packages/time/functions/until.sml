@@ -1,7 +1,5 @@
 # until equals the duration until $tm
-function time::until
-
-parameters {
+function time::until {
 	$tm Time
 }
 

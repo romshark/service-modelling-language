@@ -1,7 +1,5 @@
 # tan equals the tangent of the radian argument $x
-function math::tan
-
-parameters {
+function math::tan {
 	$x @N
 }
 

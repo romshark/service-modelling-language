@@ -1,7 +1,5 @@
 # ilogb equals the binary exponent of $x as an integer
-function math::ilogb
-
-parameters {
+function math::ilogb {
 	$x @N
 }
 

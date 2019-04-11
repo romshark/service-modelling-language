@@ -1,7 +1,5 @@
 # cos equals the cosine of the radian argument $x
-function math::cos
-
-parameters {
+function math::cos {
 	$x @N
 }
 

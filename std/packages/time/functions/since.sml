@@ -1,7 +1,5 @@
 # since equals the time elapsed since $tm
-function time::since
-
-parameters {
+function time::since {
 	$tm Time
 }
 

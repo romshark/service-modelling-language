@@ -1,14 +1,13 @@
-type socialNetwork::EmailAddress
-
 use {
 	"std/regexp" 1.0
 }
 
-value Text
+type socialNetwork::EmailAddress = Text
 
-conversion Text as $t -> EmailAddress {
+conversion Text as $t -> EmailAddress as $v {
+	$v = $t
+
 	error = match {
 		!regexp::match($t, /.+@.+\..+/) = `invalid email address ($t)`
 	}
-	value = $t
 }

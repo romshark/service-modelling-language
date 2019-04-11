@@ -1,7 +1,5 @@
 # erfinv equals the inverse error function of $x
-function math::erfinv
-
-parameters {
+function math::erfinv {
 	$x @N
 }
 

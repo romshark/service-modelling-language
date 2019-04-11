@@ -1,12 +1,10 @@
-# UpdateUser updates a user profile changing the given fields
-transaction socialNetwork::UpdateUser
-
 use {
 	"std"      1.0
 	"std/time" 1.0
 }
 
-parameters {
+# UpdateUser updates a user profile changing the given fields
+transaction socialNetwork::UpdateUser {
 	$user User
 
 	$name            ?PersonName

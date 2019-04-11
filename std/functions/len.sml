@@ -1,7 +1,5 @@
 # len equals the length of $array
-function std::len
-
-parameters {
+function std::len {
 	$array Array<@T>
 }
 

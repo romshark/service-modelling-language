@@ -1,8 +1,6 @@
 # fetch equals an array of entity instances which match $predicate.
 # It equals an empty array if no entity instances match $predicate
-function std::fetch<@T>
-
-parameters {
+function std::fetch<@T> {
 	# $predicate is applied to the collection of stored entity instances.
 	# Any instance where $predicate(instance) matches true is included.
 	# If $predicate equals nil it's counted as false

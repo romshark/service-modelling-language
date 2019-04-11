@@ -1,7 +1,5 @@
 # weekday equals the day of the week specified by $tm
-function time::weekday
-
-parameters {
+function time::weekday {
 	$tm Time
 }
 

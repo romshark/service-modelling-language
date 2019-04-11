@@ -1,7 +1,5 @@
 # pow equals $x raised to a floating point power $power
-function math::pow
-
-parameters {
+function math::pow {
 	$x     @N
 	$power @N
 }

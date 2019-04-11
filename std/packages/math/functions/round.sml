@@ -1,7 +1,5 @@
 # round equals the nearest integer, rounding half away from zero
-function math::round
-
-parameters {
+function math::round {
 	$x @N
 }
 

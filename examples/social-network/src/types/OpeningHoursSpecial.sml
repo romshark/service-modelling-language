@@ -1,6 +1,4 @@
-type socialNetwork::OpeningHoursSpecial
-
-value enum {
+type socialNetwork::OpeningHoursSpecial = enum {
 	alwaysOpen
 	permanentlyClosed
 }

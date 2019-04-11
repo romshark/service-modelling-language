@@ -1,7 +1,5 @@
 # time equals the time determined by $str
-function time::time
-
-parameters {
+function time::time {
 	$str String
 }
 

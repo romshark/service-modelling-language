@@ -1,11 +1,9 @@
-entity socialNetwork::OrganizationRating
-
 use {
 	"std"      1.0
 	"std/time" 1.0
 }
 
-properties {
+entity socialNetwork::OrganizationRating {
 	author       User
 	organization Organization
 	rating       ReactionType

@@ -1,7 +1,5 @@
 # exp equals e ** $x, the base-e exponential of $x
-function math::exp
-
-parameters {
+function math::exp {
 	$x @N
 }
 

@@ -1,8 +1,6 @@
 # sortBy equals the sorted version of $array according to the specified $order
 # and $orderBy.
-function std::sortBy
-
-parameters {
+function std::sortBy {
 	$array   Array<@T>
 	$order   ?Order |> match { $ == nil = Order::desc }
 	$orderBy ?(Selector<@T> or Array<Selector<@T>>)

@@ -1,7 +1,5 @@
 # signBit equals true if $x is negative or negative zero.
-function math::signBit
-
-parameters {
+function math::signBit {
 	$x @N
 }
 

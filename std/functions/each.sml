@@ -1,7 +1,5 @@
 # each applies $func to each element in $array
-function std::each
-
-parameters {
+function std::each {
 	$array Array<@T>
 	$func  (@T) => nil
 }

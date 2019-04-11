@@ -1,14 +1,12 @@
-# ActivateAccount activates an account
-transaction socialNetwork::ActivateAccount
-
 use {
 	"std" 1.0
 }
 
-parameters (
+# ActivateAccount activates an account
+transaction socialNetwork::ActivateAccount {
 	$account          ID<User>
 	$activationSecret String
-)
+}
 
 errors ActivateAccount {
 	// # ActivationSecretInvalid is returned if the provided activation secret

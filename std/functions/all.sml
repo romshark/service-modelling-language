@@ -5,9 +5,7 @@
 # if they all equal true, then so does f.all.
 # If any of applied $predicate equals nil then it's counted as it was false.
 # If $array is empty then f.all equals true by default
-function std::all
-
-parameters {
+function std::all {
 	$array     Array<@T>
 	$predicate (@T) => ?Bool
 }

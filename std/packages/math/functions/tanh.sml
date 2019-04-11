@@ -1,7 +1,5 @@
 # tanh equals the hyperbolic tangent of $x
-function math::tanh
-
-parameters {
+function math::tanh {
 	$x @N
 }
 

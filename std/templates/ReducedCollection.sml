@@ -1,8 +1,6 @@
 # ReducedCollection represents a paginable collection of entity instances
 # reduced to a specific type
-template std::ReducedCollection<@E, @T>
-
-attributes {
+template std::ReducedCollection<@E, @T> {
 	*predicate ?(@E) => Bool |> match { $ == nil = ($x) => true }
 	*reducer   (@E) => @T
 	*order     ?Order

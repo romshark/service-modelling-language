@@ -1,10 +1,8 @@
-entity socialNetwork::Country
-
 use {
 	"std" 1.0
 }
 
-properties {
+entity socialNetwork::Country {
 	name   Text
 	cities Collection<City> {
 		predicate: ($c) => $c.country == this

@@ -1,3 +1,2 @@
-type socialNetwork::OrganizationOpeningHours
-
-value (OpeningHoursSpecial or OpeningHoursSchedule)
+type socialNetwork::OrganizationOpeningHours =
+    (OpeningHoursSpecial or OpeningHoursSchedule)

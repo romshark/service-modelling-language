@@ -1,11 +1,9 @@
-# PublishPostOrganization publishes a new organization post
-transaction socialNetwork::PublishPostOrganization
-
 use {
 	"std" 1.0
 }
 
-parameters {
+# PublishPostOrganization publishes a new organization post
+transaction socialNetwork::PublishPostOrganization {
 	$organization ID<Organization>
 	$admin        ID<User>
 	$content      Text

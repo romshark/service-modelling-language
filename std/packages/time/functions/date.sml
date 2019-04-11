@@ -1,7 +1,5 @@
 # date equals the year, month, and day in which $tm occurs
-function time::date
-
-parameters {
+function time::date {
 	$tm Time
 }
 

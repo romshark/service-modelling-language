@@ -1,6 +1,4 @@
-type socialNetwork::Gender
-
-value enum {
+type socialNetwork::Gender = enum {
 	male
 	female
 }

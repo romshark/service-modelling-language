@@ -1,7 +1,5 @@
 # atan equals the arctangent, in radians, of $x
-function math::atan
-
-parameters {
+function math::atan {
 	$x @N
 }
 

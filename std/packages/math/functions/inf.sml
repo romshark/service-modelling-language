@@ -1,8 +1,6 @@
 # inf equals positive infinity if $sign >= 0,
 # negative infinity if $sign < 0.
-function math::inf
-
-parameters {
+function math::inf {
 	$sign @I
 }
 

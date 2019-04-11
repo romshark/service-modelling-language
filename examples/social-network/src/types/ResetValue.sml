@@ -1,3 +1,1 @@
-type socialNetwork::ResetValue
-
-value struct {}
+type socialNetwork::ResetValue = struct {}

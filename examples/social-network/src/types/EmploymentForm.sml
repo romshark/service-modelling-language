@@ -1,10 +1,8 @@
-type socialNetwork::EmploymentForm
-
 use {
 	"std/time" 1.0
 }
 
-value struct {
+type socialNetwork::EmploymentForm = struct {
 	organization Organization
 	begin        Time
 	end          ?Time

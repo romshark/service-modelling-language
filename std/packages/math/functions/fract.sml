@@ -1,7 +1,5 @@
 # fract equals the fractional part of $x
-function math::fract
-
-parameters {
+function math::fract {
 	$x @N
 }
 

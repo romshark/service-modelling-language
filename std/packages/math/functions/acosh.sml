@@ -1,7 +1,5 @@
 # acosh equals the inverse hyperbolic cosine of $x
-function math::acosh
-
-parameters {
+function math::acosh {
 	$x @N
 }
 

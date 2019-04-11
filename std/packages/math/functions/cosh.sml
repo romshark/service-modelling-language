@@ -1,7 +1,5 @@
 # cosh equals the hyperbolic cosine of $x
-function math::cosh
-
-parameters {
+function math::cosh {
 	$x @N
 }
 

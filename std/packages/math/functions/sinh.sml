@@ -1,7 +1,5 @@
 # sinh equals the hyperbolic sine of $x
-function math::sinh
-
-parameters {
+function math::sinh {
 	$x @N
 }
 

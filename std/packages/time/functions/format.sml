@@ -7,9 +7,7 @@
 # a time stamp with millisecond precision
 # Predefined layouts ANSIC, UnixDate, RFC3339 and others
 # describe standard and convenient representations of the reference time.
-function time::format
-
-parameters {
+function time::format {
 	$tm     Time
 	$layout String
 }

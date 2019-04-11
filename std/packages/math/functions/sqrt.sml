@@ -1,7 +1,5 @@
 # sqrt equals the square root of $x
-function math::sqrt
-
-parameters {
+function math::sqrt {
 	$x @N
 }
 

@@ -1,6 +1,4 @@
-type socialNetwork::RelationshipType
-
-value enum {
+type socialNetwork::RelationshipType = enum {
 	single
 	inRelationship
 	inOpenRelationship

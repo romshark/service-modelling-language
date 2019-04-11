@@ -2,9 +2,7 @@
 #
 # The $transformation function is applied to each element of $array and its
 # value is included in the value of f.map
-function std::map
-
-parameters {
+function std::map {
 	$array          Array<@A>
 	$transformation (@A) => @B
 }

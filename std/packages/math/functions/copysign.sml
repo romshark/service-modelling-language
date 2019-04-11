@@ -1,7 +1,5 @@
 # copysign equals a value with the magnitude of $x and the sign of $y
-function math::copysign
-
-parameters {
+function math::copysign {
 	$x @X
 	$y @Y
 }

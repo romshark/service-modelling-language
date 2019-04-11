@@ -1,7 +1,5 @@
 # asinh equals the inverse hyperbolic sine of $x
-function math::asinh
-
-parameters {
+function math::asinh {
 	$x @N
 }
 

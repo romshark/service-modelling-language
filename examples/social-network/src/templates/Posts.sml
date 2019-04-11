@@ -1,11 +1,9 @@
-# Posts bundles together nodes related to posts
-type socialNetwork::Posts
-
 use {
 	"std" 1.0
 }
 
-attributes {
+# Posts bundles together nodes related to posts
+template socialNetwork::Posts {
 	*publisher (User or Organization)
 }
 

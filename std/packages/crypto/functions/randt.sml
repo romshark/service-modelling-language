@@ -1,7 +1,5 @@
 # randt equals a random UTF-8 encoded text
-function crypto::randt
-
-parameters {
+function crypto::randt {
 	$minLength Size
 	$maxLength Size
 }

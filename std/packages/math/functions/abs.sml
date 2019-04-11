@@ -1,7 +1,5 @@
 # abs equals the absolute value of $x
-function math::abs
-
-parameters {
+function math::abs {
 	$x @N
 }
 

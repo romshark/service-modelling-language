@@ -1,7 +1,5 @@
 # pos equals the index of the first element of $array matching $predicate
-function std::pos
-
-parameters {
+function std::pos {
 	$array     Array<@T>
 	$predicate (@T) => ?Bool
 }

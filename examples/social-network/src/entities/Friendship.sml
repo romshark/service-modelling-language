@@ -1,11 +1,9 @@
-# Friendship represents a friendship relation between two users
-entity socialNetwork::Friendship
-
 use {
 	"std" 1.0
 }
 
-properties {
+# Friendship represents a friendship relation between two users
+entity socialNetwork::Friendship {
 	users Array<User>
 
 	# request links the friendship request that initiated this friendship

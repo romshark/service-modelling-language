@@ -1,7 +1,5 @@
 # sum equals the sum of the 
-function math::sum
-
-parameters {
+function math::sum {
 	numbers ...@N
 }
 

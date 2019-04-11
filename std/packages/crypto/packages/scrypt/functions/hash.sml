@@ -1,6 +1,4 @@
-function scrypt::hash
-
-parameters {
+function scrypt::hash {
 	$password String
 	$salt     String
 	$N        Int32

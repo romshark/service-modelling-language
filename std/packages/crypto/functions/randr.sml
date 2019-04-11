@@ -1,7 +1,5 @@
 # randr equals a random unlimited precision real number
-function crypto::randr
-
-parameters {
+function crypto::randr {
 	$minLength Real
 	$maxLength Real
 }

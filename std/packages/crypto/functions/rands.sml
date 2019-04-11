@@ -1,7 +1,5 @@
 # rands equals a random 7-bit ASCII string
-function crypto::rands
-
-parameters {
+function crypto::rands {
 	$minLength Size
 	$maxLength Size
 }

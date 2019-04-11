@@ -1,6 +1,4 @@
-type socialNetwork::PictureFormat
-
-value enum {
+type socialNetwork::PictureFormat = enum {
 	png
 	jpeg
 	tiff

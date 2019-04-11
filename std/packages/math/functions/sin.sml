@@ -1,7 +1,5 @@
 # sin equals the sine of the radian argument $x
-function math::sin
-
-parameters {
+function math::sin {
 	$x @N
 }
 

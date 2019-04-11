@@ -1,12 +1,10 @@
-# Employment represents an employment relationship between an organization
-# and a user
-entity socialNetwork::Employment
-
 use {
 	"std/time" 1.0
 }
 
-properties {
+# Employment represents an employment relationship between an organization
+# and a user
+entity socialNetwork::Employment {
 	organization Organization
 	user         User
 

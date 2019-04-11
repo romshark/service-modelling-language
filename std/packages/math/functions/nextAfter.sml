@@ -1,7 +1,5 @@
 # nextAfter equals the next representable Float64 value after $x towards $y
-function math::nextAfter
-
-parameters {
+function math::nextAfter {
 	$x @N
 	$y @N
 }

@@ -1,7 +1,5 @@
 # jn equals the order-n Bessel function of the first kind
-function math::jn
-
-parameters {
+function math::jn {
 	$n @I
 	$x @N
 }

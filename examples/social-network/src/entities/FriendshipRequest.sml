@@ -1,10 +1,8 @@
-entity socialNetwork::FriendshipRequest
-
 use {
 	"std/time" 1.0
 }
 
-properties {
+entity socialNetwork::FriendshipRequest {
 	from     User
 	to       User
 	message  ?Text

@@ -1,7 +1,5 @@
 # erfcinv equals the inverse of f.erfc($x)
-function math::erfcinv
-
-parameters {
+function math::erfcinv {
 	$x @N
 }
 

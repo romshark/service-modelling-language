@@ -1,7 +1,5 @@
 # erfc equals the complementary error function of $x
-function math::erfc
-
-parameters {
+function math::erfc {
 	$x @N
 }
 

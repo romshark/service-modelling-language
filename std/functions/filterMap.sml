@@ -1,9 +1,7 @@
 # filterMap equals a transformed version $array.
 # The $transformation function is applied to each element of $array and if it
 # doesn't equal nil then the value is included
-function std::filterMap
-
-parameters {
+function std::filterMap {
 	$array          Array<@A>
 	$transformation (@A) => ?@B
 }

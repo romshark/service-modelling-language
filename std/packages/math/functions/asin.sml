@@ -1,7 +1,5 @@
 # asin equals the arcsine, in radians, of $x
-function math::asin
-
-parameters {
+function math::asin {
 	$x @N
 }
 

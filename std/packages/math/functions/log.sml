@@ -1,7 +1,5 @@
 # log equals the natural logarithm of $x
-function math::log
-
-parameters {
+function math::log {
 	$x @N
 }
 

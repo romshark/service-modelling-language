@@ -1,7 +1,5 @@
 # acos equals the arccosine, in radians, of $x
-function math::acos
-
-parameters {
+function math::acos {
 	$x @N
 }
 

@@ -1,7 +1,5 @@
 # minutes equals the number of minutes in $duration
-function time::minutes
-
-parameters {
+function time::minutes {
 	$duration Duration
 }
 

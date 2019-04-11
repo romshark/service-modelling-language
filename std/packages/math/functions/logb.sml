@@ -1,7 +1,5 @@
 # logb equals the binary exponent of $x
-function math::logb
-
-parameters {
+function math::logb {
 	$x @N
 }
 

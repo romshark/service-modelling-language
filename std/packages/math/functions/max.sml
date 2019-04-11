@@ -1,7 +1,5 @@
 # max equals the larger of $numbers
-function math::max
-
-parameters {
+function math::max {
 	$numbers ...@N
 }
 

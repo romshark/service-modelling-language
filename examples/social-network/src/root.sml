@@ -1,12 +1,10 @@
-root SocialNetwork
-
 use {
 	"std"      1.0
 	"std/time" 1.0
 	"std/math" 1.0
 }
 
-properties {
+root SocialNetwork {
 	# trendingPublicPosts lists all currently trending public posts sorted by
 	# the number of reactions
 	trendingPublicPosts Collection<Post> {

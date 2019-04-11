@@ -1,11 +1,9 @@
-# RemovePost removes a published post
-transaction socialNetwork::RemovePost
-
 use {
 	"std" 1.0
 }
 
-parameters {
+# RemovePost removes a published post
+transaction socialNetwork::RemovePost {
 	$post Post
 }
 

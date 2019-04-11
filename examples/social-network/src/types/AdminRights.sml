@@ -1,6 +1,4 @@
-type socialNetwork::AdminRights
-
-value struct {
+type socialNetwork::AdminRights = struct {
 	viewAdminProfiles Bool
 	banUsers          Bool
 }

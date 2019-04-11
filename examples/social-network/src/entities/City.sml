@@ -1,6 +1,4 @@
-entity socialNetwork::City
-
-properties {
+entity socialNetwork::City {
 	country Country
 	name    Text
 }

@@ -2,9 +2,7 @@
 # It equals nil if no entity instances matches $predicate.
 #
 # If $predicate equals nil it's counted as false
-function std::fetchOne<@T>
-
-parameters {
+function std::fetchOne<@T> {
 	$predicate ?(@T) => ?Bool
 }
 

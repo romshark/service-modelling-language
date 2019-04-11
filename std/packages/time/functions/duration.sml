@@ -1,7 +1,5 @@
 # duration equals the duration determined by $str
-function time::duration
-
-parameters {
+function time::duration {
 	$str String
 }
 

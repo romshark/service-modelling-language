@@ -1,7 +1,5 @@
 # Collection represents a paginable collection of entities
-template std::Collection<@T>
-
-attributes {
+template std::Collection<@T> {
 	*predicate ?(@T) => Bool |> match { $ == nil = ($x) => true }
 	*order     ?Order
 	*orderBy   ?(Selector<@T> or Array<Selector<@T>>)

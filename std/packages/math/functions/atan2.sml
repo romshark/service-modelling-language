@@ -1,8 +1,6 @@
 # atan2 equals the arc tangent of $y/$x,
 # using the signs of the two to determine the quadrant of the return value
-function math::atan2
-
-parameters {
+function math::atan2 {
 	$y @N
 	$x @N
 }

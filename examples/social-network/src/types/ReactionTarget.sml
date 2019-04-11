@@ -1,3 +1,1 @@
-type socialNetwork::ReactionTarget
-
-value (Post or Reaction)
+type socialNetwork::ReactionTarget = (Post or Reaction)

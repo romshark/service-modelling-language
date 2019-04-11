@@ -1,8 +1,6 @@
 # sortAs equals the sorted version of $array according to the specified $order
 # and $less
-function std::sortAs
-
-parameters {
+function std::sortAs {
 	$array Array<@T>
 	$order ?Order |> match { $ == nil = Order::desc }
 	$less  (i @T, j @T) => Bool
