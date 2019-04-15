@@ -5,12 +5,8 @@
 # This is a mutating function, it atomically mutates the state
 # of the underlying database
 function std::delete {
-	$entity (@E or ID<@E>)
+	$entity (entity or ID<entity>)
 }
 
 // Implementation is provided by the implementing engine
 value Bool
-
-constraints {
-	require @E entity
-}
