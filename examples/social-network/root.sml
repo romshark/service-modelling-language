@@ -15,25 +15,24 @@ root SocialNetwork {
 		Post.reactions:length,
 	)
 
-	admins collection<Admin>(nil, nil, nil)
+	admins collection<Admin>
 
 	adminActivities collection<AdminActivity>(
-		nil,
-		Order::desc,
-		AdminActivity.time,
+		order   = Order::desc,
+		orderBy = AdminActivity.time,
 	)
 
-	users collection<User>(nil, nil, nil)
+	users collection<User>
 
-	countries collection<Country>(nil, nil, nil)
+	countries collection<Country>
 
-	cities collection<City>(nil, nil, nil)
+	cities collection<City>
 
-	organizations collection<Organization>(nil, nil, nil)
+	organizations collection<Organization>
 
-	reactions collection<Reaction>(nil, nil, nil)
+	reactions collection<Reaction>
 
-	posts collection<Post>(nil, nil, nil)
+	posts collection<Post>
 
 	# mutualFriends lists all mutual friends between the given users
 	mutualFriends (

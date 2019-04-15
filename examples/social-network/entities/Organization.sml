@@ -33,9 +33,8 @@ entity socialNetwork::Organization {
 	
 	# subsidiaries links any subsidiary organizations
 	subsidiaries collection<Organization>(
-		($o) => $o.parentOrganization,
-		Order::desc,
-		nil,
+		predicate = ($o) => $o.parentOrganization,
+		order     = Order::desc,
 	)
 
 	# employments links all present and past employments

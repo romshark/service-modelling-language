@@ -36,13 +36,13 @@ errors {
 
 	# AlreadyRequested is returned if a similar request is pending
 	AlreadyRequested if fetchOne<FriendshipRequest>(
-		predicate: ($fr) => $fr.sender == $sender && $fr.receiver == $receiver
+		predicate = ($fr) => $fr.sender == $sender && $fr.receiver == $receiver
 	) != nil
 
 	# AlreadyReceived is returned if the receiving user already sent the sender
 	# another friendship request
 	AlreadyReceived if fetchOne<FriendshipRequest>(
-		predicate: ($fr) => $fr.sender == $receiver && $fr.receiver == $sender
+		predicate = ($fr) => $fr.sender == $receiver && $fr.receiver == $sender
 	) != nil
 }
 

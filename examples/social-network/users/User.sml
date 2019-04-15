@@ -26,15 +26,13 @@ user socialNetwork::User {
 	registration Time
 
 	// Connections
-	friendships  collection<Friendship>(nil, nil, nil)
+	friendships  collection<Friendship>
 	relatives    Array<Relative>
 	relationship Relationship
 
 	friends reducedCollection<Friendship, User>(
-		($f) => this in $f.users,
-		nil,
-		nil,
-		($f) => filter($f.users, ($u) => $u != this)[0],
+		predicate = ($f) => this in $f.users,
+		reducer   = ($f) => filter($f.users, ($u) => $u != this)[0],
 	)
 
 	# access defines all access permissions
@@ -58,9 +56,7 @@ user socialNetwork::User {
 
 	# managedOrganizationPages links all organization pages the user administers
 	managedOrganizationPages collection<Organization>(
-		($o) => this in $o.pageAdmins,
-		nil,
-		nil,
+		predicate = ($o) => this in $o.pageAdmins,
 	)
 
 	# outgoingFriendshipRequests lists all outgoing friendship requests the user
