@@ -4,11 +4,11 @@ use {
 
 entity socialNetwork::Country {
 	name   Text
-	cities Collection<City> {
-		predicate: ($c) => $c.country == this
-		order:     Order::desc
-		orderBy:   City.name
-	}
+	cities collection<City>(
+		($c) => $c.country == this,
+		Order::desc,
+		City.name,
+	)
 }
 
 access {

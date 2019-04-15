@@ -7,32 +7,33 @@ use {
 root SocialNetwork {
 	# trendingPublicPosts lists all currently trending public posts sorted by
 	# the number of reactions
-	trendingPublicPosts Collection<Post> {
-		predicate: ($p) => $p.access == Visibility::public and
+	trendingPublicPosts collection<Post>(
+		($p) => $p.access == Visibility::public and
 			$p.archived == nil and
-			$p.publication >= time::add(now(), Day(7))
-		order:   Order::desc
-		orderBy: Post.reactions:length
-	}
+			$p.publication >= time::add(now(), Day(7)),
+		Order::desc,
+		Post.reactions:length,
+	)
 
-	admins Collection<Admin>
+	admins collection<Admin>(nil, nil, nil)
 
-	adminActivities Collection<AdminActivity> {
-		order:   Order::desc
-		orderBy: AdminActivity.time
-	}
+	adminActivities collection<AdminActivity>(
+		nil,
+		Order::desc,
+		AdminActivity.time,
+	)
 
-	users Collection<User>
+	users collection<User>(nil, nil, nil)
 
-	countries Collection<Country>
+	countries collection<Country>(nil, nil, nil)
 
-	cities Collection<City>
+	cities collection<City>(nil, nil, nil)
 
-	organizations Collection<Organization>
+	organizations collection<Organization>(nil, nil, nil)
 
-	reactions Collection<Reaction>
+	reactions collection<Reaction>(nil, nil, nil)
 
-	posts Collection<Post>
+	posts collection<Post>(nil, nil, nil)
 
 	# mutualFriends lists all mutual friends between the given users
 	mutualFriends (

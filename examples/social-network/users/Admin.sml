@@ -6,11 +6,11 @@ user socialNetwork::Admin {
 	name       PersonName
 	email      EmailAddress
 	rights     AdminRights
-	activities Collection<AdminActivity> {
-		predicate: ($a) => $a.admin == this
-		order:     Order::desc
-		orderBy:   AdminActivity.time
-	}
+	activities collection<AdminActivity>(
+		($a) => $a.admin == this,
+		Order::desc,
+		AdminActivity.time,
+	)
 }
 
 # Accessing administrator is allowed to view other administrator's profiles

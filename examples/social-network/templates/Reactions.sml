@@ -2,24 +2,24 @@ use {
 	"std" 1.0
 }
 
-# Reactions bundles all reaction related nodes
-template socialNetwork::Reactions {
+# reactions bundles all reaction related nodes
+template socialNetwork::reactions {
 	*source (Post or Reaction)
 }
 
 value struct {
 	# all links all reactions sorted by publication time
-	all Collection<Reaction> {
-		predicate: ($r) => $r.target == *source
-		order:     Order::desc
-		orderBy:   Reaction.publication
-	}
+	all collection<Reaction>(
+		($r) => $r.target == *source,
+		Order::desc,
+		Reaction.publication,
+	)
 
 	# trending links the most relevant reactions sorted by the number
 	# of sub-reactions
-	trending Collection<Reaction> {
-		predicate: ($r) => $r.target == *source
-		order:     Order::desc
-		orderBy:   Reaction.reactions.all:length
-	}
+	trending collection<Reaction>(
+		($r) => $r.target == *source,
+		Order::desc,
+		Reaction.reactions.all:length,
+	)
 }

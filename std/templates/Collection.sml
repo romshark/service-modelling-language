@@ -1,5 +1,5 @@
-# Collection represents a paginable collection of entities
-template std::Collection<@T> {
+# collection represents a paginable collection of entities
+template std::collection<@T> {
 	*predicate ?(@T) => Bool
 	*order     ?Order
 	*orderBy   ?(Selector<@T> or Array<Selector<@T>>)

@@ -16,66 +16,68 @@ user socialNetwork::User {
 	spokenLanguages SpokenLanguages
 
 	# employmentHistory lists all employments sorted by their begin
-	employmentHistory Collection<Employment> {
-		predicate: ($e) => $e.user == this
-		order:     Order::desc
-		orderBy:   Employment.begin
-	}
+	employmentHistory collection<Employment>(
+		($e) => $e.user == this,
+		Order::desc,
+		Employment.begin,
+	)
 
 	# registration represents the time of the profile creation
 	registration Time
 
 	// Connections
-	friendships  Collection<Friendship>
+	friendships  collection<Friendship>(nil, nil, nil)
 	relatives    Array<Relative>
 	relationship Relationship
 
-	friends ReducedCollection<Friendship, User> {
-		predicate: ($f) => this in $f.users
-		reducer:   ($f) => filter($f.users, ($u) => $u != this)[0]
-	}
+	friends reducedCollection<Friendship, User>(
+		($f) => this in $f.users,
+		nil,
+		nil,
+		($f) => filter($f.users, ($u) => $u != this)[0],
+	)
 
 	# access defines all access permissions
 	access ProfileAccessPermissions
 
-	posts Posts {
-		publisher: this
-	}
+	posts posts(this)
 
 	# inbox lists all received messages
-	inbox Collection<Message> {
-		predicate: ($m) => $m.receiver == this
-		order:     Order::desc
-		orderBy:   Message.sent
-	}
+	inbox collection<Message>(
+		($m) => $m.receiver == this,
+		Order::desc,
+		Message.sent,
+	)
 
 	# outbox lists all sent messages
-	outbox Collection<Message> {
-		predicate: ($m) => $m.sender == this
-		order:     Order::desc
-		orderBy:   Message.sent
-	}
+	outbox collection<Message>(
+		($m) => $m.sender == this,
+		Order::desc,
+		Message.sent,
+	)
 
 	# managedOrganizationPages links all organization pages the user administers
-	managedOrganizationPages Collection<Organization> {
-		predicate: ($o) => this in $o.pageAdmins
-	}
+	managedOrganizationPages collection<Organization>(
+		($o) => this in $o.pageAdmins,
+		nil,
+		nil,
+	)
 
 	# outgoingFriendshipRequests lists all outgoing friendship requests the user
 	# initiated sorted by their age
-	outgoingFriendshipRequests Collection<FriendshipRequest> {
-		predicate: ($fr) => $fr.from == this and $fr.status == nil
-		order:     Order::asc
-		orderBy:   FriendshipRequest.creation
-	}
+	outgoingFriendshipRequests collection<FriendshipRequest>(
+		($fr) => $fr.from == this and $fr.status == nil,
+		Order::asc,
+		FriendshipRequest.creation,
+	)
 
 	# incomingFriendshipRequests lists all incoming friendship requests the user
 	# received sorted by their age
-	incomingFriendshipRequests Collection<FriendshipRequest> {
-		predicate: ($fr) => $fr.to == this and $fr.status == nil
-		order:     Order::asc
-		orderBy:   FriendshipRequest.creation
-	}
+	incomingFriendshipRequests collection<FriendshipRequest>(
+		($fr) => $fr.to == this and $fr.status == nil,
+		Order::asc,
+		FriendshipRequest.creation,
+	)
 
 	# banned is nil as long as the profile isn't banned
 	banned ?Time
@@ -85,18 +87,18 @@ user socialNetwork::User {
 	activation ?Time
 
 	# organizationRatings links all organization ratings posted by this user
-	organizationRatings Collection<OrganizationRating> {
-		predicate: ($or) => $or.author == this
-		order:     Order::desc
-		orderBy:   OrganizationRating.publication
-	}
+	organizationRatings collection<OrganizationRating>(
+		($or) => $or.author == this,
+		Order::desc,
+		OrganizationRating.publication,
+	)
 
 	# reactions links all reactions posted by this user
-	reactions Collection<Reaction> {
-		predicate: ($r) => $r.author == this
-		order:     Order::desc
-		orderBy:   Reaction.publication
-	}
+	reactions collection<Reaction>(
+		($r) => $r.author == this,
+		Order::desc,
+		Reaction.publication,
+	)
 }
 
 # Basic user profile access permissions

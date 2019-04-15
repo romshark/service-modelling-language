@@ -19,38 +19,38 @@ entity socialNetwork::Organization {
 	openingHours ?OrganizationOpeningHours
 	imprint      Text
 
-	posts Posts {
-		publisher: this
-	}
+	posts posts(this)
 
-	ratings Collection<OrganizationRating> {
-		predicate: ($or) => $or.organization == this
-		order:     Order::desc
-		orderBy:   OrganizationRating.publication
-	}
+	ratings collection<OrganizationRating>(
+		($or) => $or.organization == this,
+		Order::desc,
+		OrganizationRating.publication,
+	)
 
 	# parentOrganization links the parent organization if this organization
 	# is a subsidiary
 	parentOrganization ?Organization
 	
 	# subsidiaries links any subsidiary organizations
-	subsidiaries Collection<Organization> {
-		predicate: ($o) => $o.parentOrganization
-	}
+	subsidiaries collection<Organization>(
+		($o) => $o.parentOrganization,
+		Order::desc,
+		nil,
+	)
 
 	# employments links all present and past employments
-	employments Collection<Employment> {
-		predicate: ($e) => $e.organization == this
-		order:     Order::asc
-		orderBy:   Employment.start
-	}
+	employments collection<Employment>(
+		($e) => $e.organization == this,
+		Order::asc,
+		Employment.start,
+	)
 
 	# presentEmployments links all current employments
-	presentEmployments Collection<Employment> {
-		predicate: ($e) => $e.organization == this and $e.end == nil
-		order:     Order::asc
-		orderBy:   Employment.start
-	}
+	presentEmployments collection<Employment>(
+		($e) => $e.organization == this and $e.end == nil,
+		Order::asc,
+		Employment.start,
+	)
 
 	# pageAdmins lists all page administrators
 	pageAdmins Array<User>

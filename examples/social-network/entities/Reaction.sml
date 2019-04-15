@@ -18,7 +18,5 @@ entity socialNetwork::Reaction {
 	comment ?Text
 
 	# reactions links the reactions to this reaction
-	reactions Reactions {
-		source: this
-	}
+	reactions reactions(this)
 }

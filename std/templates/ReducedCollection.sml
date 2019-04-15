@@ -1,10 +1,10 @@
-# ReducedCollection represents a paginable collection of entity instances
+# reducedCollection represents a paginable collection of entity instances
 # reduced to a specific type
-template std::ReducedCollection<@E, @T> {
+template std::reducedCollection<@E, @T> {
 	*predicate ?(@E) => Bool
-	*reducer   (@E) => @T
 	*order     ?Order
 	*orderBy   ?(Selector<@E> or Array<Selector<@E>>)
+	*reducer   (@E) => @T
 }
 
 parameters {

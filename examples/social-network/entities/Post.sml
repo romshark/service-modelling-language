@@ -9,9 +9,7 @@ entity socialNetwork::Post {
 	content     Text
 	access      VisibilityPermission
 
-	reactions Reactions {
-		source: this
-	}
+	reactions reactions(this)
 
 	# archived specifies the time the post was removed. This field is nil when
 	# the post was not removed
