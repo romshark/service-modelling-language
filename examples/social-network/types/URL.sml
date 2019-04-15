@@ -6,6 +6,7 @@ use {
 type socialNetwork::URL = Text
 
 conversion Text as $t -> EmailAddress => $t
+conversion EmailAddress as $v -> Text => $v
 
 errors {
 	Error(`invalid URL ($(this))`) if
