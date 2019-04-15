@@ -33,20 +33,19 @@ errors {
 	Error("sender and receiver must be two different users") if
 		$sender == $receiver
 
-	# AlreadyBefriended is returned if the sender already befriends the
-	# receiver
-	Error<AlreadyBefriended> if $sender in $receiver.friends
+	AlreadyBefriended("the sender and receiver already are friends") if
+		$sender in $receiver.friends
 
-	# AlreadyRequested is returned if a similar request is pending
-	Error<AlreadyRequested> if fetchOne<FriendshipRequest>(
-		predicate = ($fr) => $fr.sender == $sender && $fr.receiver == $receiver
-	) != nil
+	AlreadyRequested("a similar request is already pending") if
+		fetchOne<FriendshipRequest>(($fr) =>
+			$fr.sender == $sender && $fr.receiver == $receiver
+		) != nil
 
-	# AlreadyReceived is returned if the receiving user already sent the sender
-	# another friendship request
-	Error<AlreadyReceived> if fetchOne<FriendshipRequest>(
-		predicate = ($fr) => $fr.sender == $receiver && $fr.receiver == $sender
-	) != nil
+	AlreadyReceived("the receiver already sent the sender 
+		another friendship request") if
+		fetchOne<FriendshipRequest>(($fr) =>
+			$fr.sender == $receiver && $fr.receiver == $sender
+		) != nil
 }
 
 access RequestFriendship {
