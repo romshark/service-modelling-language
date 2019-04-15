@@ -60,7 +60,7 @@ query($userIds []ID<User>) {
 }
 ```
 
-Alternativelly, we can also pass multiple ids as individual variables and query the `users` graph root node using multiple keys:
+Alternatively, we can also pass multiple ids as individual variables and query the `users` graph root node using multiple keys:
 ```
 query(
 	$user1Id ID<User>
@@ -136,7 +136,7 @@ query(
 }
 ```
 
-Notice that we're also fetching `friends:version` which represents the version of the list of `friends`. This field helps invalidating cached pages. It must be compared to the previously fetched version and if it changed all previously fetched slices should be dropped and in case of infinite scroll the could be refeched relative to the currently fetched one.
+Notice that we're also fetching `friends:version` which represents the version of the list of `friends`. This field helps invalidating cached pages. It must be compared to the previously fetched version and if it changed all previously fetched slices should be dropped and in case of infinite scroll the could be refetched relative to the currently fetched one.
 
 ### Creating a Post (Calling a Transaction)
 Publishing a new post **visible publicly** on behalf of a user, where `$userId` is the id of the user and `$contents` is the UTF-8 encoded textual content:
