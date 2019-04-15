@@ -6,7 +6,7 @@ use {
 # Organization represents a profile of an organization
 entity socialNetwork::Organization {
 	# id represents a configurable unique profile id
-	id ?String
+	id ?OrganizationID
 
 	name         socialNetwork::Text
 	description  socialNetwork::Text

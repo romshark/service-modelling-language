@@ -3,9 +3,10 @@ use {
 }
 
 # PhoneNumber represents an international generic phone number
-type socialNetwork::PhoneNumber = String
+type socialNetwork::PhoneNumber = Array<Byte>
 
-conversion String as $s -> PhoneNumber => $s
+conversion Text as $s -> PhoneNumber => Array<Byte>($s)
+conversion PhoneNumber as $s -> Text => Text($s)
 
 errors {
 	Error(`invalid phone number ($(this))`) if

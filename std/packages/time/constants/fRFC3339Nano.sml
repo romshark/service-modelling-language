@@ -2,4 +2,4 @@
 # with nanosecond precision
 constant time::fRFC3339Nano
 
-value String = "2006-01-02T15:04:05.999999999Z07:00"
+value Array<Byte> = "2006-01-02T15:04:05.999999999Z07:00"

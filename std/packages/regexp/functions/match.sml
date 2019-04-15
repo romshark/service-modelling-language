@@ -1,7 +1,7 @@
 # match equals true if $string matches $expr, otherwise equals false
 function regexp::match {
+	$string (Text or Array<Byte>)
 	$expr   RegExp
-	$string (String or Text)
 }
 
 value Bool

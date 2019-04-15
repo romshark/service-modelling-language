@@ -7,6 +7,6 @@ function time::zone {
 
 // Implementation is provided by the implementing engine
 value struct {
-	name   String
+	name   Array<Byte>
 	offset Int32
 }

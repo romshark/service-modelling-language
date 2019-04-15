@@ -1,6 +1,6 @@
 function scrypt::hash {
-	$password String
-	$salt     String
+	$password Array<Byte>
+	$salt     Array<Byte>
 	$N        Int32
 	$r        Int32
 	$p        Int32

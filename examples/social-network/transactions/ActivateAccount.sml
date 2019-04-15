@@ -5,7 +5,7 @@ use {
 # ActivateAccount activates an account
 transaction socialNetwork::ActivateAccount {
 	$account          ID<User>
-	$activationSecret String
+	$activationSecret AsciiString
 }
 
 errors ActivateAccount {

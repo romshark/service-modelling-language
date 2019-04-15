@@ -9,8 +9,8 @@
 # describe standard and convenient representations of the reference time.
 function time::format {
 	$tm     Time
-	$layout String
+	$layout Array<Byte>
 }
 
 // Implementation is provided by the implementing engine
-value String
+value Array<Byte>
