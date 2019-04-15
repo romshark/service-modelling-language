@@ -10,7 +10,7 @@ template std::reducedCollection<@E, @T> {
 parameters {
 	$page (Array<ID<@T>> or struct {
 		cursor ID<@T>
-		limit  @L
+		limit  integer
 	})
 }
 
@@ -51,5 +51,4 @@ value struct {
 
 constraints {
 	require @E entity
-	require @L integer
 }
