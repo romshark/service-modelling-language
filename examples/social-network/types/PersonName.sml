@@ -3,9 +3,8 @@ type socialNetwork::PersonName = struct {
 	lastName  Text
 }
 
-conversion PersonName as $pn -> Text as $v {
-	$v = $pn.firstName + " " + $pn.lastName
-}
+conversion PersonName as $pn -> Text =>
+	$pn.firstName + " " + $pn.lastName
 
 errors {
 	Error("first name too short") if len(this.firstName) < 2

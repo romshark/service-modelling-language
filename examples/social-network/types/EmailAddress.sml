@@ -4,9 +4,7 @@ use {
 
 type socialNetwork::EmailAddress = Text
 
-conversion Text as $t -> EmailAddress as $v {
-	$v = $t
-}
+conversion Text as $v -> EmailAddress => $v
 
 errors {
 	Error(`invalid email address ($(this))`) if

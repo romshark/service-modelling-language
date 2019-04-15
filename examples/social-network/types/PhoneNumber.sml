@@ -5,9 +5,7 @@ use {
 # PhoneNumber represents an international generic phone number
 type socialNetwork::PhoneNumber = String
 
-conversion String as $s -> PhoneNumber as $v {
-	$v = $s
-}
+conversion String as $s -> PhoneNumber => $s
 
 errors {
 	Error(`invalid phone number ($(this))`) if

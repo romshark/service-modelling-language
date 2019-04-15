@@ -5,9 +5,7 @@ use {
 # URL represents a uniform resource locator
 type socialNetwork::URL = Text
 
-conversion Text as $t -> EmailAddress as $v {
-	$v = $t
-}
+conversion Text as $t -> EmailAddress => $t
 
 errors {
 	Error(`invalid URL ($(this))`) if
