@@ -10,9 +10,9 @@ conversion Text as $t -> EmailAddress as $v {
 }
 
 errors {
-	Error(`invalid URL ($t)`) if
+	Error(`invalid URL ($(this))`) if
 		!regexp::match(
-			$t,
+			this,
 			/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/,
 		)
 }

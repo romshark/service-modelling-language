@@ -9,5 +9,6 @@ conversion Text as $t -> EmailAddress as $v {
 }
 
 errors {
-	Error(`invalid email address ($t)`) if !regexp::match(this, /.+@.+\..+/)
+	Error(`invalid email address ($(this))`) if
+		!regexp::match(this, /.+@.+\..+/)
 }
