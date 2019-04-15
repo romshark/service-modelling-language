@@ -11,11 +11,11 @@ transaction socialNetwork::ActivateAccount {
 errors ActivateAccount {
 	// # ActivationSecretInvalid is returned if the provided activation secret
 	// # is invalid
-	// ActivationSecretInvalid 
+	// Error<ActivationSecretInvalid> if
 
 	// # ActivationSecretExpired is returned if the provided activation secret
 	// # is expired
-	// ActivationSecretExpired
+	// Error<ActivationSecretExpired> if
 }
 
 access ActivateAccount {

@@ -6,8 +6,8 @@ type socialNetwork::EmailAddress = Text
 
 conversion Text as $t -> EmailAddress as $v {
 	$v = $t
+}
 
-	error = match {
-		!regexp::match($t, /.+@.+\..+/) = `invalid email address ($t)`
-	}
+errors {
+	Error(`invalid email address ($t)`) if !regexp::match(this, /.+@.+\..+/)
 }

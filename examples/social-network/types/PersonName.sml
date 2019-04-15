@@ -7,11 +7,9 @@ conversion PersonName as $pn -> Text as $v {
 	$v = $pn.firstName + " " + $pn.lastName
 }
 
-constraints {
-	error => match {
-		len(this.firstName) < 2  = `first name too short`
-		len(this.firstName) > 64 = `first name too long`
-		len(this.lastName) < 2   = `last name too short`
-		len(this.lastName) > 64  = `last name too long`
-	}
+errors {
+	Error(`first name too short`) if len(this.firstName) < 2
+	Error(`first name too long`) if len(this.firstName) > 64
+	Error(`last name too short`) if len(this.lastName) < 2
+	Error(`last name too long`) if len(this.lastName) > 64
 }

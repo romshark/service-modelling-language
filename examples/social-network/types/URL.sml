@@ -7,11 +7,12 @@ type socialNetwork::URL = Text
 
 conversion Text as $t -> EmailAddress as $v {
 	$v = $t
+}
 
-	error = match {
+errors {
+	Error(`invalid URL ($t)`) if
 		!regexp::match(
 			$t,
 			/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/,
-		) = `invalid URL ($t)`
-	}
+		)
 }

@@ -7,6 +7,7 @@ function crypto::randr {
 // Implementation is provided by the implementing engine
 value Real
 
-constraints {
-	require ($minLength, $maxLength) => $minLength <= $maxLength
+errors {
+	Error("max length must be greater or equals min length") if
+		$maxLength < $minLength
 }

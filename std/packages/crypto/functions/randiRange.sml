@@ -7,6 +7,6 @@ function crypto::randiRange {
 // Implementation is provided by the implementing engine
 value Int32
 
-constraints {
-	require ($min, $max) => $min <= $max
+errors {
+	Error("max must be greater or equals min") if $max < $min
 }
