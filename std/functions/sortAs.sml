@@ -2,7 +2,7 @@
 # and $less
 function std::sortAs {
 	$array Array<@T>
-	$order ?Order |> match { $ == nil = Order::desc }
+	$order ?Order
 	$less  (i @T, j @T) => Bool
 }
 

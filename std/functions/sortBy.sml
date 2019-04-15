@@ -2,7 +2,7 @@
 # and $orderBy.
 function std::sortBy {
 	$array   Array<@T>
-	$order   ?Order |> match { $ == nil = Order::desc }
+	$order   ?Order
 	$orderBy ?(Selector<@T> or Array<Selector<@T>>)
 }
 
