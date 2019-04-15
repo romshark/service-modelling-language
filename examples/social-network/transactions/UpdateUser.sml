@@ -9,7 +9,7 @@ transaction socialNetwork::UpdateUser {
 
 	$name            ?PersonName
 	$gender          ?Gender
-	$biography       ?(Text or ResetValue)
+	$biography       ?(socialNetwork::Text or ResetValue)
 	$avatar          ?(Picture or ResetValue)
 	$email           ?EmailAddress
 	$phone           ?(PhoneNumber or ResetValue)
@@ -25,9 +25,9 @@ scope {
 		gender = $gender as Gender or $user.gender
 
 		biography = $biography as $v {
-			ResetValue = nil
-			Text       = $v
-			default    = $user.biography
+			ResetValue          = nil
+			socialNetwork::Text = $v
+			default             = $user.biography
 		}
 
 		avatar = $avatar as $v {

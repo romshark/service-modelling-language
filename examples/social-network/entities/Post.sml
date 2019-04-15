@@ -6,7 +6,7 @@ use {
 entity socialNetwork::Post {
 	publisher   (User or Organization)
 	publication Time
-	content     Text
+	content     socialNetwork::Text
 	access      VisibilityPermission
 
 	reactions reactions(this)

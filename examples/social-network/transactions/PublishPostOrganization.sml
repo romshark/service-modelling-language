@@ -6,7 +6,7 @@ use {
 transaction socialNetwork::PublishPostOrganization {
 	$organization ID<Organization>
 	$admin        ID<User>
-	$content      Text
+	$content      socialNetwork::Text
 }
 
 results {

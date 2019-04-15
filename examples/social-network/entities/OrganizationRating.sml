@@ -7,7 +7,7 @@ entity socialNetwork::OrganizationRating {
 	author       User
 	organization Organization
 	rating       ReactionType
-	comment      Text
+	comment      socialNetwork::Text
 	access       VisiblityPermission
 	publication  Time
 }

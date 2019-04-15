@@ -6,5 +6,5 @@ type socialNetwork::EmploymentForm = struct {
 	organization Organization
 	begin        Time
 	end          ?Time
-	position     ?Text
+	position     ?socialNetwork::Text
 }

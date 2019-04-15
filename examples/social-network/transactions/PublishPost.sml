@@ -5,7 +5,7 @@ use {
 # PublishPost publishes a new post
 transaction socialNetwork::PublishPost {
 	$author  ID<User>
-	$content Text
+	$content socialNetwork::Text
 
 	# access defines the access permissions to the new post. The post will be
 	# made private by default if the access permissions aren't specified

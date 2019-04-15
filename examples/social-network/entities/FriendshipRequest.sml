@@ -5,7 +5,7 @@ use {
 entity socialNetwork::FriendshipRequest {
 	from     User
 	to       User
-	message  ?Text
+	message  ?socialNetwork::Text
 	creation Time
 	status   ?FriendshipRequestStatus
 }

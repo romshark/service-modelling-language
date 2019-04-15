@@ -7,7 +7,7 @@ transaction socialNetwork::PublishReaction {
 	$target  ReactionTarget
 	$author  ID<User>
 	$type    ReactionType
-	$comment ?Text
+	$comment ?socialNetwork::Text
 }
 
 results {

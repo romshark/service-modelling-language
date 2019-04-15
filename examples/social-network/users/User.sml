@@ -7,7 +7,7 @@ user socialNetwork::User {
 	// Personal information
 	name            PersonName
 	gender          Gender
-	biography       ?Text
+	biography       ?socialNetwork::Text
 	avatar          ?Picture
 	email           EmailAddress
 	phone           ?PhoneNumber

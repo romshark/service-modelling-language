@@ -15,7 +15,7 @@ entity socialNetwork::Reaction {
 	publication Time
 
 	# comment is optional
-	comment ?Text
+	comment ?socialNetwork::Text
 
 	# reactions links the reactions to this reaction
 	reactions reactions(this)

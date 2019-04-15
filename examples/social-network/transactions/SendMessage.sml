@@ -7,7 +7,7 @@ use {
 transaction socialNetwork::SendMessage {
 	$sender   User
 	$receiver User
-	$contents Text
+	$contents socialNetwork::Text
 }
 
 scope {

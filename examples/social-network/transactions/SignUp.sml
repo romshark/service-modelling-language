@@ -8,7 +8,7 @@ transaction socialNetwork::SignUp {
 	$name              PersonName
 	$email             EmailAddress
 	$gender            ?Gender
-	$biography         ?Text
+	$biography         ?socialNetwork::Text
 	$avatar            ?Picture
 	$phone             ?PhoneNumber
 	$birthDate         ?Time

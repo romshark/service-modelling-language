@@ -143,7 +143,7 @@ Publishing a new post **visible publicly** on behalf of a user, where `$userId` 
 ```
 query(
 	$userId   ID<User>
-	$contents Text
+	$contents socialNetwork::Text
 ) {
 	PublishPost (
 		author  $userId
@@ -157,7 +157,7 @@ Creating a private post that's **not visible to anyone but the owner**, where `$
 ```
 query(
 	$userId   ID<User>
-	$contents Text
+	$contents socialNetwork::Text
 ) {
 	PublishPost (
 		author  $userId
@@ -171,7 +171,7 @@ Creating a post that's **not visible to blacklisted friends**, where `$userId` i
 ```
 query(
 	$userId             ID<User>
-	$contents           Text
+	$contents           socialNetwork::Text
 	$blacklistedUserIds []ID<User>
 ) {
 	PublishPost (
@@ -188,7 +188,7 @@ Creating a post that's **only visible to whitelisted friends**, where `$userId` 
 ```
 query(
 	$userId             ID<User>
-	$contents           Text
+	$contents           socialNetwork::Text
 	$whitelistedUserIds []ID<User>
 ) {
 	PublishPost (

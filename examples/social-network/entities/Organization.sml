@@ -8,8 +8,8 @@ entity socialNetwork::Organization {
 	# id represents a configurable unique profile id
 	id ?String
 
-	name         Text
-	description  Text
+	name         socialNetwork::Text
+	description  socialNetwork::Text
 	registration Time
 	type         OrganizationType
 	phone        PhoneNumber
@@ -17,7 +17,7 @@ entity socialNetwork::Organization {
 	website      URL
 	contactEmail EmailAddress
 	openingHours ?OrganizationOpeningHours
-	imprint      Text
+	imprint      socialNetwork::Text
 
 	posts posts(this)
 

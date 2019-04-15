@@ -3,7 +3,7 @@ use {
 }
 
 entity socialNetwork::Message {
-	contents Text
+	contents socialNetwork::Text
 	sender   User
 	receiver User
 	sent     Time

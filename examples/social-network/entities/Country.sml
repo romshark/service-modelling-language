@@ -3,7 +3,7 @@ use {
 }
 
 entity socialNetwork::Country {
-	name   Text
+	name   socialNetwork::Text
 	cities collection<City>(
 		($c) => $c.country == this,
 		Order::desc,

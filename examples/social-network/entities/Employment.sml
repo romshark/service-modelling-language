@@ -14,5 +14,5 @@ entity socialNetwork::Employment {
 	# end is nil if the employment is still going
 	end ?Time
 
-	position ?Text
+	position ?socialNetwork::Text
 }

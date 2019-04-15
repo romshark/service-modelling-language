@@ -1,6 +1,6 @@
 entity socialNetwork::City {
 	country Country
-	name    Text
+	name    socialNetwork::Text
 }
 
 access {

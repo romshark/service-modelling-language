@@ -7,7 +7,7 @@ use {
 transaction socialNetwork::RequestFriendship {
 	$sender   User
 	$receiver User
-	$message  ?Text
+	$message  ?socialNetwork::Text
 }
 
 scope {
