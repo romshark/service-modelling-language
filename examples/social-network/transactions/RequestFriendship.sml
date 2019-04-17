@@ -4,11 +4,11 @@ use {
 }
 
 # RequestFriendship creates a friendship request
-transaction socialNetwork::RequestFriendship {
-	$sender   User
-	$receiver User
-	$message  ?socialNetwork::Text
-}
+transaction socialNetwork::RequestFriendship (
+	$sender   User,
+	$receiver User,
+	$message  ?socialNetwork::Text,
+)
 
 scope {
 	$newRequest = new<FriendshipRequest>({

@@ -3,12 +3,12 @@ use {
 }
 
 # PublishReaction publishes a new reaction to either a post or another reaction
-transaction socialNetwork::PublishReaction {
-	$target  ReactionTarget
-	$author  ID<User>
-	$type    ReactionType
-	$comment ?socialNetwork::Text
-}
+transaction socialNetwork::PublishReaction (
+	$target  ReactionTarget,
+	$author  ID<User>,
+	$type    ReactionType,
+	$comment ?socialNetwork::Text,
+)
 
 results {
 	publishedReaction Reaction

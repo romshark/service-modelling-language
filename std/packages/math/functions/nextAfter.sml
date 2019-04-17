@@ -1,8 +1,8 @@
 # nextAfter equals the next representable Float64 value after $x towards $y
-function math::nextAfter {
-	$x @N
-	$y @N
-}
+function math::nextAfter (
+	$x @N,
+	$y @N,
+)
 
 // Implementation is provided by the implementing engine
 value @N

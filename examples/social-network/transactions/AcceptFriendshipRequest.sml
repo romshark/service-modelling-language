@@ -1,8 +1,8 @@
 # AcceptFriendshipRequest declines a friendship request triggering the
 # FriendshipRequestAccepted event
-transaction socialNetwork::AcceptFriendshipRequest {
-	$request FriendshipRequest
-}
+transaction socialNetwork::AcceptFriendshipRequest (
+	$request FriendshipRequest,
+)
 
 results {
 	newFriend User

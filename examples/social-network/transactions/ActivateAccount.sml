@@ -3,10 +3,10 @@ use {
 }
 
 # ActivateAccount activates an account
-transaction socialNetwork::ActivateAccount {
-	$account          ID<User>
-	$activationSecret AsciiString
-}
+transaction socialNetwork::ActivateAccount (
+	$account          ID<User>,
+	$activationSecret AsciiString,
+)
 
 errors ActivateAccount {
 	// # ActivationSecretInvalid is returned if the provided activation secret

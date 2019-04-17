@@ -3,11 +3,11 @@ use {
 }
 
 # PublishPostOrganization publishes a new organization post
-transaction socialNetwork::PublishPostOrganization {
-	$organization ID<Organization>
-	$admin        ID<User>
-	$content      socialNetwork::Text
-}
+transaction socialNetwork::PublishPostOrganization (
+	$organization ID<Organization>,
+	$admin        ID<User>,
+	$content      socialNetwork::Text,
+)
 
 results {
 	publishedPost Post

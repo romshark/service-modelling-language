@@ -7,10 +7,10 @@
 # a time stamp with millisecond precision
 # Predefined layouts ANSIC, UnixDate, RFC3339 and others
 # describe standard and convenient representations of the reference time.
-function time::format {
-	$tm     Time
-	$layout Array<Byte>
-}
+function time::format (
+	$tm     Time,
+	$layout Array<Byte>,
+)
 
 // Implementation is provided by the implementing engine
 value Array<Byte>

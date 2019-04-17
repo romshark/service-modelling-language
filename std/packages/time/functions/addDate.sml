@@ -5,12 +5,12 @@
 # addDate normalizes its value in the same way that f.date does, so,
 # for example, adding one month to October 31 yields December 1,
 # the normalized form for November 31
-function time::addDate {
-	$tm     Time
-	$years  Uint32
-	$months Uint32
-	$days   Uint32
-}
+function time::addDate (
+	$tm     Time,
+	$years  Uint32,
+	$months Uint32,
+	$days   Uint32,
+)
 
 // Implementation is provided by the implementing engine
 value Time

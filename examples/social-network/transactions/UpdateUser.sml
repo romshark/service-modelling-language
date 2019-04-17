@@ -4,20 +4,20 @@ use {
 }
 
 # UpdateUser updates a user profile changing the given fields
-transaction socialNetwork::UpdateUser {
-	$user User
+transaction socialNetwork::UpdateUser (
+	$user User,
 
-	$name            ?PersonName
-	$gender          ?Gender
-	$biography       ?(socialNetwork::Text or ResetValue)
-	$avatar          ?(Picture or ResetValue)
-	$email           ?EmailAddress
-	$phone           ?(PhoneNumber or ResetValue)
-	$birthDate       ?(Time or ResetValue)
-	$residence       ?(City or ResetValue)
-	$spokenLanguages ?SpokenLanguages
-	$access          ?ProfileAccessPermissions
-}
+	$name            ?PersonName,
+	$gender          ?Gender,
+	$biography       ?(socialNetwork::Text or ResetValue),
+	$avatar          ?(Picture or ResetValue),
+	$email           ?EmailAddress,
+	$phone           ?(PhoneNumber or ResetValue),
+	$birthDate       ?(Time or ResetValue),
+	$residence       ?(City or ResetValue),
+	$spokenLanguages ?SpokenLanguages,
+	$access          ?ProfileAccessPermissions,
+)
 
 scope {
 	$updated = mutate($user, {

@@ -3,9 +3,7 @@ use {
 }
 
 # RemovePost removes a published post
-transaction socialNetwork::RemovePost {
-	$post Post
-}
+transaction socialNetwork::RemovePost ($post Post)
 
 access RemovePost {
 	# Only users are allowed to publish posts

@@ -4,11 +4,11 @@ use {
 }
 
 # SendMessage sends a message to the receiver user from the sender user
-transaction socialNetwork::SendMessage {
-	$sender   User
-	$receiver User
-	$contents socialNetwork::Text
-}
+transaction socialNetwork::SendMessage (
+	$sender   User,
+	$receiver User,
+	$contents socialNetwork::Text,
+)
 
 scope {
 	$newMessage = new<Message>({

@@ -5,10 +5,10 @@
 # If any of applied $predicate functions equals nil
 # then it's counted as it was false.
 # If $array is empty then f.any equals false by default
-function std::any {
-	$array     Array<@T>
-	$predicate (@T) => ?Bool
-}
+function std::any (
+	$array     Array<@T>,
+	$predicate (@T) => ?Bool,
+)
 
 // Implementation is provided by the implementing engine
 value Bool

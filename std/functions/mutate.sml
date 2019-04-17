@@ -5,10 +5,10 @@
 #
 # Applying f.mutate to $entity multiple times within the scope of a
 # transaction will cause an engine panic
-function std::mutate {
-	$entity  @E
-	$mutator Mutator<@E>
-}
+function std::mutate (
+	$entity  @E,
+	$mutator Mutator<@E>,
+)
 
 // Implementation is provided by the implementing engine
 value @E

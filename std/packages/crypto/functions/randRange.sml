@@ -1,8 +1,8 @@
 # randRange equals a random number between $min and $max
-function crypto::randRange {
-	$min @T
-	$max @T
-}
+function crypto::randRange (
+	$min @T,
+	$max @T,
+)
 
 // Implementation is provided by the implementing engine
 value @T

@@ -1,7 +1,5 @@
 # date equals the year, month, and day in which $tm occurs
-function time::date {
-	$tm Time
-}
+function time::date ($tm Time)
 
 // Implementation is provided by the implementing engine
 value struct {

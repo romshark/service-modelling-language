@@ -1,7 +1,5 @@
 # sincos equals f.sin($x), f.cos($x).
-function math::sincos {
-	$x @N
-}
+function math::sincos ($x @N)
 
 // Implementation is provided by the implementing engine
 value struct {
