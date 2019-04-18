@@ -26,7 +26,7 @@ value -> struct {
 		& = map($found, ($e) => *reducer($e))
 
 		$found = $page as $p {
-			Array<ID<@T>> then fetch<@E>(
+			Array<ID<@T>> then entities<@E>(
 				($t) => id($t) in $p and *predicate($t),
 				*order,
 				*orderBy,
@@ -37,13 +37,13 @@ value -> struct {
 				cursor ID<@T>
 				limit  Int32
 			} then match {
-				$p.limit > 0 then fetch<@T>(
+				$p.limit > 0 then entities<@T>(
 					($t) => id($t) > $p.cursor and *predicate($t),
 					*order,
 					*orderBy,
 					$limit,
 				)
-				$p.limit < 0 then fetch<@T>(
+				$p.limit < 0 then entities<@T>(
 					($t) => id($t) < $p.cursor and *predicate($t),
 					*order,
 					*orderBy,

@@ -27,11 +27,11 @@ transaction socialNetwork::RequestFriendship (
 		else $newRequest
 	}
 
-	$similarRequestIsPending = fetchOne<FriendshipRequest>(($fr) =>
+	$similarRequestIsPending = entity<FriendshipRequest>(($fr) =>
 		$fr.sender == $sender and $fr.receiver == $receiver
 	) != nil
 
-	$receiverSentRequest = fetchOne<FriendshipRequest>(($fr) =>
+	$receiverSentRequest = entity<FriendshipRequest>(($fr) =>
 		$fr.sender == $receiver and $fr.receiver == $sender
 	) != nil
 
