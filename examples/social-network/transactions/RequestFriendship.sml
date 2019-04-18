@@ -46,7 +46,7 @@ transaction socialNetwork::RequestFriendship (
 		message  = $message
 		creation = now()
 		status   = nil
-	})
+	}) as FriendshipRequest
 }
 
 access RequestFriendship {

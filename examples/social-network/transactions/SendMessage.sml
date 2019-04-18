@@ -23,7 +23,7 @@ transaction socialNetwork::SendMessage (
 		sender   = $sender
 		receiver = $receiver
 		sent     = now()
-	})
+	}) as Message
 }
 
 # Allow sending messages to users only on their own behalf
