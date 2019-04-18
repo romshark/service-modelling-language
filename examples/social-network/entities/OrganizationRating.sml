@@ -16,11 +16,11 @@ access {
 	allow Admin
 	allow User as $accessor if $accessor == this.author or
 		this.access as $v {
-			Visibility = match $v {
-				Visibility::public = true
-				Visibility::friends = $accessor in this.author.friends
+			Visibility then match $v {
+				Visibility::public then true
+				Visibility::friends then $accessor in this.author.friends
 			}
-			VisibilityBlacklist = $accessor !in $v
-			VisibilityWhitelist = $accessor in $v
+			VisibilityBlacklist then $accessor !in $v
+			VisibilityWhitelist then $accessor in $v
 		}
 }

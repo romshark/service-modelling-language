@@ -12,8 +12,8 @@ transaction socialNetwork::PublishPost(
 	$access ?VisibilityPermission,
 )
 
-results {
-	publishedPost Post
+-> Post = {
+	// TODO
 }
 
 access PublishPost {

@@ -10,8 +10,8 @@ transaction socialNetwork::PublishReaction (
 	$comment ?socialNetwork::Text,
 )
 
-results {
-	publishedReaction Reaction
+-> (Error or Reaction) = {
+	// TODO
 }
 
 # Users can only publish reactions on their own behalf

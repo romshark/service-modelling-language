@@ -18,8 +18,8 @@ transaction socialNetwork::SignUp (
 	$access            ?ProfileAccessPermissions,
 )
 
-results {
-	newUser User
+-> User = {
+	// TODO
 }
 
 # SignUp is accessible to the public

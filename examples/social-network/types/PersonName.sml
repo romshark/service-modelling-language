@@ -3,12 +3,12 @@ type socialNetwork::PersonName = struct {
 	lastName  Text
 }
 
-conversion PersonName as $pn -> Text =>
-	$pn.firstName + " " + $pn.lastName
-
-errors {
-	Error("first name too short") if len(this.firstName) < 2
-	Error("first name too long") if len(this.firstName) > 64
-	Error("last name too short") if len(this.lastName) < 2
-	Error("last name too long") if len(this.lastName) > 64
+new -> ?Error = match {
+	len(this.firstName) < 2 then Error("first name too short")
+	len(this.firstName) > 64 then Error("first name too long")
+	len(this.lastName) < 2 then Error("last name too short")
+	len(this.lastName) > 64 then Error("last name too long")
 }
+
+conversion PersonName as $pn -> Text =
+	`$pn.firstName $pn.lastName`

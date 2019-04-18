@@ -1,8 +1,7 @@
-# ilogb equals the binary exponent of $x as an integer
-function math::ilogb ($x @N)
-
 // Implementation is provided by the implementing engine
-value @I
+
+# ilogb equals the binary exponent of $x as an integer
+function math::ilogb ($x @N) -> @I
 
 constraints {
 	require @N numeric

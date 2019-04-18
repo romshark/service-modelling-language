@@ -4,8 +4,8 @@ transaction socialNetwork::AcceptFriendshipRequest (
 	$request FriendshipRequest,
 )
 
-results {
-	newFriend User
+-> User = {
+	// TODO
 }
 
 access AcceptFriendshipRequest {

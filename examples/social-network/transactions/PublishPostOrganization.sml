@@ -9,8 +9,8 @@ transaction socialNetwork::PublishPostOrganization (
 	$content      socialNetwork::Text,
 )
 
-results {
-	publishedPost Post
+-> (Error or Post) = {
+	// TODO
 }
 
 access PublishPostOrganization {

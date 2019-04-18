@@ -10,22 +10,20 @@ transaction socialNetwork::SendMessage (
 	$contents socialNetwork::Text,
 )
 
-scope {
+-> (Error or Message) = {
+	& = $newMessage
+
+	// Notify the receiver
+	emit<MessageReceived>($receiver, {
+		receivedMessage = $newMessage
+	})
+
 	$newMessage = new<Message>({
 		contents = $contents
 		sender   = $sender
 		receiver = $receiver
 		sent     = now()
 	})
-
-	// Notify the receiver
-	emit<MessageReceived>($receiver, {
-		receivedMessage = $newMessage
-	})
-}
-
-results {
-	sentMessage Message = $newMessage
 }
 
 # Allow sending messages to users only on their own behalf

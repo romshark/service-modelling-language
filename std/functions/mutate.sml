@@ -1,3 +1,5 @@
+// Implementation is provided by the implementing engine
+
 # mutate equals the mutated version of $entity.
 #
 # This is a mutating function, it atomically mutates the state
@@ -8,10 +10,7 @@
 function std::mutate (
 	$entity  @E,
 	$mutator Mutator<@E>,
-)
-
-// Implementation is provided by the implementing engine
-value @E
+) -> @E
 
 constraints {
 	require @E entity

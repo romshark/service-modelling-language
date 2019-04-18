@@ -1,3 +1,5 @@
+// Implementation is provided by the implementing engine
+
 # fetch equals an array of entity instances which match $predicate.
 # It equals an empty array if no entity instances match $predicate
 function std::fetch <@T> (
@@ -9,10 +11,7 @@ function std::fetch <@T> (
 	$order     ?Order,
 	$orderBy   ?(Selector<@T> or Array<Selector<@T>>),
 	$limit     Size,
-)
-
-// Implementation is provided by the implementing engine
-value Array<@T>
+) -> Array<@T>
 
 constraints {
 	require @T entity

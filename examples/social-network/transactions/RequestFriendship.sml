@@ -10,7 +10,36 @@ transaction socialNetwork::RequestFriendship (
 	$message  ?socialNetwork::Text,
 )
 
-scope {
+-> (Error or FriendshipRequest) = {
+	& = match {
+		$sender == $receiver then Error(
+			"sender and receiver must be two different users")
+		
+		$sender in $receiver.friends then Error<AlreadyBefriended>(
+				"the sender and receiver already are friends")
+
+		$similarRequestIsPending then Error<AlreadyRequested>(
+			"a similar request is already pending")
+
+		$receiverSentRequest then Error<AlreadyReceived>(
+			"the receiver already sent the sender another friendship request")
+
+		else $newRequest
+	}
+
+	$similarRequestIsPending = fetchOne<FriendshipRequest>(($fr) =>
+		$fr.sender == $sender && $fr.receiver == $receiver
+	) != nil
+
+	$receiverSentRequest = fetchOne<FriendshipRequest>(($fr) =>
+		$fr.sender == $receiver && $fr.receiver == $sender
+	) != nil
+
+	// Notify the receiver
+	emit<FriendshipRequestReceived>($receiver, {
+		request = $newRequest
+	})
+
 	$newRequest = new<FriendshipRequest>({
 		from     = $sender
 		to       = $receiver
@@ -18,34 +47,6 @@ scope {
 		creation = now()
 		status   = nil
 	})
-
-	// Notify the receiver
-	emit<FriendshipRequestReceived>($receiver, {
-		request = $newRequest
-	})
-}
-
-results {
-	newRequest FriendshipRequest = $newRequest
-}
-
-errors {
-	Error("sender and receiver must be two different users") if
-		$sender == $receiver
-
-	AlreadyBefriended("the sender and receiver already are friends") if
-		$sender in $receiver.friends
-
-	AlreadyRequested("a similar request is already pending") if
-		fetchOne<FriendshipRequest>(($fr) =>
-			$fr.sender == $sender && $fr.receiver == $receiver
-		) != nil
-
-	AlreadyReceived("the receiver already sent the sender 
-		another friendship request") if
-		fetchOne<FriendshipRequest>(($fr) =>
-			$fr.sender == $receiver && $fr.receiver == $sender
-		) != nil
 }
 
 access RequestFriendship {

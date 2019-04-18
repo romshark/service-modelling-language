@@ -3,11 +3,9 @@ use {
 }
 
 # reactions bundles all reaction related nodes
-template socialNetwork::reactions {
+template socialNetwork::reactions (
 	*source (Post or Reaction)
-}
-
-value struct {
+) = struct {
 	# all links all reactions sorted by publication time
 	all collection<Reaction>(
 		($r) => $r.target == *source,

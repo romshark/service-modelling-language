@@ -4,6 +4,6 @@ use {
 
 type socialNetwork::OrganizationID = Array<Byte>
 
-errors {
-	Error("invalid charset") if !match(this, /[a-z0-9][a-z0-9]+/)
+new -> ?Error = match {
+	!match(this, /[a-z0-9][a-z0-9]+/) then Error("invalid charset")
 }

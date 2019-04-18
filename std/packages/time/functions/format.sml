@@ -1,3 +1,5 @@
+// Implementation is provided by the implementing engine
+
 # format equals a textual representation of $tm value
 # formatted according to $layout, which defines the format by showing
 # how the reference time, defined to be "Mon Jan 2 15:04:05 -0700 MST 2006"
@@ -10,7 +12,4 @@
 function time::format (
 	$tm     Time,
 	$layout Array<Byte>,
-)
-
-// Implementation is provided by the implementing engine
-value Array<Byte>
+) -> Array<Byte>

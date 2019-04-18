@@ -1,8 +1,8 @@
 type socialNetwork::SpokenLanguages = Array<Language>
 
-errors {
-	Error("SpokenLanguages must list at least one language") if
-		len(this) < 1
-	Error("duplicate language entry") if
-		any(this, ($l) => len(filter(this, ($x) => $x == $l)) > 0)
+new -> ?Error = match {
+	len(this) < 1 then
+		Error("SpokenLanguages must list at least one language")
+	any(this, ($l) => len(filter(this, ($x) => $x == $l)) > 0) then
+		Error("duplicate language entry")
 }

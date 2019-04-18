@@ -108,9 +108,10 @@ access {
 	# access if listed in the white-list
 	allow User as $accessor if $accessor == this or
 		this.access.profile as $v {
-			Visibility = $v == Visibility::public or $accessor in this.friends
-			VisibilityBlacklist = $accessor !in $v
-			VisibilityWhitelist = $accessor in $v
+			Visibility then $v ==
+				Visibility::public or $accessor in this.friends
+			VisibilityBlacklist then $accessor in $v
+			VisibilityWhitelist then $accessor in $v
 		}
 }
 
@@ -128,12 +129,12 @@ access email {
 	allow Admin
 	allow User as $accessor if $accessor == this or
 		this.access.email as $v {
-			Visibility = match $v {
-				Visibility::public  = true
-				Visibility::friends = $accessor in this.friends
+			Visibility then match $v {
+				Visibility::public then true
+				Visibility::friends then $accessor in this.friends
 			}
-			VisibilityBlacklist = $accessor !in $v
-			VisibilityWhitelist = $accessor in $v
+			VisibilityBlacklist then $accessor !in $v
+			VisibilityWhitelist then $accessor in $v
 		}
 }
 
@@ -142,12 +143,12 @@ access phone {
 	allow Admin
 	allow User as $accessor if $accessor == this or
 		this.access.phone as $v {
-			Visibility = match $v {
-				Visibility::public  = true
-				Visibility::friends = $accessor in this.friends
+			Visibility then match $v {
+				Visibility::public then true
+				Visibility::friends then $accessor in this.friends
 			}
-			VisibilityBlacklist = $accessor !in $v
-			VisibilityWhitelist = $accessor in $v
+			VisibilityBlacklist then $accessor !in $v
+			VisibilityWhitelist then $accessor in $v
 		}
 }
 
@@ -156,12 +157,12 @@ access birthDate {
 	allow Admin
 	allow User as $accessor if $accessor == this or
 		this.access.birthDate as $v {
-			Visibility = match $v {
-				Visibility::public  = true
-				Visibility::friends = $accessor in this.friends
+			Visibility then match $v {
+				Visibility::public then true
+				Visibility::friends then $accessor in this.friends
 			}
-			VisibilityBlacklist = $accessor !in $v
-			VisibilityWhitelist = $accessor in $v
+			VisibilityBlacklist then $accessor !in $v
+			VisibilityWhitelist then $accessor in $v
 		}
 }
 
@@ -171,12 +172,12 @@ access friends {
 	allow Admin
 	allow User as $accessor if $accessor == this or
 		this.access.friends as $v {
-			Visibility = match $v {
-				Visibility::public  = true
-				Visibility::friends = $accessor in this.friends
+			Visibility then match $v {
+				Visibility::public then true
+				Visibility::friends then $accessor in this.friends
 			}
-			VisibilityBlacklist = $accessor !in $v
-			VisibilityWhitelist = $accessor in $v
+			VisibilityBlacklist then $accessor !in $v
+			VisibilityWhitelist then $accessor in $v
 		}
 }
 
@@ -194,12 +195,12 @@ access residence {
 	allow Admin
 	allow User as $accessor if $accessor == this or
 		this.access.residence as $v {
-			Visibility = match $v {
-				Visibility::public  = true
-				Visibility::friends = $accessor in this.friends
+			Visibility then match $v {
+				Visibility::public then true
+				Visibility::friends then $accessor in this.friends
 			}
-			VisibilityBlacklist = $accessor !in $v
-			VisibilityWhitelist = $accessor in $v
+			VisibilityBlacklist then $accessor !in $v
+			VisibilityWhitelist then $accessor in $v
 		}
 }
 

@@ -1,3 +1,5 @@
+// Implementation is provided by the implementing engine
+
 # addDate equals the time corresponding to adding the given number of
 # years, months, and days to $tm.
 # For example, addDate(-1, 2, 3) applied to January 1 2011 as $tm,
@@ -10,7 +12,4 @@ function time::addDate (
 	$years  Uint32,
 	$months Uint32,
 	$days   Uint32,
-)
-
-// Implementation is provided by the implementing engine
-value Time
+) -> Time

@@ -4,8 +4,8 @@ transaction BanUser::SocialNetwork (
 	$user  ID<User>,
 )
 
-results {
-	bannedUser User
+-> User = {
+	// TODO
 }
 
 access BanUser {

@@ -1,3 +1,5 @@
+// Implementation is provided by the implementing engine
+
 # any equals true if any element of $array matches $predicate.
 # It applies the $predicate function to each element of $array,
 # and if any of them equal true, then so does f.any,
@@ -8,7 +10,4 @@
 function std::any (
 	$array     Array<@T>,
 	$predicate (@T) => ?Bool,
-)
-
-// Implementation is provided by the implementing engine
-value Bool
+) -> Bool

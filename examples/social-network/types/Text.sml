@@ -4,10 +4,9 @@ use {
 
 type socialNetwork::Text = Text
 
-errors {
-	Error("text must not be empty") if
-		len(this) < 1
+new -> ?Error = match {
+	len(this) < 1 then Error("text must not be empty")
 }
 
-conversion socialNetwork::Text as $v -> Text => $v
-conversion Text as $v -> socialNetwork::Text => $v
+conversion socialNetwork::Text as $v -> Text = $v
+conversion Text as $v -> socialNetwork::Text = $v

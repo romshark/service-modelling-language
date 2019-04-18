@@ -4,9 +4,9 @@ use {
 
 type socialNetwork::EmailAddress = Text
 
-conversion Text as $v -> EmailAddress => $v
-
-errors {
-	Error(`invalid email address ($(this))`) if
-		!regexp::match(this, /.+@.+\..+/)
+new -> ?Error = match {
+	!regexp::match(this, /.+@.+\..+/) then
+		Error(`invalid email address ($(this))`)
 }
+
+conversion Text as $v -> EmailAddress = $v

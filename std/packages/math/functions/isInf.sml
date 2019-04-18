@@ -1,3 +1,5 @@
+// Implementation is provided by the implementing engine
+
 # isInf equals true if $f is an infinity, according to $sign.
 # If $sign > 0, isInf equals positive infinity.
 # If $sign < 0, isInf equals negative infinity.
@@ -5,10 +7,7 @@
 function math::isInf (
 	$f    @N,
 	$sign @I,
-)
-
-// Implementation is provided by the implementing engine
-value Bool
+) -> Bool
 
 constraints {
 	require @N numeric

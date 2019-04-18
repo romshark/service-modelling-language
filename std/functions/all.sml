@@ -1,3 +1,5 @@
+// Implementation is provided by the implementing engine
+
 # all equals true if all of the elements of $array match $predicate,
 # otherwise it equals false.
 # It applies the $predicate function to each element of $array,
@@ -8,7 +10,4 @@
 function std::all (
 	$array     Array<@T>,
 	$predicate (@T) => ?Bool,
-)
-
-// Implementation is provided by the implementing engine
-value Bool
+) -> Bool

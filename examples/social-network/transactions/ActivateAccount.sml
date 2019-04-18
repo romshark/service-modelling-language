@@ -4,15 +4,16 @@ use {
 
 # ActivateAccount activates an account
 transaction socialNetwork::ActivateAccount (
-	$account          ID<User>,
+	$account          User,
 	$activationSecret AsciiString,
 )
 
-errors ActivateAccount {
+-> (Error or User) = {
+	// TODO
 	// # ActivationSecretInvalid is returned if the provided activation secret
 	// # is invalid
 	// ActivationSecretInvalid if ...
-
+	
 	// # ActivationSecretExpired is returned if the provided activation secret
 	// # is expired
 	// ActivationSecretExpired if ...

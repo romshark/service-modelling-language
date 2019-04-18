@@ -1,4 +1,2 @@
 # minute equals a minute duration
-constant time::minute
-
-value Duration = second * 60
+constant time::minute -> Duration = second * 60

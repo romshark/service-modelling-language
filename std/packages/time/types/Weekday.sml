@@ -1,7 +1,5 @@
 # Weekday specifies a day of the week
-type time::Weekday
-
-value enum {
+type time::Weekday = enum {
 	sunday
 	monday
 	tuesday
