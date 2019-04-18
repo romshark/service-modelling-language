@@ -1,3 +1,1 @@
-type socialNetwork::VisibilityBlacklist = struct {
-	users Array<User>
-}
+type socialNetwork::VisibilityBlacklist = Array<User>
