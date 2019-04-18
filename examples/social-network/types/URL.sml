@@ -11,6 +11,3 @@ new -> ?Error = match {
 		/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/,
 	) then Error(`invalid URL ($(this))`)
 }
-	
-conversion Text as $t -> EmailAddress = $t
-conversion EmailAddress as $v -> Text = $v

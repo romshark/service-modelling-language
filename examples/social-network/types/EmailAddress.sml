@@ -8,5 +8,3 @@ new -> ?Error = match {
 	!regexp::match(this, /.+@.+\..+/) then
 		Error(`invalid email address ($(this))`)
 }
-
-conversion Text as $v -> EmailAddress = $v

@@ -9,6 +9,3 @@ new -> ?Error = match {
 	len(this.lastName) < 2 then Error("last name too short")
 	len(this.lastName) > 64 then Error("last name too long")
 }
-
-conversion PersonName as $pn -> Text =
-	`$pn.firstName $pn.lastName`
