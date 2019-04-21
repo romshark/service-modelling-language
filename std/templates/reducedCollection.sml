@@ -19,10 +19,10 @@ value -> struct {
 	version     Version
 	items       Array<@T>
 } = struct {
-	totalLength Uint64 = collectionLength<@E>()
-	version     Version = collectionVersion<@E>()
+	totalLength Uint64: collectionLength<@E>()
+	version     Version: collectionVersion<@E>()
 
-	items Array<@T> = {
+	items Array<@T>: {
 		& = map($found, ($e) => *reducer($e))
 
 		$found = $page as $p {
