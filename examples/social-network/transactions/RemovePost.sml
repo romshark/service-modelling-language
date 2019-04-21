@@ -5,7 +5,7 @@ use {
 # RemovePost removes a published post
 transaction socialNetwork::RemovePost ($post Post)
 
--> Nothing = {
+-> Nothing => {
 	// TODO
 }
 

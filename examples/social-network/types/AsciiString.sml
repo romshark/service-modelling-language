@@ -4,6 +4,6 @@ use {
 
 type socialNetwork::AsciiString = Array<Byte>
 
-new -> ?Error = match {
+new -> ?Error => match {
 	!regex::match(this, /[ -~]+/) then Error("invalid charset")
 }

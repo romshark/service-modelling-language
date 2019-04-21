@@ -3,7 +3,7 @@ type socialNetwork::PersonName = struct {
 	lastName  Text
 }
 
-new -> ?Error = match {
+new -> ?Error => match {
 	len(this.firstName) < 2 then Error("first name too short")
 	len(this.firstName) > 64 then Error("first name too long")
 	len(this.lastName) < 2 then Error("last name too short")

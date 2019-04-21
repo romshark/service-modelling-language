@@ -12,7 +12,7 @@ transaction socialNetwork::PublishPost(
 	$access ?VisibilityPermission,
 )
 
--> Post = {
+-> Post => {
 	// TODO
 }
 

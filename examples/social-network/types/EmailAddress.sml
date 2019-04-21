@@ -4,7 +4,7 @@ use {
 
 type socialNetwork::EmailAddress = Text
 
-new -> ?Error = match {
+new -> ?Error => match {
 	!regexp::match(this, /.+@.+\..+/) then
 		Error(`invalid email address ($(this))`)
 }

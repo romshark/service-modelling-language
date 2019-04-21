@@ -19,7 +19,7 @@ transaction socialNetwork::UpdateUser (
 	$access          ?ProfileAccessPermissions,
 )
 
--> (Error or User) = mutated($user, {
+-> (Error or User) => mutated($user, {
 	name: $name as PersonName or $user.name
 	gender: $gender as Gender or $user.gender
 

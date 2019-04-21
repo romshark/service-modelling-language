@@ -18,7 +18,7 @@ transaction socialNetwork::SignUp (
 	$access            ?ProfileAccessPermissions,
 )
 
--> User = {
+-> User => {
 	// TODO
 }
 

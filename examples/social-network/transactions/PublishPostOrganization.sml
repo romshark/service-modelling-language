@@ -9,7 +9,7 @@ transaction socialNetwork::PublishPostOrganization (
 	$content      socialNetwork::Text,
 )
 
--> (Error or Post) = {
+-> (Error or Post) => {
 	// TODO
 }
 

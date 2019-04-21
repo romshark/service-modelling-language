@@ -10,7 +10,7 @@ transaction socialNetwork::RequestFriendship (
 	$message  ?socialNetwork::Text,
 )
 
--> (Error or FriendshipRequest) = {
+-> (Error or FriendshipRequest) => {
 	& = match {
 		$sender == $receiver then Error(
 			"sender and receiver must be two different users")

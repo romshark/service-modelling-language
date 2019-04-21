@@ -38,7 +38,7 @@ root SocialNetwork {
 	mutualFriends (
 		$target ID<User>
 		$friend ID<User>
-	) Array<User> = intersection($target.friends, $friend.friends)
+	) -> Array<User> => intersection($target.friends, $friend.friends)
 }
 
 access {

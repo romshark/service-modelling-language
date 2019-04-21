@@ -4,7 +4,7 @@ transaction BanUser::SocialNetwork (
 	$user  ID<User>,
 )
 
--> User = {
+-> User => {
 	// TODO
 }
 

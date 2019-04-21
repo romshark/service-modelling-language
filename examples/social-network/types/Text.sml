@@ -4,6 +4,6 @@ use {
 
 type socialNetwork::Text = Text
 
-new -> ?Error = match {
+new -> ?Error => match {
 	len(this) < 1 then Error("text must not be empty")
 }

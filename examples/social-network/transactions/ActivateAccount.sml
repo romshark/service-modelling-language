@@ -8,7 +8,7 @@ transaction socialNetwork::ActivateAccount (
 	$activationSecret AsciiString,
 )
 
--> (Error or User) = {
+-> (Error or User) => {
 	// TODO
 	// # ActivationSecretInvalid is returned if the provided activation secret
 	// # is invalid

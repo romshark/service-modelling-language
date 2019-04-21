@@ -11,7 +11,7 @@ entity socialNetwork::Friendship {
 }
 
 # The list of users in a friendship must contain exactly two different users
-new -> ?Error = match {
+new -> ?Error => match {
 	len(this.users) != 2 then
 		Error("a friendship must reference exactly 2 users")
 	

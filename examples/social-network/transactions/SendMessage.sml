@@ -10,7 +10,7 @@ transaction socialNetwork::SendMessage (
 	$contents socialNetwork::Text,
 )
 
--> (Error or Message) = {
+-> (Error or Message) => {
 	& = $newMessage
 
 	// Notify the receiver

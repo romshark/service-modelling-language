@@ -10,7 +10,7 @@ transaction socialNetwork::PublishReaction (
 	$comment ?socialNetwork::Text,
 )
 
--> (Error or Reaction) = {
+-> (Error or Reaction) => {
 	// TODO
 }
 
