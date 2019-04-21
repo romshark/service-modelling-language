@@ -1,7 +1,5 @@
 # Month represents a month of the year
-type time::Month
-
-value enum {
+type time::Month = enum {
 	january
 	february
 	march

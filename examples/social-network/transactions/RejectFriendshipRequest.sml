@@ -1,7 +1,11 @@
 # RejectFriendshipRequest rejects a friendship request triggering the
 # FriendshipRequestRejected event
-transaction socialNetwork::RejectFriendshipRequest {
-	$request FriendshipRequest
+transaction socialNetwork::RejectFriendshipRequest (
+	$request FriendshipRequest,
+)
+
+-> FriendshipRequest = {
+	// TODO
 }
 
 access RejectFriendshipRequest {

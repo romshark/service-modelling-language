@@ -3,11 +3,9 @@ use {
 }
 
 # posts bundles together nodes related to posts
-template socialNetwork::posts {
+template socialNetwork::posts (
 	*publisher (User or Organization)
-}
-
-value struct {
+) = struct {
 	# all links all posts ever created including the archived ones
 	all collection<Post>(
 		($p) => $p.publisher == *publisher,

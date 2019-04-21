@@ -4,22 +4,22 @@ use {
 }
 
 # SignUp creates a new user account that must yet be activated
-transaction socialNetwork::SignUp {
-	$name              PersonName
-	$email             EmailAddress
-	$gender            ?Gender
-	$biography         ?socialNetwork::Text
-	$avatar            ?Picture
-	$phone             ?PhoneNumber
-	$birthDate         ?Time
-	$residence         ?Residence
-	$spokenLanguages   ?[]Language
-	$employmentHistory ?[]Organization
-	$access            ?ProfileAccessPermissions
-}
+transaction socialNetwork::SignUp (
+	$name              PersonName,
+	$email             EmailAddress,
+	$gender            ?Gender,
+	$biography         ?socialNetwork::Text,
+	$avatar            ?Picture,
+	$phone             ?PhoneNumber,
+	$birthDate         ?Time,
+	$residence         ?Residence,
+	$spokenLanguages   ?[]Language,
+	$employmentHistory ?[]Organization,
+	$access            ?ProfileAccessPermissions,
+)
 
-results {
-	newUser User
+-> User = {
+	// TODO
 }
 
 # SignUp is accessible to the public

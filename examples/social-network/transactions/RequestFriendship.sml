@@ -4,48 +4,49 @@ use {
 }
 
 # RequestFriendship creates a friendship request
-transaction socialNetwork::RequestFriendship {
-	$sender   User
-	$receiver User
-	$message  ?socialNetwork::Text
-}
+transaction socialNetwork::RequestFriendship (
+	$sender   User,
+	$receiver User,
+	$message  ?socialNetwork::Text,
+)
 
-scope {
+-> (Error or FriendshipRequest) = {
+	& = match {
+		$sender == $receiver then Error(
+			"sender and receiver must be two different users")
+		
+		$sender in $receiver.friends then Error<AlreadyBefriended>(
+				"the sender and receiver already are friends")
+
+		$similarRequestIsPending then Error<AlreadyRequested>(
+			"a similar request is already pending")
+
+		$receiverSentRequest then Error<AlreadyReceived>(
+			"the receiver already sent the sender another friendship request")
+
+		else $newRequest
+	}
+
+	$similarRequestIsPending = entity<FriendshipRequest>(($fr) =>
+		$fr.sender == $sender and $fr.receiver == $receiver
+	) != nil
+
+	$receiverSentRequest = entity<FriendshipRequest>(($fr) =>
+		$fr.sender == $receiver and $fr.receiver == $sender
+	) != nil
+
+	// Notify the receiver
+	emit<FriendshipRequestReceived>($receiver, {
+		request = $newRequest
+	})
+
 	$newRequest = new<FriendshipRequest>({
 		from     = $sender
 		to       = $receiver
 		message  = $message
 		creation = now()
 		status   = nil
-	})
-
-	// Notify the receiver
-	emit<FriendshipRequestReceived>($receiver, {
-		request = $newRequest
-	})
-}
-
-results {
-	newRequest FriendshipRequest = $newRequest
-}
-
-errors {
-	Error("sender and receiver must be two different users") if
-		$sender == $receiver
-
-	AlreadyBefriended("the sender and receiver already are friends") if
-		$sender in $receiver.friends
-
-	AlreadyRequested("a similar request is already pending") if
-		fetchOne<FriendshipRequest>(($fr) =>
-			$fr.sender == $sender && $fr.receiver == $receiver
-		) != nil
-
-	AlreadyReceived("the receiver already sent the sender 
-		another friendship request") if
-		fetchOne<FriendshipRequest>(($fr) =>
-			$fr.sender == $receiver && $fr.receiver == $sender
-		) != nil
+	}) as FriendshipRequest
 }
 
 access RequestFriendship {

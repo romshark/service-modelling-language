@@ -5,13 +5,9 @@ use {
 # URL represents a uniform resource locator
 type socialNetwork::URL = Text
 
-conversion Text as $t -> EmailAddress => $t
-conversion EmailAddress as $v -> Text => $v
-
-errors {
-	Error(`invalid URL ($(this))`) if
-		!regexp::match(
-			this,
-			/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/,
-		)
+new -> ?Error = match {
+	!regexp::match(
+		this,
+		/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/,
+	) then Error(`invalid URL ($(this))`)
 }

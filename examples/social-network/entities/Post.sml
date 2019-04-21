@@ -21,15 +21,15 @@ entity socialNetwork::Post {
 access {
 	allow Admin
 	allow User as $accessor if this.publisher as $publisher {
-		User         = $accessor == $publisher
-		Organization = true
-		default      = false
+		User then $accessor == $publisher
+		Organization then true
+		else false
 	} or this.access as $access {
-		Visibility = match $access {
-			Visibility::public  = true
-			Visibility::friends = $accessor in this.friends
+		Visibility then match $access {
+			Visibility::public then true
+			Visibility::friends then $accessor in this.friends
 		}
-		VisibilityBlacklist = $accessor !in $access
-		VisibilityWhitelist = $accessor in $access
+		VisibilityBlacklist then $accessor !in $access
+		VisibilityWhitelist then $accessor in $access
 	}
 }

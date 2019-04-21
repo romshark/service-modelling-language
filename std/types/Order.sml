@@ -1,7 +1,5 @@
 # Order represents a sorting order
-type std::Order
-
-value enum {
+type std::Order = enum {
 	asc
 	desc
 }

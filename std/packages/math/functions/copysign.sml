@@ -1,11 +1,10 @@
-# copysign equals a value with the magnitude of $x and the sign of $y
-function math::copysign {
-	$x @X
-	$y @Y
-}
-
 // Implementation is provided by the implementing engine
-value @X
+
+# copysign equals a value with the magnitude of $x and the sign of $y
+function math::copysign (
+	$x @X,
+	$y @Y,
+) -> @X
 
 constraints {
 	require @X signed

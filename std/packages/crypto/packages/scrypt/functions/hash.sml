@@ -1,3 +1,6 @@
+// Implementation is provided by the implementing engine
+
+# hash equals an Scrypt hash
 function scrypt::hash {
 	$password Array<Byte>
 	$salt     Array<Byte>
@@ -5,7 +8,4 @@ function scrypt::hash {
 	$r        Int32
 	$p        Int32
 	$length   Int32
-}
-
-// Implementation is provided by the implementing engine
-value Hash
+} -> Hash

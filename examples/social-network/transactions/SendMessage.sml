@@ -4,28 +4,26 @@ use {
 }
 
 # SendMessage sends a message to the receiver user from the sender user
-transaction socialNetwork::SendMessage {
-	$sender   User
-	$receiver User
-	$contents socialNetwork::Text
-}
+transaction socialNetwork::SendMessage (
+	$sender   User,
+	$receiver User,
+	$contents socialNetwork::Text,
+)
 
-scope {
-	$newMessage = new<Message>({
-		contents = $contents
-		sender   = $sender
-		receiver = $receiver
-		sent     = now()
-	})
+-> (Error or Message) = {
+	& = $newMessage
 
 	// Notify the receiver
 	emit<MessageReceived>($receiver, {
 		receivedMessage = $newMessage
 	})
-}
 
-results {
-	sentMessage Message = $newMessage
+	$newMessage = new<Message>({
+		contents = $contents
+		sender   = $sender
+		receiver = $receiver
+		sent     = now()
+	}) as Message
 }
 
 # Allow sending messages to users only on their own behalf

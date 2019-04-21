@@ -4,68 +4,62 @@ use {
 }
 
 # UpdateUser updates a user profile changing the given fields
-transaction socialNetwork::UpdateUser {
-	$user User
+transaction socialNetwork::UpdateUser (
+	$user User,
 
-	$name            ?PersonName
-	$gender          ?Gender
-	$biography       ?(socialNetwork::Text or ResetValue)
-	$avatar          ?(Picture or ResetValue)
-	$email           ?EmailAddress
-	$phone           ?(PhoneNumber or ResetValue)
-	$birthDate       ?(Time or ResetValue)
-	$residence       ?(City or ResetValue)
-	$spokenLanguages ?SpokenLanguages
-	$access          ?ProfileAccessPermissions
-}
+	$name            ?PersonName,
+	$gender          ?Gender,
+	$biography       ?(socialNetwork::Text or ResetValue),
+	$avatar          ?(Picture or ResetValue),
+	$email           ?EmailAddress,
+	$phone           ?(PhoneNumber or ResetValue),
+	$birthDate       ?(Time or ResetValue),
+	$residence       ?(City or ResetValue),
+	$spokenLanguages ?SpokenLanguages,
+	$access          ?ProfileAccessPermissions,
+)
 
-scope {
-	$updated = mutate($user, {
-		name = $name as PersonName or $user.name
-		gender = $gender as Gender or $user.gender
+-> (Error or User) = mutated($user, {
+	name = $name as PersonName or $user.name
+	gender = $gender as Gender or $user.gender
 
-		biography = $biography as $v {
-			ResetValue          = nil
-			socialNetwork::Text = $v
-			default             = $user.biography
-		}
+	biography = $biography as $v {
+		ResetValue then nil
+		socialNetwork::Text then $v
+		else $user.biography
+	}
 
-		avatar = $avatar as $v {
-			ResetValue = nil
-			Picture    = $v
-			default    = $user.avatar
-		}
+	avatar = $avatar as $v {
+		ResetValue then nil
+		Picture then $v
+		else $user.avatar
+	}
 
-		email = $email as EmailAddress or $user.email
+	email = $email as EmailAddress or $user.email
 
-		phone = $phone as $v {
-			ResetValue  = nil
-			PhoneNumber = $v
-			default     = $user.phone
-		}
+	phone = $phone as $v {
+		ResetValue then nil
+		PhoneNumber then $v
+		else $user.phone
+	}
+
+	birthDate = $birthDate as $v {
+		ResetValue then nil
+		Time then $v
+		else $user.birthDate
+	}
+
+	residence = $residence as $v {
+		ResetValue then nil
+		City then $v
+		else $user.residence
+	}
 	
-		birthDate = $birthDate as $v {
-			ResetValue = nil
-			Time       = $v
-			default    = $user.birthDate
-		}
+	spokenLanguages = $spokenLanguages as
+		SpokenLanguages or $user.spokenLanguages
 	
-		residence = $residence as $v {
-			ResetValue = nil
-			City       = $v
-			default    = $user.residence
-		}
-		
-		spokenLanguages = $spokenLanguages as
-			SpokenLanguages or $user.spokenLanguages
-		
-		access = $access as ProfileAccessPermissions or $user.access
-	})
-}
-
-results {
-	user User = $updated
-}
+	access = $access as ProfileAccessPermissions or $user.access
+})
 
 # UpdateUser is accessible to the profile owner only
 access UpdateUser {

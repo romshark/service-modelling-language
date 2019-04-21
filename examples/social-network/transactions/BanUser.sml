@@ -1,11 +1,11 @@
 # BanUser temporarily disables a user's profile
-transaction BanUser::SocialNetwork {
-	$admin ID<Admin>
-	$user  ID<User>
-}
+transaction BanUser::SocialNetwork (
+	$admin ID<Admin>,
+	$user  ID<User>,
+)
 
-results {
-	bannedUser User
+-> User = {
+	// TODO
 }
 
 access BanUser {

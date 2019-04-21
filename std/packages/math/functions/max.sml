@@ -1,10 +1,7 @@
-# max equals the larger of $numbers
-function math::max {
-	$numbers ...@N
-}
-
 // Implementation is provided by the implementing engine
-value @N
+
+# max equals the larger of $numbers
+function math::max ($numbers ...@N) -> @N
 
 constraints {
 	require @N numeric
