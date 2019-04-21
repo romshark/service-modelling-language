@@ -31,8 +31,8 @@ user socialNetwork::User {
 	relationship Relationship
 
 	friends reducedCollection<Friendship, User>(
-		predicate = ($f) => this in $f.users,
-		reducer   = ($f) => filter($f.users, ($u) => $u != this)[0],
+		predicate: ($f) => this in $f.users,
+		reducer:   ($f) => filter($f.users, ($u) => $u != this)[0],
 	)
 
 	# access defines all access permissions
@@ -56,7 +56,7 @@ user socialNetwork::User {
 
 	# managedOrganizationPages links all organization pages the user administers
 	managedOrganizationPages collection<Organization>(
-		predicate = ($o) => this in $o.pageAdmins,
+		predicate: ($o) => this in $o.pageAdmins,
 	)
 
 	# outgoingFriendshipRequests lists all outgoing friendship requests the user

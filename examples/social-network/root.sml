@@ -18,8 +18,8 @@ root SocialNetwork {
 	admins collection<Admin>
 
 	adminActivities collection<AdminActivity>(
-		order   = Order::desc,
-		orderBy = AdminActivity.time,
+		order:   Order::desc,
+		orderBy: AdminActivity.time,
 	)
 
 	users collection<User>

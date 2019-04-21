@@ -17,10 +17,10 @@ value -> struct {
 	version     Version
 	items       Array<@T>
 } = struct {
-	totalLength Uint64 = collectionLength<@T>()
-	version     Version = collectionVersion<@T>()
+	totalLength Uint64: collectionLength<@T>()
+	version     Version: collectionVersion<@T>()
 
-	items Array<@T> = $page as $p {
+	items Array<@T>: $page as $p {
 		Array<ID<@T>> then entities<@T>(
 			($t) => id($t) in $p and *predicate($t),
 			*order,

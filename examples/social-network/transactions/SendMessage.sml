@@ -15,14 +15,14 @@ transaction socialNetwork::SendMessage (
 
 	// Notify the receiver
 	emit<MessageReceived>($receiver, {
-		receivedMessage = $newMessage
+		receivedMessage: $newMessage
 	})
 
 	$newMessage = new<Message>({
-		contents = $contents
-		sender   = $sender
-		receiver = $receiver
-		sent     = now()
+		contents: $contents
+		sender:   $sender
+		receiver: $receiver
+		sent:     now()
 	}) as Message
 }
 

@@ -37,15 +37,15 @@ transaction socialNetwork::RequestFriendship (
 
 	// Notify the receiver
 	emit<FriendshipRequestReceived>($receiver, {
-		request = $newRequest
+		request: $newRequest
 	})
 
 	$newRequest = new<FriendshipRequest>({
-		from     = $sender
-		to       = $receiver
-		message  = $message
-		creation = now()
-		status   = nil
+		from:     $sender
+		to:       $receiver
+		message:  $message
+		creation: now()
+		status:   nil
 	}) as FriendshipRequest
 }
 

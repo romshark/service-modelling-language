@@ -20,45 +20,45 @@ transaction socialNetwork::UpdateUser (
 )
 
 -> (Error or User) = mutated($user, {
-	name = $name as PersonName or $user.name
-	gender = $gender as Gender or $user.gender
+	name: $name as PersonName or $user.name
+	gender: $gender as Gender or $user.gender
 
-	biography = $biography as $v {
+	biography: $biography as $v {
 		ResetValue then nil
 		socialNetwork::Text then $v
 		else $user.biography
 	}
 
-	avatar = $avatar as $v {
+	avatar: $avatar as $v {
 		ResetValue then nil
 		Picture then $v
 		else $user.avatar
 	}
 
-	email = $email as EmailAddress or $user.email
+	email: $email as EmailAddress or $user.email
 
-	phone = $phone as $v {
+	phone: $phone as $v {
 		ResetValue then nil
 		PhoneNumber then $v
 		else $user.phone
 	}
 
-	birthDate = $birthDate as $v {
+	birthDate: $birthDate as $v {
 		ResetValue then nil
 		Time then $v
 		else $user.birthDate
 	}
 
-	residence = $residence as $v {
+	residence: $residence as $v {
 		ResetValue then nil
 		City then $v
 		else $user.residence
 	}
 	
-	spokenLanguages = $spokenLanguages as
+	spokenLanguages: $spokenLanguages as
 		SpokenLanguages or $user.spokenLanguages
 	
-	access = $access as ProfileAccessPermissions or $user.access
+	access: $access as ProfileAccessPermissions or $user.access
 })
 
 # UpdateUser is accessible to the profile owner only
