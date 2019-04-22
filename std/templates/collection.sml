@@ -6,10 +6,7 @@ template std::collection<@T> (
 )
 
 parameters {
-	$page (Array<ID<@T>> or struct {
-		cursor ID<@T>
-		limit  integer
-	})
+	$page PageSelector<@T>
 }
 
 value -> struct {
