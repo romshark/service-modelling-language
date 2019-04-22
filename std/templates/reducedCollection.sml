@@ -19,35 +19,12 @@ value -> struct {
 	totalLength Uint64 = collectionLength<@E>()
 	version     Version = collectionVersion<@E>()
 
-	items Array<@T> = {
-		& = map($found, ($e) => *reducer($e))
-
-		$found = $page as $p {
-			Array<ID<@T>> then entities<@E>(
-				($t) => id($t) in $p and *predicate($t),
-				*order,
-				*orderBy,
-				$limit
-			)
-
-			PageCursor then match {
-				$p.limit > 0 then entities<@T>(
-					($t) => id($t) > $p.cursor and *predicate($t),
-					*order,
-					*orderBy,
-					$limit,
-				)
-				$p.limit < 0 then entities<@T>(
-					($t) => id($t) < $p.cursor and *predicate($t),
-					*order,
-					*orderBy,
-					$limit,
-				)
-			}
-
-			else []
-		}
-	}
+	items Array<@T> = map(resolvedPage<@T>(
+		$page,
+		$predicate,
+		$order,
+		$orderBy,
+	), ($e) => *reducer($e))
 }
 
 constraints {
