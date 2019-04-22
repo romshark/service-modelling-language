@@ -25,10 +25,7 @@ value -> struct {
 			$limit
 		)
 
-		struct {
-			cursor ID<@T>
-			limit  Int32
-		} then match {
+		PageCursor then match {
 			$p.limit > 0 then entities<@T>(
 				($t) => id($t) > $p.cursor and *predicate($t),
 				*order,
