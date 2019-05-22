@@ -3,17 +3,9 @@ template std::collection<@T> (
 	$predicate ?(@T) => Bool
 	$order     ?Order
 	$orderBy   ?(Selector<@T> or Array<Selector<@T>>)
-)
-
-parameters {
+) = graph(
 	$page PageSelector<@T>
-}
-
-value -> struct {
-	totalLength Uint64
-	version     Version
-	items       Array<@T>
-} = struct {
+) {
 	totalLength Uint64 = collectionLength<@T>()
 	version     Version = collectionVersion<@T>()
 	items       Array<@T> = resolvedPage<@T>(

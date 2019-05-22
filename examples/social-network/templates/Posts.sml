@@ -5,7 +5,7 @@ use {
 # posts bundles together nodes related to posts
 template socialNetwork::posts (
 	*publisher (User or Organization)
-) = struct {
+) = graph {
 	# all links all posts ever created including the archived ones
 	all collection<Post>(
 		($p) => $p.publisher == *publisher,

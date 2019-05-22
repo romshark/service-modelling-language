@@ -5,21 +5,12 @@ template std::reducedCollection<@E, @T> (
 	*order     ?Order
 	*orderBy   ?(Selector<@E> or Array<Selector<@E>>)
 	*reducer   (@E) => @T
-)
-
-parameters {
+) = graph(
 	$page PageSelector<@T>
-}
-
-value -> struct {
-	totalLength Uint64
-	version     Version
-	items       Array<@T>
-} = struct {
+) {
 	totalLength Uint64 = collectionLength<@E>()
 	version     Version = collectionVersion<@E>()
-
-	items Array<@T> = map(resolvedPage<@T>(
+	items       Array<@T> = map(resolvedPage<@T>(
 		$page,
 		$predicate,
 		$order,
